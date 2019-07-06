@@ -1,0 +1,20 @@
+/* 这是一个绝对定位边栏的实例 */
+article {
+    font-family:        'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:          120%;
+    line-height:        2;
+    background-color: aliceblue;
+    padding:            35px;
+    margin:             50px 450px 10px 10px;
+}
+
+aside {
+    font-family:        Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: lightsteelblue;
+    position:           absolute;
+    padding:            35px;
+    margin:             0px 10px 10px 10px;
+    top:                100px;
+    right:              50px;
+    width:              280px;
+}

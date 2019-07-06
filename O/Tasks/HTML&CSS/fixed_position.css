@@ -1,0 +1,22 @@
+/* 这是一个浮动边栏的实例 */
+article {
+    font-family:        'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:          120%;
+    line-height:        2;
+    background-color: aliceblue;
+    padding:            35px;
+    margin:             0px 450px 10px 10px;
+}
+
+aside {
+    font-family:        Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:          120%;
+    line-height:        2.5;
+    background-color: lightsteelblue;
+    padding:            35px;
+    margin:             0px 10px 10px 10px;
+    position:           fixed;
+    width:              280px;
+    top:                100px;
+    right:              50px;
+}
