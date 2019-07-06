@@ -1,4 +1,4 @@
-CSS
+（一）CSS
 =============
 css基础语法
 -------------
@@ -130,6 +130,18 @@ CSS高级语法
     </style> 
     </head>    
      
-  3.复合链接
+  3.复合链接  
   颜色属性将被继承于外部样式表，而文字排列（text-alignment）和字体尺寸（font-size）会被内部样式表中的规则取代。
+  
+  CSS样式
+  ---------------
+  背景
+  1.背景颜色
+  background-color,用padiing增加内边距。默认值transparent。
+  background-image:url(xxxx)
+  
+  
+ （二） flex布局
+  ==================
+  
       
