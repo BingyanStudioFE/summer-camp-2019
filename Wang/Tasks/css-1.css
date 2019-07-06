@@ -1,0 +1,77 @@
+.root{
+    display: flex;
+    min-height: 100px;
+    flex-direction:column;
+}
+.header{
+    flex: 1;
+    width: 100%;
+    height:60px;
+    background-color: aliceblue;
+}
+.main{
+    display: flex;
+    flex: 1;
+    flex-direction:row;
+    margin-left:130px;
+    margin-right:130px; 
+}
+.biaoti{
+    display: flex;
+    flex-direction:row;
+}
+.left{
+    display: flex;
+    height: 800px;
+    flex:5 50 20%;
+    flex-direction:column;
+    background-color: blanchedalmond;
+}
+.neirong{
+    height: 130px;
+    width: 700px;
+    margin: 10px;
+    border:1px solid black;
+}
+.right{
+    display: flex;
+    height: 800px;
+    flex:2 20 20%;
+    flex-direction:column;
+    background-color: aquamarine;
+}
+.my{
+    display: flex;
+    flex-direction:row;
+    height: 150px;
+    width: 350px;
+    margin: 10px;
+    border:1px solid black;
+    flex-wrap: wrap;
+}
+.taolun{
+    display: flex;
+    flex-direction:row;
+    height: 150px;
+    width: 350px;
+    margin: 10px;
+    border:1px solid black;
+    flex-wrap: wrap;
+}
+.wode{
+    display: flex;
+    flex-direction:row;
+    height: 150px;
+    width: 350px;
+    margin: 10px;
+    border:1px solid black;
+    flex-wrap: wrap;
+}
+.xie{
+    height: 50px;
+    width:80px;
+    margin: 10px;
+}
+footer{
+    flex: 1;
+}
