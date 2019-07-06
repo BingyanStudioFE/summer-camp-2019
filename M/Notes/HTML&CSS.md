@@ -138,7 +138,7 @@ CSS高级语法
   - 背景  
   background-color,用padiing增加内边距。默认值transparent。   
   background-image:url(xxxx)    
-  - 表格
+  - 表格  
   th：表头  
   td：标准单元格  
   th 元素内部的文本通常会呈现为居中的粗体文本，而 td 元素内的文本通常是左对齐的普通文本。  
@@ -177,7 +177,7 @@ CSS高级语法
   height：高  
   width 和 height 指的是内容区域的宽度和高度。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。  
   
-  - 边框
+  - 边框  
   元素框的最内部分是实际的内容，直接包围内容的是内边距（padding）。内边距呈现了元素的背景。内边距的边缘是边框（width）。边框以外是外边距（margin），外边距默认是透明的，因此不会遮挡其后的任何元素。  
   
   css属性
@@ -200,10 +200,58 @@ CSS高级语法
          <div>div 元素的内容不会显示出来！</div>
          </body>
          </html>
-  display:inline
-  display:null
-  dispaly:flex or flex-inline
+  display:inline  
+  display:null  
+  dispaly:flex or flex-inline  
+  
+  - position属性
+  
+      h2
+      {
+      position:absolute;
+      left:100px;
+      top:150px;
+      } 
+absolute  
+生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。  
+元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。  
+fixed  
+生成绝对定位的元素，相对于浏览器窗口进行定位。  
+元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。  
+relative  
+生成相对定位的元素，相对于其正常位置进行定位。  
+因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。  
+static  
+默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。  
+inherit  
+规定应该从父元素继承 position 属性的值。  
+ 
+ - float属性
+left  
+元素向左浮动。  
+right  
+元素向右浮动。  
+none  
+默认值。元素不浮动，并会显示在其在文本中出现的位置。  
+inherit
+规定应该从父元素继承 float 属性的值。  
  （二） flex布局
   ==================
-  
-      
+ - 基本概念
+布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。  
+Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。  
+任何一个容器都可以指定为 Flex 布局。  
+行内元素也可以使用 Flex 布局。  
+注意，设为 Flex 布局以后，<strong>子元素的float、clear和vertical-align属性将失效。</strong>
+
+- 主轴和交叉轴
+容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+
+-属性
+  - flex-direction  
+  - flex-wrap  
+  - flex-flow  
+  -justify-content  
+  -align-items  
+  -align-content  
