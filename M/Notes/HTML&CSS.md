@@ -173,8 +173,10 @@ CSS高级语法
     <td>Jobs</td>
     </tr>
     </table>
-  width:宽
-  height：高
+  width:宽  
+  height：高  
+  
+  
  （二） flex布局
   ==================
   
