@@ -175,8 +175,34 @@ CSS高级语法
     </table>
   width:宽  
   height：高  
+  width 和 height 指的是内容区域的宽度和高度。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。  
   
+  - 边框
+  元素框的最内部分是实际的内容，直接包围内容的是内边距（padding）。内边距呈现了元素的背景。内边距的边缘是边框（width）。边框以外是外边距（margin），外边距默认是透明的，因此不会遮挡其后的任何元素。  
   
+  css属性
+  ---------
+  - display属性
+  
+          <html>
+          <head>
+          <style type="text/css">
+          p {display: inline}
+          div {display: none}
+          </style>
+          </head>
+
+         <body>
+         <p>本例中的样式表把段落元素设置为内联元素。</p>
+
+         <p>p元素会显示出来！</p>
+
+         <div>div 元素的内容不会显示出来！</div>
+         </body>
+         </html>
+  display:inline
+  display:null
+  dispaly:flex or flex-inline
  （二） flex布局
   ==================
   
