@@ -67,14 +67,6 @@ CSS高级语法
         This paragraph will also be center-aligned.
         </p>
 
-     .center {text-align: center}
-      <h1 class="center">
-      This heading will be center-aligned
-      </h1>
-      <p class="center">
-       This paragraph will also be center-aligned.
-       </p>
-       
 - class也可以做派生选择器
   
        .fancy td {
@@ -89,4 +81,55 @@ CSS高级语法
 	   background: #666;
 	  }
 - 属性选择器
+     写在头部<head>
+      可以对“是否出现title=进行筛选”，用[title]或者是[title=xxxx]进行申明
+	
+      [title]
+      {
+      color:red;
+      }
+      
+      
+      <body>
+      <h1>可以应用样式：</h1>
+      <h2 title="Hello world">Hello world</h2>
+      <a title="W3School" href="http://w3school.com.cn">W3School</a>
 
+      <hr />
+
+      <h1>无法应用样式：</h1>
+      <h2>Hello world</h2>
+      <a href="http://w3school.com.cn">W3School</a>
+      </body>
+      
+  也可以对是否出现“title=xxxx”进行筛选
+  - 设置表单样式（？）
+  申明input[type="text']
+  input[type="button"]
+  
+  - 如何创建css  
+  
+  1.外部样式表  
+  
+  用link标签链接到样式表，link在<head>中
+	
+	  <head>
+          <link rel="stylesheet" type="text/css" href="mystyle.css" />
+          </head>
+  外部样式表以css为后缀保存，不要在属性值与单位之间留有空格。
+  
+  2.内部样式表
+  
+ 使用 <style> 标签在文档头部定义内部样式表
+ 
+    <head>
+    <style type="text/css">
+    hr {color: sienna;}
+    p {margin-left: 20px;}
+    body {background-image: url("images/back40.gif");}
+    </style> 
+    </head>    
+     
+  3.复合链接
+  颜色属性将被继承于外部样式表，而文字排列（text-alignment）和字体尺寸（font-size）会被内部样式表中的规则取代。
+      
