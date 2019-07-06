@@ -34,30 +34,21 @@ CSS高级语法
      }  
 一般来说，子元素继承父元素的属性。有些浏览器会忽略继承问题。  
  
-- 派生选择器
->  <li><strong>我是斜体字。这是因为 strong 元素位于 li 元素内。</strong></li>  
+- 派生选择器  
+<li><strong>我是斜体字。这是因为 strong 元素位于 li 元素内。</strong></li>  
 在选择器后可以加上strong元素进行申明，会对该选择器中申明中strong元素包括的部分产生影响。  
 
 - id选择器
 
-    #red {color:red;}
-    #green {color:green;}
-    <p id="red">这个段落是红色。</p>
-    <p id="green">这个段落是绿色。</p>
+      #red {color:red;}
+      #green {color:green;}
+      <p id="red">这个段落是红色。</p>
+      <p id="green">这个段落是绿色。</p>
     
 - id选择器常常建立于派生选择器
 
-    #sidebar p {
-	font-style: italic;
-	text-align: right;
-	margin-top: 0.5em;
-	}
+        #sidebar p {
+	   text-align: right;
+	  margin-top: 0.5em;
+	  }
 
-    #sidebar h2 {
-	font-size: 1em;
-	font-weight: normal;
-	font-style: italic;
-	margin: 0;
-	line-height: 1.5;
-	text-align: right;
-	}
