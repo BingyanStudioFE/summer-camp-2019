@@ -102,7 +102,7 @@ CSS高级语法
       <a href="http://w3school.com.cn">W3School</a>
       </body>
       
-  也可以对是否出现“title=xxxx”进行筛选
+  也可以对是否出现“title=xxxx”进行筛选  
   - 设置表单样式（？）
   申明input[type="text']
   input[type="button"]
@@ -135,12 +135,46 @@ CSS高级语法
   
   CSS样式
   ---------------
-  背景
-  1.背景颜色
-  background-color,用padiing增加内边距。默认值transparent。
-  background-image:url(xxxx)
+  - 背景  
+  background-color,用padiing增加内边距。默认值transparent。   
+  background-image:url(xxxx)    
+  - 表格
+  th：表头  
+  td：标准单元格  
+  th 元素内部的文本通常会呈现为居中的粗体文本，而 td 元素内的文本通常是左对齐的普通文本。  
+  border:边框
+  border-collapse：边框折叠
   
-  
+      <head>
+      <style type="text/css">
+      table
+      {
+      border-collapse:collapse;
+      }
+
+     table, td, th
+    {
+    border:1px solid black;
+    }
+    </style>
+    </head>
+    <body>
+    <table>
+    <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    </tr>
+    <tr>
+    <td>Bill</td>
+    <td>Gates</td>
+    </tr>
+    <tr>
+    <td>Steven</td>
+    <td>Jobs</td>
+    </tr>
+    </table>
+  width:宽
+  height：高
  （二） flex布局
   ==================
   
