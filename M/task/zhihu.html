@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        body{
+       margin: 0;
+       background: #f6f6f6;
+   }
+   .app-header{
+       width: 100%;
+       height:40px;
+       background:whitesmoke;
+       display:flex;
+       position:fixed;
+       align-items:center;
+       top:0;
+   }
+   .nav1{
+       width:10%;
+       display:flex;
+       flex:1;
+       justify-content: center;
+   }
+   .nav2{
+       width:60%;
+       display:flex;
+       justify-content: center;
+   }
+   .sticky-holder{
+       display: none;
+   }
+   .app-content{
+       display: flex;
+       align-items: flex-start; /*--让app-main-column和side-bar在副轴上上对齐--*/
+       width: 1000px;
+       padding: 0 16px;
+       margin: 10px auto;
+       background:lightblue;
+   }
+   .story-container{
+       width: 694px;
+       height: 1000px;
+       padding-bottom: 20px;
+       background: lightgrey;
+   }
+   .subheader0
+   {
+      height:40px; 
+      background:lightgrey;
+   }
+   .subheader{
+      height:40px; 
+      background:lightgrey;
+      display:flex;
+      align-items:center;
+      justify-content: center;
+   }
+   .nav3{
+      display:flex;
+      flex:1;
+      justify-content: center;
+     
+   }
+   .app-main-column{
+       margin-right: 10px;
+   }
+   .side-bar{    
+       flex: 1; /*--没有为side-bar设置宽度，而是通过设置flex属性，让side-bar自适应剩余宽度--*/
+       height: 550px;
+       background: whitesmoke;
+   }
+   .box0
+   {
+       background:whitesmoke;
+       height:40px;
+
+   }
+   .box
+   {
+     flex:1;
+     background:white;
+     height:150px;
+     margin:10px;
+     justify-content:center;
+
+   }
+   .card{ /*--卡片样式--*/
+       box-sizing: border-box;
+       overflow: hidden;
+       margin-bottom: 10px;
+       border-radius: 2px;
+       background: #fff;
+       box-shadow: 0 1px 3px rgba(26,26,26,.1);
+   }
+   .story-item{
+       padding: 80px 40px;
+   }
+   </style>   
+</head>
+<body>
+        <div id="app">
+                <div>
+                    <header class="app-header">
+                        <div class="nav1">知乎</div>
+                        <div class="nav1">首页</div>
+                        <div class="nav1">发现</div>
+                        <div class="nav1">等你来答</div>
+                        <div class="nav2">提问</div>
+                    </header>
+                    <div class="sticky-holder"></div>
+                </div>
+                <main class="app-main">
+                    <div class="app-content">
+                        <div class="app-main-column">
+                            <div class="story-container">
+                                <div class='subheader0'></div>
+                                <div class='subheader'>
+                                <div class="nav3">推荐</div>
+                                <div class="nav3">关注</div>
+                                <div class="nav3">热榜</div>
+                                </div>
+                                <div class="card story-item">湖北：硬核少年</div>
+                                <div class="card story-item">你见过最虐心的案子是什么？</div>
+                                <div class="card story-item">一个演员的演技能烂到什么程度？</div>
+                            </div>
+                        </div>
+                        <div class="side-bar">
+                             <div class="box0"></div>
+                             <div class="box">box1</div>
+                             <div class="box">box2</div>
+                             <div class="box">box3</div>
+                            </div>
+                    </div>
+                </main>
+            </div>
+                
+</body>
+</html>
