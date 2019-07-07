@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>首页-知乎</title>
+    <title>首页 - 知乎</title>
     <link rel="stylesheet" href="zhihu.css">
 </head>
 <body>
     <nav id="nav1">
+        <div id="container2"> 
+            <a href="www.zhihu.com"><img src="images/zhihu.png" height=30px></a>
+            <li class="firstpage">首页</li>
+            <li>发现</li>
+            <li>等你来答</li>
+            <div id="searchbar"><input type="text" placeholder="    Shaw竟然写了一个知乎？"></div>
+            <div><button type="button">提问</div>
+            <div><img src="images/tongzhi.png" width=25px></div>
+            <div><img src="images/sixin.png" width=20px></div>
+            <div><img src="images/touxiang.jpg" width=30px></div>
+        </div>
     </nav>
-    <div id="container2"> 
-        <span>首页</span>
-        <span>发现</span>
-        <span>等你来答</span>
-        <span><input type="text" width=100px></span>
-        <span><input type="submit"></span>
-    </div>
+    
         
     <div id="container">
 
@@ -27,7 +32,7 @@
             <span>热榜</span>
         </nav>
         <article>
-            <h1>用ipad学习，效率真的会提高吗？</h1>
+            <h1>用iPad学习，效率真的会提高吗？</h1>
             <p>偲偲我是谁： 会！ 看到有的回答说iPad笔记花里胡哨，我觉得如果只是想做个看起来漂亮的笔记，就算是回归最简单的纸笔，我也能给你玩出花来 : ) 【收藏的盆友们可以拜托给个赞吗 (ಥ_ಥ) 别在收藏夹里积灰…</p>
         </article>
         <article>
@@ -49,36 +54,68 @@
     </div>      <!--end main-->
 
     <div id="sidebar">
-        <div class="sidebar">
-            <p>
-                <span>写回答</span>
-                <span>写文章</span>
-                <span>写想法</span>
-            </p>
-            <p>我的稍后答</p>
-            <p>我的草稿</p>
+        <div class="sidebar" id="item1">
+            <div id="create">
+                <span><div><img src="images/huida.png" width="15px"></div>写回答</span>
+                <span><div><img src="images/wenzhang.png" width="15px"></div>写文章</span>
+                <span><div><img src="images/xiangfa.png" width="20px"></div>写想法</span>
+            </div>
+            <div id="draft">
+                <div id="draft_icon">
+                    <img src="images/shaohou.png" width=18px>
+                    <img src="images/caogao.png" width=18px>
+                </div>
+                <div>
+                    <span>我的稍后答</span>
+                    <span>我的草稿</span>
+                </div>
+            </div>
         </div>
-        <div class="sidebar">
-            <p>创作者中心</p>
-            <p>
-                <span>昨日回答阅读数</span>
-                <span>昨日回答赞同数</span>
-            </p>
+
+        <div class="sidebar" id="item2">
+            <div id="creator">
+                <span id=creator0><img src="images/chuangzuozhe.png" width=18px></span>
+                <span id=creator1>创作者中心</span>
+                <span id="creator2"><img src="images/you.png" width=10px></span>
+            </div>
+            <div id="read">
+                <span>
+                    <p>昨日回答阅读数</p>
+                    <h2>56</h2>
+                    <p>较前日 --</p>
+                </span>
+                <span>
+                    <p>昨日回答赞同数</p>
+                    <h2>1</h2>
+                    <p>较前日 --</p>
+                </span>
+            </div>
         </div>
         <div class="sidebar" id="item3">
-            <span>live</span>
-            <span>书店</span>
-            <span>圆桌</span>
-            <span>专栏</span>
-            <span>付费咨询</span>
+            <span class="icon"><div><img src="images/live.png" width=20px></div>Live</span>
+            <span class="icon"><div><img src="images/shudian.png" width=20px></div>书店</span>
+            <span class="icon"><div><img src="images/yuanzhuo.png" width=23px></div>圆桌</span>
+            <span class="icon"><div><img src="images/zhuanlan.png" width=20px></div>专栏</span>
+            <span class="icon"><div><img src="images/fufei.png" width=20px></div>付费咨询</span>
         </div>
-        <div class="sidebar">
-            <span>我的收藏</span>
-            <span>我关注的问题</span>
-            <span>我的邀请</span>
-            <span>我的余额</span>
-            <span>站务中心</span>
-            <span>版权服务中心</span>
+        <div class="sidebar" id="item4">
+            <div id="icon">
+                <img src="images/shoucang.png" width="15px">
+                <img src="images/guanzhu.png" width="15px">
+                <img src="images/yaoqing.png" width="15px">
+                <img src="images/yue.png" width="15px">
+                <img src="images/zhanwu.png" width="17px">
+                <img src="images/copyright.png" width="17px">
+            </div>
+            <div>
+                <li>我的收藏</li>
+                <li>我关注的问题</li>
+                <li>我的邀请</li>
+                <li>我的余额</li>
+                <li>站务中心</li>
+                <li>版权服务中心</li>
+            </div>
+            
         </div>
     </div>      <!--end sidebar-->
     
