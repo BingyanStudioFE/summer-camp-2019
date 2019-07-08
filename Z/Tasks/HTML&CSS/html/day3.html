@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../css/day3.css">
+    <title>day3</title>
+</head>
+<body>
+<div>
+    <div>
+        <div>
+            <header class="Sticky AppHeader">
+                <div class="AppHeader-inner">
+                    <a href="//www.zhihu.com">
+                        <svg viewBox="0 0 200 91" class="Icon ZhihuLogo ZhihuLogo--blue Icon--logo" width="64"
+                             height="30"
+                             aria-hidden="true" style="height: 30px; width: 64px;"><title></title>
+                            <g>
+                                <path d="M53.29 80.035l7.32.002 2.41 8.24 13.128-8.24h15.477v-67.98H53.29v67.978zm7.79-60.598h22.756v53.22h-8.73l-8.718 5.473-1.587-5.46-3.72-.012v-53.22zM46.818 43.162h-16.35c.545-8.467.687-16.12.687-22.955h15.987s.615-7.05-2.68-6.97H16.807c1.09-4.1 2.46-8.332 4.1-12.708 0 0-7.523 0-10.085 6.74-1.06 2.78-4.128 13.48-9.592 24.41 1.84-.2 7.927-.37 11.512-6.94.66-1.84.785-2.08 1.605-4.54h9.02c0 3.28-.374 20.9-.526 22.95H6.51c-3.67 0-4.863 7.38-4.863 7.38H22.14C20.765 66.11 13.385 79.24 0 89.62c6.403 1.828 12.784-.29 15.937-3.094 0 0 7.182-6.53 11.12-21.64L43.92 85.18s2.473-8.402-.388-12.496c-2.37-2.788-8.768-10.33-11.496-13.064l-4.57 3.627c1.363-4.368 2.183-8.61 2.46-12.71H49.19s-.027-7.38-2.372-7.38zm128.752-.502c6.51-8.013 14.054-18.302 14.054-18.302s-5.827-4.625-8.556-1.27c-1.874 2.548-11.51 15.063-11.51 15.063l6.012 4.51zm-46.903-18.462c-2.814-2.577-8.096.667-8.096.667s12.35 17.2 12.85 17.953l6.08-4.29s-8.02-11.752-10.83-14.33zM199.99 46.5c-6.18 0-40.908.292-40.953.292v-31.56c1.503 0 3.882-.124 7.14-.376 12.773-.753 21.914-1.25 27.427-1.504 0 0 3.817-8.496-.185-10.45-.96-.37-7.24 1.43-7.24 1.43s-51.63 5.153-72.61 5.64c.5 2.756 2.38 5.336 4.93 6.11 4.16 1.087 7.09.53 15.36.277 7.76-.5 13.65-.76 17.66-.76v31.19h-41.71s.88 6.97 7.97 7.14h33.73v22.16c0 4.364-3.498 6.87-7.65 6.6-4.4.034-8.15-.36-13.027-.566.623 1.24 1.977 4.496 6.035 6.824 3.087 1.502 5.054 2.053 8.13 2.053 9.237 0 14.27-5.4 14.027-14.16V53.93h38.235c3.026 0 2.72-7.432 2.72-7.432z"
+                                      fill-rule="evenodd"></path>
+                            </g>
+                        </svg>
+                    </a>
+                    <ul class="Tabs AppHeader-Tabs">
+                        <li role="tab" class="Tabs-item AppHeader-Tab Tabs-item--noMeta">
+                            <a class="Tabs-link AppHeader-TabsLink is-active" href="//www.zhihu.com/">
+                                首页
+                            </a>
+                        </li>
+                        <li class="Tabs-item AppHeader-Tab Tabs-item--noMeta">
+                            <a class="Tabs-link AppHeader-TabsLink" href="//www.zhihu.com/explore">
+                                发现
+                            </a>
+                        </li>
+                        <li class="Tabs-item AppHeader-Tab Tabs-item--noMeta">
+                            <a class="Tabs-link AppHeader-TabsLink" href="//www.zhihu.com/question/waiting">
+                                等你来答
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="SearchBar">
+                        <div class="SearchBar-toolWrapper">
+                            <form class="SearchBar-tool">
+                                <div>
+                                    <div class="Popover">
+                                        <div class="SearchBar-input Input-wrapper Input-wrapper--grey">
+                                            <input type="text" maxlength="100"
+                                                   class="Input"
+                                                   placeholder="良渚古城成功申遗" value="">
+                                            <div class="Input-after">
+                                                <button type="button"
+                                                        class="Button SearchBar-searchIcon Button--primary">
+                                                    <span style="display: inline-flex; align-items: center;">​
+                                                        <svg class="Zi Zi--Search" fill="currentColor"
+                                                             viewBox="0 0 24 24"
+                                                             width="18" height="18">
+                                                            <path d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z"
+                                                                  fill-rule="evenodd"></path>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <button type="button" class="Button SearchBar-askButton Button--primary Button--blue">
+                            提问
+                        </button>
+                    </div>
+                    <div class="AppHeader-userInfo">
+                        <div class="Popover PushNotifications AppHeader-notifications">
+                            <button type="button" class="Button PushNotifications-icon Button--plain">
+                                <span style="display: inline-flex; align-items: center;">​
+                                    <svg class="Zi Zi--Bell"
+                                         fill="currentColor"
+                                         viewBox="0 0 24 24"
+                                         width="22" height="22">
+                                        <path d="M4.523 15.076l.804-6.757a6.753 6.753 0 0 1 4.945-5.7 1.823 1.823 0 0 1 3.623 0 6.753 6.753 0 0 1 4.945 5.7l.804 6.757a2.293 2.293 0 0 0 1.712 2.108 1.093 1.093 0 0 1-.297 2.15H3.108a1.093 1.093 0 0 1-.297-2.15 2.293 2.293 0 0 0 1.712-2.108zM12.083 23a2.758 2.758 0 0 1-2.753-2.509.229.229 0 0 1 .232-.24h5.043a.229.229 0 0 1 .232.24 2.759 2.759 0 0 1-2.753 2.51z"></path></svg></span>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="Popover Messages AppHeader-messages">
+                                <button type="button" class="Button Messages-icon Button--plain">
+                                    <span style="display: inline-flex; align-items: center;">​
+                                        <svg class="Zi Zi--Comments"
+                                             fill="currentColor"
+                                             viewBox="0 0 24 24"
+                                             width="22" height="22">
+                                            <path d="M11 2c5.571 0 9 4.335 9 8 0 6-6.475 9.764-11.481 8.022-.315-.07-.379-.124-.78.078-1.455.54-2.413.921-3.525 1.122-.483.087-.916-.25-.588-.581 0 0 .677-.417.842-1.904.064-.351-.14-.879-.454-1.171A8.833 8.833 0 0 1 2 10c0-3.87 3.394-8 9-8zm10.14 9.628c.758.988.86 2.009.86 3.15 0 1.195-.619 3.11-1.368 3.938-.209.23-.354.467-.308.722.12 1.073.614 1.501.614 1.501.237.239-.188.562-.537.5-.803-.146-1.495-.42-2.546-.811-.29-.146-.336-.106-.563-.057-2.043.711-4.398.475-6.083-.927 5.965-.524 8.727-3.03 9.93-8.016z"
+                                                  fill-rule="evenodd">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="AppHeader-profile">
+                            <div class="Popover AppHeader-menu">
+                                <button type="button" class="Button AppHeader-profileEntry Button--plain">
+                                    <img class="Avatar AppHeader-profileAvatar" width="30" height="30"
+                                         src="https://pic4.zhimg.com/v2-94334bfa2d1c004d7be83ab555122ea8_is.jpg"
+                                         alt="zgh">
+                                </button>
+                            </div>
+                            <div class="Popover AppHeaderProfileMenu-creatorHintPopover">
+                                <div class="AppHeaderProfileMenu-creatorHintToggler"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="PageHeader">
+                    <div class="TopstoryPageHeader">
+                        <div class="TopstoryPageHeader-main">
+                            <a href="//www.zhihu.com">
+                                <svg viewBox="0 0 200 91" class="Icon ZhihuLogo ZhihuLogo--blue Icon--logo" width="64"
+                                     height="30" aria-hidden="true" style="height: 30px; width: 64px;"><title></title>
+                                    <g>
+                                        <path d="M53.29 80.035l7.32.002 2.41 8.24 13.128-8.24h15.477v-67.98H53.29v67.978zm7.79-60.598h22.756v53.22h-8.73l-8.718 5.473-1.587-5.46-3.72-.012v-53.22zM46.818 43.162h-16.35c.545-8.467.687-16.12.687-22.955h15.987s.615-7.05-2.68-6.97H16.807c1.09-4.1 2.46-8.332 4.1-12.708 0 0-7.523 0-10.085 6.74-1.06 2.78-4.128 13.48-9.592 24.41 1.84-.2 7.927-.37 11.512-6.94.66-1.84.785-2.08 1.605-4.54h9.02c0 3.28-.374 20.9-.526 22.95H6.51c-3.67 0-4.863 7.38-4.863 7.38H22.14C20.765 66.11 13.385 79.24 0 89.62c6.403 1.828 12.784-.29 15.937-3.094 0 0 7.182-6.53 11.12-21.64L43.92 85.18s2.473-8.402-.388-12.496c-2.37-2.788-8.768-10.33-11.496-13.064l-4.57 3.627c1.363-4.368 2.183-8.61 2.46-12.71H49.19s-.027-7.38-2.372-7.38zm128.752-.502c6.51-8.013 14.054-18.302 14.054-18.302s-5.827-4.625-8.556-1.27c-1.874 2.548-11.51 15.063-11.51 15.063l6.012 4.51zm-46.903-18.462c-2.814-2.577-8.096.667-8.096.667s12.35 17.2 12.85 17.953l6.08-4.29s-8.02-11.752-10.83-14.33zM199.99 46.5c-6.18 0-40.908.292-40.953.292v-31.56c1.503 0 3.882-.124 7.14-.376 12.773-.753 21.914-1.25 27.427-1.504 0 0 3.817-8.496-.185-10.45-.96-.37-7.24 1.43-7.24 1.43s-51.63 5.153-72.61 5.64c.5 2.756 2.38 5.336 4.93 6.11 4.16 1.087 7.09.53 15.36.277 7.76-.5 13.65-.76 17.66-.76v31.19h-41.71s.88 6.97 7.97 7.14h33.73v22.16c0 4.364-3.498 6.87-7.65 6.6-4.4.034-8.15-.36-13.027-.566.623 1.24 1.977 4.496 6.035 6.824 3.087 1.502 5.054 2.053 8.13 2.053 9.237 0 14.27-5.4 14.027-14.16V53.93h38.235c3.026 0 2.72-7.432 2.72-7.432z"
+                                              fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </a>
+                            <nav class="TopstoryTabs TopstoryPageHeader-tabs">
+                                <a class="TopstoryTabs-link TopstoryPageHeader-tabsLink" href="/">
+                                    推荐</a>
+                                <a class="TopstoryTabs-link TopstoryPageHeader-tabsLink" href="/follow">
+                                    关注</a>
+                                <a class="TopstoryTabs-link TopstoryPageHeader-tabsLink is-active" href="/hot">
+                                    热榜</a>
+                            </nav>
+                        </div>
+                        <div class="TopstoryPageHeader-aside">
+                            <form class="SimpleSearchBar-wrapper">
+                                <div class="SimpleSearchBar-input TopstoryPageHeader-searchBar Input-wrapper">
+                                    <input class="Input" placeholder="搜索你感兴趣的内容…" value="">
+                                    <div class="Input-after">
+                                        <button type="button"
+                                                class="Button TopstoryPageHeader-searchButton Button--primary">
+                                            <svg class="Zi Zi--Search" fill="currentColor" viewBox="0 0 24 24"
+                                                 width="18" height="18">
+                                                <path d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z"
+                                                      fill-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <button type="button"
+                                    class="Button TopstoryPageHeader-askButton Button--primary Button--blue">提问
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <main class="app-main">
+            <div class="app-content">
+                <div class="app-main-column">
+                    <div class="story-container">
+                        <div class="card story-item">
+                            <p>有哪些视频是你终生不想看第二遍的？</p>
+                        </div>
+                        <div class="card story-item">
+                            <p>为什么有的男人穿西装像金融才俊，有的却像地产中介？</p>
+                        </div>
+                        <div class="card story-item">
+                            <p>伦纳德与快船达成 4 年 1.42 亿美元签约协议，你有什么想说的？</p>
+                        </div>
+                        <div class="card story-item">
+                            <p>如何看待河南省永城市一玛莎拉蒂车主酒驾逃逸，途中又撞击一辆宝马造成 2 死 4 伤这一事故?</p>
+                        </div>
+                        <div class="card story-item">
+                            <p>现在的部分女生为什么不想生孩子？</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-bar">
+                    <div class="card tabs">
+                        <div class="wrapper">
+                            <div>
+                                <a href="https://www.zhihu.com/lives">
+                                    <svg class="Zi Zi--Live" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                                        <path
+                                                d="M13.693 10.354l1.634-7.542c.195-.901-.16-1.083-.798-.39l-9.18 9.97c-.638.693-.377 1.254.582 1.254h5.376l-1.634 7.542c-.195.901.16 1.083.798.39l9.18-9.97c.638-.693.377-1.254-.582-1.254h-5.376z"></path>
+                                    </svg>
+                                    <span>Live</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://www.zhihu.com/pub/">
+                                    <svg class="Zi Zi--Ebook" fill="currentColor"
+                                         viewBox="0 0 24 24" width="24" height="24">
+                                        <path
+                                                d="M16 17.649V2.931a.921.921 0 0 0-.045-.283.943.943 0 0 0-1.182-.604L4.655 5.235A.932.932 0 0 0 4 6.122v14.947c0 .514.421.931.941.931H19.06c.52 0 .941-.417.941-.93V7.292a.936.936 0 0 0-.941-.931h-.773v12.834a.934.934 0 0 1-.83.924L6.464 21.416c-.02.002 2.94-.958 8.883-2.881a.932.932 0 0 0 .653-.886z"
+                                                fill-rule="evenodd"></path>
+                                    </svg>
+                                    <span>书店</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://www.zhihu.com/roundtable">
+                                    <svg class="Zi Zi--Org" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M10.786 8.41a8.938 8.938 0 0 0-3.968-2.528c-.305-1.719.814-3.337 2.442-3.741 1.221-.405 2.646.101 3.46 1.011 1.045 1.38.915 3.64.814 4.348-.102 1.315-1.221 3.034-1.323 3.135-.305-.809-.814-1.517-1.425-2.225zm-2.442 2.832c-1.526.202-3.052 1.01-4.171 2.123-1.12-.404-1.934-1.314-2.137-2.427-.316-2.427 1.526-3.64 2.849-3.842 1.628-.371 2.849.505 4.07 1.415 1.146 1.012 2.035 2.63 2.035 2.73-.916-.202-1.832-.1-2.646 0zm4.986.303c.509-.607.931-1.586 1.12-2.225.318-1.039.61-3.134.203-4.651 1.323-1.011 3.154-1.011 4.477.303 1.235 1.146 1.017 2.933.814 3.438-.663 1.581-1.933 2.326-3.256 2.832-1.221.404-3.256.303-3.358.303zm-2.645 1.011c-.51.607-.916 1.416-1.221 2.326-.407 1.314-.643 3.06-.102 4.55-1.323 1.011-3.256 1.011-4.477-.202-1.198-1.124-1.018-2.932-.814-3.438.599-1.605 1.933-2.326 3.256-2.831.916-.304 3.256-.405 3.358-.405zm9.259-1.82c1.017.404 1.933 1.315 2.035 2.427.233 2.57-1.526 3.64-2.849 3.842-1.526 0-2.85-.505-4.07-1.415-1.018-.81-2.035-2.528-2.035-2.63.916.203 1.831.102 2.645 0 1.628-.404 3.053-1.112 4.274-2.224zm-6.716 4.854c1.065 1.08 2.442 2.022 4.07 2.528.306 1.719-.814 3.235-2.442 3.741-1.22.405-2.645-.101-3.46-1.011-1.1-1.481-1.017-3.54-.915-4.247.102-1.315 1.221-3.034 1.323-3.135.305.708.721 1.44 1.424 2.124z"></path>
+                                    </svg>
+                                    <span>圆桌</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://zhuanlan.zhihu.com/">
+                                    <svg class="Zi Zi--Edit" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"></path>
+                                    </svg>
+                                    <span>专栏</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://www.zhihu.com/consult">
+                                    <svg class="Zi Zi--Infinity" fill="currentColor" viewBox="0 0 24 24" width="24"
+                                         height="24">
+                                        <path d="M11.267 10.188h-2.69a.26.26 0 0 0-.261.26v.508c0 .149.117.26.262.26h2.896v1.54H8.578a.26.26 0 0 0-.262.259v.508c0 .15.117.26.262.26h2.896v2.31c0 .139.119.257.265.257h.522a.258.258 0 0 0 .265-.257v-2.31h2.896a.26.26 0 0 0 .262-.26v-.508a.257.257 0 0 0-.262-.26h-2.896v-1.54h2.896a.26.26 0 0 0 .262-.26v-.507a.257.257 0 0 0-.262-.26h-2.69l2.51-2.636a.26.26 0 0 0-.004-.366l-.423-.413a.253.253 0 0 0-.36.01L12 9.418 9.545 6.784a.248.248 0 0 0-.36-.011l-.423.413a.264.264 0 0 0-.004.366l2.509 2.636zM12 19.973c-1.101 0-2.16-.15-3.152-.43-.532.18-5.27 2.177-4.743 1.179.527-.998 1.58-2.746.806-3.25C3.11 15.936 2 13.822 2 11.486 2 6.8 6.477 3 12 3s10 3.8 10 8.487-4.477 8.486-10 8.486z"></path>
+                                    </svg>
+                                    <span>付费咨询</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
