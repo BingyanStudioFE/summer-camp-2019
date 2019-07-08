@@ -87,11 +87,15 @@ button {
     border: 1px solid #ebebeb;
     border-radius: 3px;
     box-sizing: border-box;
-    transition: background .2s, border .2s;
 }
 
 .Input-wrapper.Input-wrapper--grey {
     background: #f6f6f6;
+}
+
+.Input-wrapper.is-focus {
+    background: #fff;
+    border: 1px solid #8590a6;
 }
 
 .Input {
@@ -105,6 +109,10 @@ button {
     border: none;
     outline: none;
     resize: none;
+}
+
+.Input:focus::-webkit-input-placeholder {
+    color: transparent;
 }
 
 input.Input {
@@ -163,13 +171,14 @@ input.Input {
 }
 
 .AppHeader {
-    position: relative;
-    z-index: 100;
+    position: fixed;
+    top: 0;
+    width: 100%;
     min-width: 1032px;
-    overflow: hidden;
     background: #fff;
     box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
     background-clip: content-box;
+    z-index: 999999;
 }
 
 .AppHeader-inner {
@@ -224,6 +233,10 @@ input.Input {
 .SearchBar-input {
     width: 326px;
     padding-left: 16px;
+}
+
+.SearchBar-focusedInput {
+    width: 400px;
 }
 
 .SearchBar-searchIcon {
@@ -291,6 +304,7 @@ input.Input {
     left: 0;
     width: 100%;
     height: 100%;
+    display: none;
 }
 
 
@@ -370,6 +384,11 @@ input.Input {
 
 .SimpleSearchBar-wrapper .Input-after {
     right: -1px;
+}
+
+.app-main {
+    position: relative;
+    top: 52px;
 }
 
 .app-content {
