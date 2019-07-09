@@ -7,7 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="test.js"></script>
-    <script src="multiple.js"></script>
+
+    <script>
+        let json = {a: 12, b: 5};
+        let str = JSON.stringify(json);
+        let json2 = JSON.parse(str);
+        console.log(str);
+        console.log(json2);
+
+    </script>
 </body>
 </html>
+

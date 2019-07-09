@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="0">
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+
+    <script>
+        window.onload = function()
+        {
+            var but = document.getElementsByTagName("input");
+            for(let i = 0; i < but.length; i++)
+                but[i].onclick = function()
+                {
+                    alert(i * i);
+                }
+        }
+    </script>
+</body>
+</html>
+
+<!-- 
+    如果for循环里的声明变量的方法是var
+    由于var没有块级作用域，只有函数级作用于，那么整个函数中只有一个i的值，即位4
+    那么点点击每个按钮输出的结果都是16
+    解决方法    1：将var改为let
+                2：闭包
+                for(var i = 0; i < but.length; i++)
+                {
+                    but.onclick = (function(i)
+                    {
+                        return function()
+                        {
+                            alert(i);
+                        }
+                    })(i);
+                }
+-->

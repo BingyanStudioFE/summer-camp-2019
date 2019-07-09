@@ -7,7 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="test.js"></script>
-    <script src="multiple.js"></script>
+
+    <script>
+        let arr = [100, 98, 23, 89, 45, 68, 80, 74];
+        
+        arr.reduce(function(tmp, item, index)
+        {
+            alert(`第${index}次,${tmp}+${item}`);
+            return tmp + item;
+        })
+    </script>
 </body>
 </html>
+

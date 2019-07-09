@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //声明一个json，包含两个对象和一个方法
+        // let json = 
+        // {
+        //     a:12, b:5, show:function()
+        //     {
+        //         alert(this);
+        //         alert(this.a + this.b);
+        //     }
+        // }
+        //json.show();
+
+        //在把show赋值给别人时，this改变，变为了document，出现错误
+        document.onclick = json.show;
+
+        //解决方案：使用箭头函数
+        let json = 
+        {
+            a:12, b:5, show:()=>
+            {
+                alert(this.a + this.b);
+            }
+        };
+        document.onclick = json.show;
+    </script>
+</body>
+</html>
+

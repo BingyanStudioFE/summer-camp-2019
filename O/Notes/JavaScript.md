@@ -80,7 +80,7 @@ document.getElementsByClassName(className);
 
 通过css选择器查找（不适用于IE8以及更低版本）
 
-```
+```javascript
 document.querySelectorAll("");
 ```
 
@@ -238,7 +238,7 @@ JavaScript的运行通常是在浏览器中进行的，具体由js引擎去解�
 
 **消息队列与事件循环（event loop）**
 
-![1562574574005](E:\BingYan\summer-camp-2019\O\Notes\%5CUsers%5CLucyS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562574574005.png)
+![1562574574005](E:\BingYan\summer-camp-2019\O\Notes\images\%5CUsers%5CLucyS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562574574005.png)
 
 如上图所示，左边的栈存储的是同步任务，就是那些能立即执行、不耗时的任务，如变量和函数的初始化、事件的绑定等等那些不需要回调函数的操作都可归为这一类。
 
@@ -250,15 +250,246 @@ JS引擎线程从消息队列中读取任务是不断循环的，每次栈被清
 
 
 
+# 20190709
+
 ### ES6相关内容
 
-**let命令**
+#### **let命令**
 
-声明变量，但声明的变量只在`let`命令所在的代码块内有效
+声明变量
+
+1. 声明的变量只在`let`命令所在的代码块内有效（传统的js支持函数级作用域）
 
 ```JavaScript
 for (let i = 0; i < 10; i++)
 ```
 
+2. 不能重复声明
+
+#### **const命令**
+
+声明常量
+
+```javascript
+const os = require("os");
+```
+
+*var的弊端：* 
+
+1. *可以重复声明*
+2. *没有块级作用域*
+
+#### **解构赋值**
+
+```JavaScript
+let [a, b, c] = [1, 2, 3];
+
+let [head, ...tail] = [1, 2, 3 ,4];
+//head: 1
+//tail: 2, 3, 4
+```
+
+保证左右两边结构一样
+
+#### 函数
+
+**箭头函数** 
+
+常规写法：
+
+```javascript
+function(arguments)
+{
+    
+}
+```
+
+箭头函数：
+
+```javascript
+(arguments) =>
+{
+    
+}
+```
+
+箭头函数的作用：修复this
+
+> 如果有且只有一个参数，()可以省略
+>
+> 如果函数内有且仅有1条语句且返回值为return，那么{}也可以省略
+
+**参数展开**
+
+1. 剩余参数（rest arguments）
+
+   ...必须放在最后
+
+2. 数组展开
+
+   ```javascript
+   let arr = [512, 1027, 125, 720];
+   function sum(a, b, c, d, e)
+   {
+   	return a + b + c + d + e;
+   }
+   alert(sum(...arr));
+   ```
+
+#### 系统对象
+
+##### **Array**
+
+> map
+
+参数：item，index
+
+映射：1对1
+
+
+
+> reduce
+
+多对1
+
+```javascript
+//求和
+let arr = [100, 98, 23, 89, 45, 68, 80, 74];
+arr.reduce(function(tmp, item, index)
+{
+    alert(`第${index}次,${tmp}+${item}`);
+    return tmp + item;
+})
+```
+
+
+
+> forEach
+
+参数：item，index
+
+遍历，循环一遍，和for循环没区别
+
+
+
+> filter
+
+过滤
+
+参数：item，index
+
+```javascript
+let arr = [100, 98, 23, 89, 45, 68, 80, 74];
+
+let arr2 = arr.filter(function(item)
+                      {
+                        return item % 2 == 0;
+                      })
+```
+
+
+
+##### **String**
+
+> 字符串模板
+
+```
+`第${index}次,${tmp}+${item}`
+```
+
+> startsWith 和 endsWith
+
+```javascript
+let url = "http://www.lucyshaw.wang";
+if(url.startsWith("http://") || url.startsWith("https://"))
+    alert("Yes");
+else
+    alert("No");
+```
+
+
+
+##### **JSON**
+
+轻量级数据交换格式
+
+标准写法：（注意引号）
+
+```json
+let json = {"key0": "111", "key1": 222};
+```
+
+JSON 通常用于与服务端交换数据。
+
+在向服务器发送数据时一般是字符串。
+
+我们可以使用 JSON.stringify() 方法将 JavaScript 对象转换为用于传输的标准的字符串。
+
+```javascript
+let json = {a: 12, b: 5};
+let str = JSON.stringify(json);
+let json2 = JSON.parse(str);
+console.log(str);
+console.log(json2);
+```
+
+
+
+#### PROMISE
+
+##### 异步操作
+
+异步：多个操作一起进行，互不干扰
+
+同步：操作一个个进行
+
+异步响应快速但写起来恶心
+
+同步写起来方便但响应慢
+
+PROMISE解决了这个问题，对**异步操作进行了统一的封装**
+
+
+
+### AJAX
+
+#### XMLHttpRequest对象
+
+用于在后台与服务器进行数据交换
+
+也即我们可以在不重新加载整个网页的情况下对网页的某部分进行更新
+
+```javascript
+var variable = new XMLHttpRequest();
+```
+
+#### 向服务器发送请求
+
+```javascript
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+```
+
+在open方法中，当async=true时
+
+```javascript
+xmlhttp.onreadtstatechange = function()
+{
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+        document.getElementById("").innerHTML = xmlhttp.responseText;
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+```
+
+当async=false时，不要编写onreadystatechange函数
+
+```javascript
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+document.getElementById("").innerHTML = xmlhttp.responseText;
+```
 
 
