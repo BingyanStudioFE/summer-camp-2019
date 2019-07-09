@@ -127,3 +127,7 @@ HTML文件可以用一般的文本编辑器编写，另存为.html或.htm扩展�
 1. 通过对**display**属性的block,inline,inline-block,none切换块、行内、行内块和不显示
 2. 把行内元素设置为**float**:left/right后，行内元素的display会被赋予block值，且拥有**浮动**特性，并**去除**了行内元素间的莫名**空白**
 3. 当为行内元素定位时，**position**:absolute/fixed都会使得原先的行内元素变成块级元素
+
+## 一些注意事项
+
+1. 输入框input内的提示内容用placeholder属性
