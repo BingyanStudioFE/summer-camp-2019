@@ -7,7 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="test.js"></script>
-    <script src="multiple.js"></script>
+
+    <script>
+        function show(a, b, ...arr)         //剩下的数都存入arr；...收集剩余参数；...必须放在最后
+        {
+            console.log(a, b, arr);
+        }
+        show(12, 4, 512, 1027, 720);
+    </script>
 </body>
 </html>
+

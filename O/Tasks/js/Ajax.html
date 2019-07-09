@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showHint(str)
+        {
+            var xmlhttp;
+            if(str.length == 0)
+            {
+                document.getElementById("textHint").innerHTML = "";
+                return;
+            }
+            if(window.XMLHttpRequest)
+            {
+                xmlhttp = new XMLHttpRequest();
+            }
+            else
+            {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange = function()
+            {
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                {
+                    document.getElementById("textHint").innerHTML = xmlhttp.responseText;
+                }
+            }
+            
+            //将请求发送到服务器 true表示异步
+            xmlhttp.open("GET", "/try/ajax/gethint.php?q="+str, true);
+            xmlhttp.send();
+        }
+    </script>
+
+
+    <h3>请输入字母（a-z）</h3>
+    <form action="">
+        <input type="txt" id="txt" onkeyup="showHint(this.value)">
+    </form>
+    <p>Hint:<span id="textHint"></span></p>
+</body>
+</html>
