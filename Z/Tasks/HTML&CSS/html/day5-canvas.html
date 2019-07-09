@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+<canvas id="prac" width="600" height="300" style="border:1px solid #000"></canvas>
+<canvas id="clock" width="300" height="300"></canvas>
+<script>
+    let prac = document.querySelector("#prac");
+    let test = prac.getContext("2d");
+
+    test.moveTo(10, 30);
+    test.lineTo(100, 80);
+    test.stroke();
+
+    test.strokeRect(85, 85, 100, 150);
+
+    let circle = prac.getContext("2d");
+    circle.beginPath();
+    circle.arc(prac.width * 0.5, prac.height * 0.5, 25, 0, Math.PI * 2, true);
+    circle.closePath();
+    circle.stroke();
+
+    test.font = "26px Arial";
+    test.fillText("Some Text", 230, 80);
+
+    const clock = document.querySelector("#clock");
+    const ctx = clock.getContext("2d");
+    const width = clock.width;
+    const height = clock.height;
+    const radius = width / 2 - 10;
+
+    function drawBG() {
+        ctx.save();
+        ctx.translate(width / 2, height / 2);
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, Math.PI * 2, false);
+        ctx.lineWidth = 8;
+        ctx.closePath();
+        ctx.stroke();
+    }
+
+    function drawScale() {
+        ctx.lineWidth = 3;
+        for (let i = 1; i <= 60; i++) {
+            ctx.beginPath();
+            if (i % 5 === 0) {
+                ctx.strokeStyle = "#000";
+                ctx.moveTo((radius - 15) * Math.cos(Math.PI * 2 / 60 * i), (radius - 15) * Math.sin(Math.PI * 2 / 60 * i));
+            } else {
+                ctx.strokeStyle = "#888";
+                ctx.moveTo((radius - 10) * Math.cos(Math.PI * 2 / 60 * i), (radius - 10) * Math.sin(Math.PI * 2 / 60 * i));
+            }
+            ctx.lineTo((radius - 4) * Math.cos(Math.PI * 2 / 60 * i), (radius - 4) * Math.sin(Math.PI * 2 / 60 * i));
+            ctx.closePath();
+            ctx.stroke();
+        }
+    }
+
+    function drawText() {
+        ctx.save();
+        for (let i = 1; i <= 12; i++) {
+            let radian = Math.PI * 2 / 12 * (i - 3);
+            ctx.font = "18px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(i, (radius - 30) * Math.cos(radian), (radius - 30) * Math.sin(radian));
+        }
+        ctx.restore();
+    }
+
+    function drawHour(hour, minute) {
+        ctx.save();
+        let hourRad = Math.PI * 2 / 12 * (hour - 3);
+        let minuteRad = Math.PI * 2 / 60 * (minute) / 12;
+        let rad = hourRad + minuteRad;
+        ctx.beginPath();
+        ctx.rotate(rad);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(radius / 2, 0);
+        ctx.lineCap = "round";
+        ctx.lineWidth = 6;
+        ctx.stroke();
+        ctx.closePath();
+        ctx.restore();
+    }
+
+    function drawMinute(minute) {
+        ctx.save();
+        let rad = Math.PI * 2 / 60 * (minute - 30);
+        ctx.beginPath();
+        ctx.rotate(rad);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, radius / 2 + 25);
+        ctx.lineCap = "round";
+        ctx.lineWidth = 6;
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function drawSeconds(seconds) {
+        ctx.save();
+        let rad = Math.PI * 2 / 60 * (seconds - 15);
+        ctx.beginPath();
+        ctx.rotate(rad);
+        ctx.moveTo(0, 2);
+        ctx.lineTo(0, -2);
+        ctx.lineTo(radius - 20, -1);
+        ctx.lineTo(radius - 20, 1);
+        ctx.closePath();
+        ctx.fillStyle = "#f00";
+        ctx.fill();
+        ctx.restore();
+    }
+
+    function drawClock() {
+        ctx.clearRect(0, 0, width, height);
+        let date = new Date();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let seconds = date.getSeconds();
+        drawBG();
+        drawScale();
+        drawText();
+        drawHour(hour, minute);
+        drawMinute(minute);
+        drawSeconds(seconds);
+        ctx.restore();
+    }
+
+    drawClock();
+    setInterval(function () {
+        drawClock();
+    }, 1000);
+
+
+</script>
+</body>
+</html>
