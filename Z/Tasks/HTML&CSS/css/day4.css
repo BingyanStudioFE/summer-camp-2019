@@ -1,0 +1,36 @@
+.container {
+    width: 1500px;
+    margin: 0 auto;
+}
+
+.chart-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+table {
+    width: 95%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    height: 30px;
+    text-align: center;
+    border: 1px solid #5bc49f;
+}
+
+th {
+    background-color: #60acfc;
+    color: #fff;
+}
+
+td {
+    color: #1a1a1a;
+}
+
+td:hover {
+    background-color: #60acfc;
+    color: #fff;
+}
+

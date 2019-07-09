@@ -1,0 +1,463 @@
+body {
+    font-family: -apple-system, sans-serif;
+    font-size: 15px;
+    color: #1a1a1a;
+    background: #f6f6f6;
+}
+
+body, button, p, pre {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+ol, ul {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+}
+
+.Button {
+    display: inline-block;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
+.Button--blue {
+    color: #0084ff;
+    border-color: #0084ff;
+}
+
+.Button--link, .Button--plain {
+    height: auto;
+    padding: 0;
+    line-height: inherit;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+.Button--primary.Button--blue {
+    color: #fff;
+    background-color: #0084ff;
+}
+
+.Icon {
+    vertical-align: text-bottom;
+    fill: currentColor
+}
+
+.Popover {
+    position: relative;
+    display: inline-block;
+}
+
+.Input-wrapper {
+    position: relative;
+    display: flex;
+    width: 180px;
+    height: 34px;
+    padding: 4px 10px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.Input-wrapper.Input-wrapper--grey {
+    background: #f6f6f6;
+}
+
+.Input-wrapper.is-focus {
+    background: #fff;
+    border: 1px solid #8590a6;
+}
+
+.Input {
+    flex: 1 1;
+    padding: 0;
+    overflow: hidden;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.Input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input.Input {
+    color: #1a1a1a;
+    height: 24px;
+    line-height: 24px;
+}
+
+.Input-after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    transform: translate3d(0, -50%, 0);
+}
+
+.Tabs {
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.Tabs-item {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.Tabs-link {
+    position: relative;
+    display: inline-block;
+    padding: 14px 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.Tabs-link.is-active {
+    font-weight: 600;
+    font-synthesis: style;
+}
+
+.Tabs-link.is-active:after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: 3px;
+    background: #0084ff;
+    content: "";
+}
+
+.ZhihuLogo {
+    fill: #0084ff;
+}
+
+.AppHeader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-width: 1032px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(26, 26, 26, .1);
+    background-clip: content-box;
+    z-index: 999999;
+}
+
+.AppHeader-inner {
+    position: relative;
+    display: flex;
+    width: 1000px;
+    height: 52px;
+    padding: 0 16px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.AppHeader-Tabs {
+    border-bottom: none;
+    display: flex;
+    margin: 0 23px;
+}
+
+.AppHeader-Tab {
+    padding: 0 17px;
+}
+
+.AppHeader-TabsLink {
+    color: #8590a6;
+    font-size: 15px;
+}
+
+.AppHeader-TabsLink.is-active {
+    color: #444;
+}
+
+.SearchBar {
+    display: flex;
+}
+
+.SearchBar-toolWrapper {
+    position: relative;
+    z-index: 104;
+    width: 326px;
+}
+
+.SearchBar-tool {
+    position: relative;
+    float: left;
+    overflow: hidden;
+}
+
+.SearchBar-tool .Popover {
+    display: block;
+}
+
+.SearchBar-input {
+    width: 326px;
+    padding-left: 16px;
+}
+
+.SearchBar-focusedInput {
+    width: 400px;
+}
+
+.SearchBar-searchIcon {
+    position: absolute;
+    right: -11px;
+    top: -17px;
+    bottom: -17px;
+    background: transparent;
+    border: transparent;
+    padding: 0 12px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    transition: fill .3s ease;
+}
+
+.SearchBar-askButton {
+    z-index: 103;
+    padding: 0 14px;
+    margin-left: 16px;
+    line-height: 30px;
+}
+
+.AppHeader-userInfo {
+    flex: 1 1;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+.AppHeader-messages, .AppHeader-notifications {
+    margin-right: 40px;
+}
+
+.Messages-icon {
+    cursor: pointer;
+}
+
+.AppHeader-profile {
+    position: relative;
+}
+
+.Avatar {
+    background: #fff;
+    border-radius: 2px;
+}
+
+.AppHeader-profileAvatar {
+    vertical-align: top;
+}
+
+.AppHeaderProfileMenu-creatorHintPopover {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.AppHeaderProfileMenu-creatorHintToggler {
+    height: 30px;
+    width: 30px;
+}
+
+.PageHeader {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+
+.TopstoryTabs {
+    display: flex;
+    border-bottom: 1px solid #f6f6f6;
+    height: 58px;
+}
+
+.TopstoryTabs-link {
+    align-items: center;
+    display: flex;
+    font-size: 16px;
+    margin: 0 22px;
+}
+
+.TopstoryTabs-link.is-active {
+    color: #0084ff;
+    font-weight: 500;
+}
+
+.TopstoryPageHeader {
+    height: 52px;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.TopstoryPageHeader, .TopstoryPageHeader-main {
+    align-items: center;
+    display: flex;
+}
+
+.TopstoryPageHeader-main {
+    align-self: stretch;
+    flex: 1 1;
+}
+
+.TopstoryPageHeader-tabs {
+    align-self: stretch;
+    border-bottom: none;
+    padding-left: 18px;
+    height: 100%;
+}
+
+.TopstoryPageHeader-aside {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 296px
+}
+
+.SimpleSearchBar-wrapper {
+    margin: auto 0;
+}
+
+.TopstoryPageHeader-askButton {
+    padding: 0 14px
+}
+
+.SimpleSearchBar-input {
+    width: 296px;
+    background-color: #f6f6f6;
+}
+
+.TopstoryPageHeader-aside .TopstoryPageHeader-searchBar {
+    width: 216px;
+}
+
+.TopstoryPageHeader-aside .TopstoryPageHeader-searchButton {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    height: 32px;
+    padding: 0 12px;
+}
+
+.SimpleSearchBar-wrapper .Input-after {
+    right: -1px;
+}
+
+.app-main {
+    position: relative;
+    top: 52px;
+}
+
+.app-content {
+    display: flex;
+    align-items: flex-start;
+    width: 1000px;
+    padding: 0 16px;
+    margin: 10px auto;
+}
+
+.story-container {
+    width: 694px;
+    height: 1000px;
+    padding-bottom: 20px;
+    background: #f6f6f6;
+}
+
+.app-main-column {
+    margin-right: 10px;
+}
+
+.side-bar {
+    width: 296px;
+    height: 500px;
+    background: #f6f6f6;
+}
+
+.card {
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 5px gray;
+}
+
+.card:hover {
+    transform: scale(1.01);
+}
+
+.story-item {
+    padding: 16px 20px;
+}
+
+.tabs {
+    width: 296px;
+    height: 175px;
+}
+
+.tabs .wrapper {
+    padding: 0 10px;
+    margin: 20px 0 -5px;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tabs .wrapper div {
+    width: 92px;
+    height: 55px;
+    padding-bottom: 10px;
+}
+
+.tabs .wrapper div a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabs .wrapper div a svg {
+    padding-bottom: 10px;
+}
