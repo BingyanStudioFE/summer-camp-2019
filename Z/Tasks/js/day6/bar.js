@@ -28,7 +28,7 @@ function getSale(data) {
 let Bar = {
     graphWidth: 700,
     graphHeight: 300,
-    graphPadding: 25,
+    graphPadding: 10,
     barGap: 12,
     barColor: ["#27a1ea", "#9cdc82", "#ff9f69", "#d660a8", "#6370de", "#32d3eb", "#d4ec59", "#feb64d", "#b55cbd"],
     axisColor: "#000",
@@ -44,7 +44,7 @@ let Bar = {
             const axisWidth = Bar.graphWidth - Bar.graphPadding;
             const axisHeight = Bar.graphHeight - Bar.graphPadding;
             const barWidth = ((axisWidth - Bar.barGap * 15) / 12) / data.length;
-            const rate = dataMax / axisHeight;
+            const rate = dataMax / (axisHeight-5);
 
             let barHtml = [];
             barHtml.push("<line x1=" + Bar.graphPadding + " y1=0 x2=" + Bar.graphPadding + " y2=" + axisHeight + " stroke=" + Bar.axisColor + " stroke-width='2'/>");
