@@ -19,13 +19,3 @@ for (let i = 0; i < 2; i++) {
         renderTable(tableWrapper, data);
     }
 }
-// region.onchange = function () {
-//     let data = getData();
-//     drawBar(data);
-//     renderTable(tableWrapper, data);
-// };
-// product.onchange = function () {
-//     let data = getData();
-//     drawBar(data);
-//     renderTable(tableWrapper, data);
-// };

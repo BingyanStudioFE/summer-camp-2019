@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day5</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="../css/day5.css">
+</head>
+<body>
+<div class="container">
+    <form id="checkbox-wrapper">
+        <div id="region-radio-wrapper">
+            <label>
+                <input type="checkbox" name="all-region" value="全选" checkbox-type="all">
+            </label>全选
+            <label>
+                <input type="checkbox" name="area" value="华东" checkbox-type="single" checked="checked">
+            </label>华东
+            <label>
+                <input type="checkbox" name="area" value="华南" checkbox-type="single">
+            </label>华南
+            <label>
+                <input type="checkbox" name="area" value="华北" checkbox-type="single">
+            </label>华北
+        </div>
+        <div id="product-radio-wrapper">
+            <label>
+                <input type="checkbox" name="all-product" value="全选" checkbox-type="all">
+            </label>全选
+            <label>
+                <input type="checkbox" name="goods" value="手机" checkbox-type="single" checked="checked">
+            </label>手机
+            <label>
+                <input type="checkbox" name="goods" value="笔记本" checkbox-type="single">
+            </label>笔记本
+            <label>
+                <input type="checkbox" name="goods" value="智能音箱" checkbox-type="single">
+            </label>智能音箱
+        </div>
+    </form>
+    <div class="chart-wrapper">
+        <svg id="bar-graph"></svg>
+        <canvas id="line-chart"></canvas>
+    </div>
+    <div id="table-wrapper"></div>
+</div>
+<script src="../../js/day5/sourceData.js"></script>
+<script src="../../js/day5/getData.js"></script>
+<script src="../../js/day5/checkbox.js"></script>
+<script src="../../js/day5/table.js"></script>
+<script src="../../js/day5/bar.js"></script>
+<script src="../../js/day5/line.js"></script>
+<script src="../../js/day5/app.js"></script>
+</body>
+</html>
