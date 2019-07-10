@@ -1,0 +1,60 @@
+.TopBar{
+	height: 58px;
+	width: 100%;
+	border-bottom: 1px solid #F2F3F4;
+}
+.TopBara{
+	width: 32px;
+	height: 58px;
+	margin-left: 22px;
+	margin-right: 22px;
+	line-height: 58px;
+}
+.PostPanel{
+	width: 100%;
+	border-bottom: 1px solid #F2F3F4;
+}
+.AppBody{
+	width: 66%;
+	height: 1000px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 60px;
+}
+.MainPanel{
+	width: 69%;
+	height: 100%;
+	border: #2196F3;
+	border-width: 3px;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0px 0px 2px #E0E0E0;
+}
+.RightPanel{
+	width: 30%;
+	height: 100%;
+	border: #2196F3;
+	background: white;
+	border-width: 3px;
+	box-shadow: 0px 0px 2px #E0E0E0;
+}
+.PostContent{
+	margin: auto;
+	width:94%;
+	margin-top: 20px;
+	margin-bottom: 8px;
+}
+.PostBar{
+	width: 94%;
+	margin: auto;
+}
+.ApproveButton{
+	height: 30px;
+	background: #99CCFF;
+	color: #3300FF;
+	border-radius: 3px;
+	text-align: center;
+}
