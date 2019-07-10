@@ -454,14 +454,825 @@ sayName是obj的方法
 
   根据函数的调用方式不同，this会指向不同的对象。
 
-- 1.以函数的形式的调用
+  **1.以函数的形式的调用 this是window**
 
-- 2.以方法的形式的调用
+  **2.以方法的形式的调用 this是调用方法的对象**
 
-​                         
+  **3.以构造函数出现时，this就是新构造的这个对象**
 
-​                  
+  
+
+  ```
+  var name="全局";
+  
+  functiion fun(){
+  
+  console.log(this.name);
+  
+  }
+  
+  var obj
+  
+  {
+  name:"孙悟空"，
+  
+  sayname:fun
+  
+  }
+  
+  var obj2
+  
+  {
+  name:"沙和尚"
+  
+  sayname：fun
+  
+  }
+  
+  obj.sayname();
+  ```
+
+   
+
+- 用工厂方法创建对象
+
+  f`unction createPerson(name,age,gender){`
+
+  
+
+  ​     `var obj=new Object();`
+
+  ​     `obj.name=name；`
+
+  ​     `obj.age=age;`
+
+  ​     `obj.gender=gender;`
+
+  ​    `return obj;`
+
+  `}`
+
+  `var obj2=createPerson("abc","18","male");`
+
+  `var obj3=createPerson("efg","14","female");`
+
+  `console.log(obj2);`
+
+  `console.log(obj3);`
+
+使用工厂方法创建的对象，使用的构造函数都是Object，所以创造的对象都是object这个类型，无法区分多种对象。
+
+- 构造函数
+
+  构造函数与普通函数的区别就是调用方式的不同
+
+  普通函数是直接调用，构造函数需要使用new的关键字调用。
+
+  执行过程：
+
+  1.立刻创建一个新的对象
+
+  2.将新建的对象设置为函数中this，在构造函数中可以使用this来引用新建的对象
+
+  3.逐行执行函数中的代码
+
+  4.将新建的对象作为返回值返回
+
+`
+
+```
+function Person(name,age,gender)`
+
+`{`
+
+`this.name=name;`
+
+`this.age=age;`
+
+`this.gender=gender;`
 
 
 
+`}`
+
+`var per = new Person("abc",11,"male");`
+
+`var per1 = new Person("cde",13,"female");`
+
+`console.log(per);`
+
+`console.log(per1);
+```
+
+`
+
+使用同一个构造函数的对象称为同一类的对象，使用**instanceof**可以检查一个对象是否是一个类的实例
+
+`console.log(per instanceof Person);`
+
+true/false
+
+所有的对象都是object的后代，所以任何对象和object作instanceof都是true。
+
+构造函数中的方法共享问题，避免资源浪费
+
+`
+
+```
+`function Person(name,age,gender)`
+
+`{`
+
+`this.name=name;`
+
+`this.age=age;`
+
+`this.gender=gender;`
+
+`this.sayname=fun;`
+
+`}`
+
+`function fun()`
+
+`{`
+
+   `alert(this.name);`
+
+`}`
+
+`var per = new Person("abc",11,"male");`
+
+`var per1 = new Person("cde",13,"female");`
+
+`console.log(per);`
+
+`console.log(per1);`
+
+`per.sayname();`
+
+`per1.sayname();
+```
+
+`
+
+**原型对象**
+
+将方法定义在全局作用域中，污染了全局作用域的命名空间，也不安全。
+
+原型 prototype
+
+我们所创建的每一个函数，解析器都会向函数中添加一个属性prototype。
+
+这个属性对应着一个对象，这个对象就是我们所谓的原型对象。
+
+如果函数作为普通函数调用prototype没有任何作用。
+
+当函数以构造函数的形式调用时，他所创建的对象会有一个隐含的属性，指向该构造函数的原型对象，我们可以通过`__proto__`来访问
+
+`console.log(mc.__proto__==MyClass.prototype);`
+
+![1562649590433](C:\Users\15905\AppData\Roaming\Typora\typora-user-images\1562649590433.png)
+
+`
+
+```
+function Person(name,age,gender)`
+
+`{`
+
+`this.name=name;`
+
+`this.age=age;`
+
+`this.gender=gender;`
+
+`Person.prototype.a=123;`
+
+`}`
+
+
+
+`var per = new Person("abc",11,"male");`
+
+`var per1 = new Person("cde",13,"female");`
+
+
+```
+
+`console.log(per.a);`
+
+当我们访问对象的一个属性或者放法时，会先在对象自身中寻找，如果有则直接使用，如果没有则会去原型对象中寻找。
+
+以后构造函数时，可以将这些对象共有的属性和方法，统一添加到构造函数的原型对象中，这样可以不用给每个函数分别添加，也不会影响全局作用域。
+
+`console.log(name.hasOwnProperty)==TRUE?`
+
+检查对象自身中含有该属性。
+
+原型对象也是对象，所以他也有原型，当我们使用一个对象的属性或方法时，会现在自身中查找，自身中如果没有，去原型中找，原型再没有，去原型的原型中查找，直到找到Object对象的原型，object对象的原型没有原型。
+
+to string方法
+
+在页面打印一个对象是，实际上是输出的对象的to string()方法的返回值。
+
+`
+
+```
+console.log(per)==console.log(per.toString())`
+
+`[object object]`
+
+`console.log(per.__proto__.__proto__.hasOwnProperty("toString"))`
+
+`per.prototype.toString=function(){`
+
+`return "Person[name="+this.name+",age="+this.age+",gender="this.gender"]"`}                                                     
+
+
+```
+
+
+
+- **call和apply**
+
+这两个方法都是函数对象的方法，需要通过函数对象来调用。
+
+fun.call(obj)
+
+可以将一个对象指定为第一个参数，并成为执行时的this
+
+
+
+
+
+### 垃圾回收
+
+`var obj=new Object();`
+
+`obj=null;`
+
+当一个对象没有任何变量或属性对他进行引用，此时我们将永远无法操作该对象。此时称之垃圾，这种对象过多会占用大量的内存空间，导致程序运行变慢。
+
+JS中自动垃圾回收机制。需要将不需要的对象设置为null，使其被自动回收。
+
+
+
+## **（五）数组**
+
+数组也是一种对象。
+
+属性：arr.length
+
+> 大于空，小于删除。
+
+
+
+在数组的最后新添加一个数
+
+> `arr[arr.length]=70；`
+
+创建一个新数组
+
+> `var arr = new Array(10);`
+>
+> `arr.hello="abc";`
+
+用字面量创建一个新数组
+
+> `var arr=[];`
+
+array里面可以是任意数据类型
+
+> `arr=["hello",1,true,null,undefined]`
+
+也可以是对象
+
+> `var obj={name:"abc"};`
+>
+> `arr[arr.length]=obj;`
+>
+> `console.log(arr[0].name);`
+
+也可以函数
+
+> `arr=[function(){alert(1)},function(){alert(2)}];`
+
+- 四个方法
+
+1. **push()**
+
+   `arr.push("abc","bcd","efg");`
+
+   元素自动添加到数组的末尾，
+
+   返回值是增加长度以后的数组长度。
+
+2. **pop()**
+
+   删除并返回数组的最后一个元素
+
+3. **unshift()**
+
+   向数组的开头添加一个或多个元素，并返回新的数组长度。其他元素的索引依次后推。
+
+4. **shift()**
+
+   删除数组的第一个元素，并将被删除的元素作为返回值返回。
+
+
+
+`
+
+```
+function Person(name,age,gender)`
+
+`{`
+
+`this.name=name;`
+
+`this.age=age;`
+
+`this.gender=gender;`
+
+`}`
+
+
+```
+
+乱写的(数组遍历结合方法)
+
+`
+
+```
+var per1 = new Person("cde",13,"female");
+var per2=new Person("ghk",19,"male");
+var per3=new Person("sdh",29,"female");
+
+
+
+var arr= new Array(4);
+
+arr=[per,per1,per2,per3];
+
+
+
+function adult(arr) {
+
+var newarr= new Array();
+
+
+
+for(var i=0;i<arr.length;i++)
+
+{
+
+   if(arr[i].age>18)
+    newarr.push(arr[i].name);
+
+}
+return newarr;
+
+}
+
+adult(arr);
+
+console.log(newarr);
+
+
+```
+
+**for each方法**
+
+> 只支持IE8以上的浏览器
+
+像这样的函数，由我们创建但是不由我们调用，我们称为回调函数。数组中有**几个元素函数就会执行几次。**
+
+`arr.forEach(function(){`
+
+`console.log("hello")`
+
+`})`;
+
+数组的元素会以实参传递进来，我们可以定义形参，来读取这些内容。
+
+`arr.forEach(function(a)){`
+
+`console.log("a="+a);`
+
+`}`;
+
+浏览器会在回调函数中传递三个参数：
+
+**1.当前正在遍历的元素**
+
+**2.遍历的元素的索引**
+
+**3.正在遍历的数组**
+
+`function(value,index,obj)`
+
+
+
+**slice方法**
+
+从数组中提取元素
+
+`arr.slice(start,end)`
+
+参数：开始时的索引；结束时的索引（实际要的元素+1）。
+
+该方法不会改变原数组，而将截取的元素封装到新数组并返回。
+
+`var result=arr.slice(0,2);`
+
+第二个参数可以不写，此时会截取之后所有元素。
+
+可以传负值，-1表示最后一个元素，以此类推
+
+
+
+splice
+
+删除元素并向数组添加新元素
+
+会影响原数组，并将指定元素从原数组中删除，并将删除的元素作为返回值返回。
+
+参数：表示开始位置的索引，表示删除的数量。
+
+**元素去重练习**
+
+> ```
+> var arr=[1,2,3,1,3,2,3,4];
+> 
+> function adult(arr)` 
+> 
+> {
+> 
+> for(var i=0;i<arr.length;i++)
+> 
+>    for(var j=i+1;j<arr.length;j++)
+> {
+> 
+> if(arr[i]==arr[j])`
+> 
+> {
+> 
+> arr.splice(j,1);`
+> 
+> j--;`
+> 
+> }
+> 
+> }
+> }
+> 
+> adult(arr);
+> 
+> console.log(arr);
+> ```
+
+​        concat方法
+
+​         可以连接两个和多个数组，并将新数组返回，但不会对原数组产生影响。
+
+​       join()
+
+​       该方法可以把数组转换成字符串，不会对原数组产生影响
+
+​      arr.join("-")可以指定连接符，没有指定就默认，连接。
+
+​       reverse 反转数组 会修改原数组
+
+​       arr.sort()
+
+​       可以用数组中的元素进行排列，默认按照Unicode编码，从小到大排列。
+
+​       但是排数字会出现问题。
+
+arr.sort()中添加回调函数
+
+```
+arr.sort(function(a,b){`
+
+`if(a>b)`
+
+`{`
+
+`return 1;`
+
+`}`
+
+`{`
+
+`return -1;`
+
+`}`
+
+`else{`
+
+`return 0;`
+
+`}
+```
+
+`
+
+//return a-b;直接返回a-b
+
+- **String方法**
+
+字符数组，具有数组的特性
+
+string.length
+
+charAt(返回指定位置的字符）
+
+charAt（参数是索引）返回字符串中指定位置的字符
+
+string.fromCharCode
+
+indexOf()
+
+查找字符串是否含有制定内容。如果有，会返回第一次出现的索引，没有返回-1；第二个参数表示出现的次数-1.
+
+lastIndexOf从后往前找
+
+substring 开始位置，结束位置不包括该位置，传递参数为负，默认是0，第二个小于第一个会自动交换。
+
+substr 
+
+参数1 开始位置的索引 参数2 截取的长度
+
+str.split()根据某个符号把字符串拆成若干个数组
+
+toUpperClass 
+
+
+
+## （六）正则表达式
+
+用于定义字符串的规则；检查字符串是否符合规则
+
+- 创建正则表达式 var变量=new RegExp（”正则表达式“，匹配模式）
+
+  > var reg=new RegExp(a);
+
+- 检查一个表达式是否符合政策表达式的规则
+
+  > var str ="a";
+  >
+  > var result =reg .test(str);
+
+前一个参数”a”表示 字符串中必须要有a，后一个参数“i”表示忽略大小写，“g“表示全局匹配模式。
+
+- 语法
+
+  var 变量=/正则表达式/匹配模式
+
+  > var reg="a"/"i"   
+
+  使用字面量简单，使用构造函数灵活。
+
+  检查字符串中有a或b
+
+  var reg=/a|b/   var reg=/[ab]/
+
+  检查字符串中是否有字母
+
+  > reg=/[a-z]/i
+  >
+  > reg=/[A-z]/
+
+  检查一个字符串中是否含有abc,adc,aec
+
+  > reg=/a[bed]c/
+
+  除了xx字符
+
+  > reg=/[^ab}/
+
+- 字符串与正则表达式相关的应用
+
+  根据任意字母拆分
+
+  split（）
+
+  ```
+  var result =str.split(/[A-z]/)
+  ```
+
+  ```
+  var result=str.search("abcd")
+  ```
+
+  ```
+  var result=str.match(/[A-z]/g);
+  ```
+
+  match以数组形式返回，封装在数组中返回
+
+  ```javascript
+  var result=str.replace("a","@-@");
+  var result=str.replace(/a/g,"@-@");
+  var result=str.replace(/a/g,"");
+  ```
+
+- 量词
+
+  {}
+
+  ```javascript
+  var reg=/a{3}/    //量词只对前面的一个内容起作用
+  var reg=/ab{3}c/  //ac之间正好3个b不多不少
+  var reg=/ab{1,3}c/ //ac之间可以有1~3个b，","次以上
+  ```
+
+  +至少一个
+
+  *0个或多个
+
+  ？0个或一个
+
+  ```javascript
+  reg=/^a/;  //以a开头
+  reg=/a$/;  //以a结尾
+  reg=/^a$/; //只能是一个a
+  reg=/^a|a$/;  //以a开头或者以a结尾
+  ```
+
+- 检查一个手机号是否符合规则
+
+  ```javascript
+  var phoneStr="15232541625";
+  
+  var phoneReg=/^1[3-9][0-9]{9}$/;
+  
+  console.log(phoneReg.test(phoneStr));
+  ```
+
+- 检查字符串中是否有.
+
+  . 表示任意字符
+
+  在正则表达式中用\做转义字符
+
+  ```
+  var reg=/\./; \\ \.表示.    \\表示一个\
+  console.log(reg.test("b."));
+  ```
+
+  \w 任意字母、数字、_
+
+  \W 除了w
+
+  \d 有数字
+
+  \D除了数字
+
+  \s有空格
+
+  \S除了空格
+
+  \b 单词边界
+
+  \B除了单词边界
+
+  **检查边界**
+
+  ```
+  reg=/child/
+  console.log(reg.test("hello children" ));  //true
+  reg=/child\b/
+  console.log(reg.test("hello children"));   //false
+  ```
+
+  去除空格
+
+  ```
+  var str="     hello        "    
+  
+  str=str.replace("/\s/g","");//法1
+  console.log(str);
+  
+  str=str.replace(/^s*/,"");
+  str=str.replace(/s*&/,"");
+  str=str.replace(/^s*|s*$/g,"");
+  ```
+
+- 电子邮件的正则
+
+  ```
+  \w{3，} ( \. \w+)* @ [A-z0-9]+( \.[A-z]{2,5}){1,2}
+  var emailReg=/^\w{3，}( \. \w+)*@[A-z0-9]+( \.[A-z]{2,5}){1,2}$/;
+  ```
+
+  
+
+## （七）	其他对象
+
+**date对象**
+
+var d = new Date();
+
+console.log(d);
+
+封装为当时代码执行的时间
+
+var=new Date("12/03/2016")
+
+方法：
+
+getdate()/getday()/getmonth/getfullyear
+
+返回当前日期 日
+
+getTime 获取当前时间戳，格林威治时间1970.1.1.0.0.0到目前时间需要的事件（含负值，需判断当前位置）
+
+var start= Date.now();
+
+var end=Date.now();
+
+end-start 
+
+**math对象**
+
+Math是一个工具类，封装了数学相关属性和方法
+
+Math.PI
+
+Math.abs()
+
+Math.ceil()向上取整/floor
+
+Math.random()0~1之间
+
+Math.round(Math.random()*x)
+
+Math.round(Math.random()*(y-x)+x) 任意x-y
+
+Math.max/min/pow...
+
+包装类
+
+把基本数据类型转化为对象
+
+string()
+
+Number()
+
+boolean()
+
+var num=new Number(3)
+
+var s=123
+
+s=s.toString();
+
+## (八）DOM
+
+DOCUMENT
+
+OBJECT
+
+MODULE
+
+![1562676768457](C:\Users\15905\AppData\Roaming\Typora\typora-user-images\1562676768457.png)
+
+DOM树
+
+**节点：Node——构成HTML文档的最基本的单元**
+
+常用节点：
+
+文档节点：整个HTML文件
+
+元素节点：HTML标签
+
+属性节点：元素的属性
+
+文本节点：HTML文本内容
+
+浏览器已经为我们提供了文档节点，对象是window属性；
+
+可以在页面中直接使用，文档节点代表整个网页。
+
+```
+<button id="btn"></button>
+var btn=document.getElementById("btn")
+btn.innerHTML="i'm a button"
+```
+
+- 事件
+
+  用户与浏览器之间的交互行为
+
+  ```
+  <button id="btn" onclick="alert("hello");">
+  
+  ```
+
+  
+
+  
 
