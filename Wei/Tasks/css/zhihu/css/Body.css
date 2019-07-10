@@ -37,24 +37,94 @@
 	width: 30%;
 	height: 100%;
 	border: #2196F3;
-	background: white;
 	border-width: 3px;
-	box-shadow: 0px 0px 2px #E0E0E0;
 }
 .PostContent{
 	margin: auto;
 	width:94%;
 	margin-top: 20px;
-	margin-bottom: 8px;
+	margin-bottom: 16px;
 }
 .PostBar{
-	width: 94%;
+	width: 100%;
 	margin: auto;
+	display: flex;	
 }
 .ApproveButton{
 	height: 30px;
-	background: #99CCFF;
+	background: #E1F5FE;
 	color: #3300FF;
 	border-radius: 3px;
 	text-align: center;
+}
+p{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.WritePanel,.OtherFunction,.PersonalMessage{
+	box-shadow: 0px 0px 2px #E0E0E0;
+	width: 100%;
+	background: white;
+}
+.WritePanel{
+	height: 145px;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+#WritePanel1{
+	width: 84%;
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+#WritePanel2{
+	width: 100%;
+	height: 30%;
+	padding-left: 15%;
+}
+.OtherFunction{
+	padding: 8%;
+	box-sizing: border-box;
+	height: 175px;
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+#row1,#row2{
+	height: 40%;
+	display: flex;
+	justify-content: space-between;
+}
+#row2{
+	width: 65%;
+}
+#row1{
+	width: 100%;
+}
+.PersonalMessage{
+	height: 230px;
+	margin-top: 10px;
+	box-sizing: border-box;
+	padding-bottom: 3%;
+	padding-top: 3%;
+}
+.PersonalMessageItem{
+	height: 18%;
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 6%;
+}
+.icon{
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden
 }
