@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var allA = document.getElementsByTagName("a");
+            //删除记录
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].onclick = function () {
+                    //点击超链接会跳转页面，这是超链接的默认行为,因此要return flase
+                    var tr = this.parentNode.parentNode;
+                    var name = tr.getElementsByTagName("td")[0].innerHTML;
+                    //弹出提示框
+                    var flag = confirm("确认删除" + name + "吗？");
+                    if (flag) {
+                        tr.parentNode.removeChild(tr);
+                    }
+
+
+                }
+            }
+            var add = document.getElementById("add");
+            add.onclick = function () {
+
+                var name = document.getElementById("empName").value;
+                var email = document.getElementById("email").value;
+                var salary = document.getElementById("salary").value;
+
+
+                var tr = document.createElement("tr");
+              
+
+                var a = document.createElement("a");
+                a.onclick = function () {
+                    var allA = document.getElementsByTagName("a");
+                    //删除记录
+                    for (var i = 0; i < allA.length; i++) {
+                        allA[i].onclick = function () {
+                            //点击超链接会跳转页面，这是超链接的默认行为,因此要return flase
+                            var tr = this.parentNode.parentNode;
+                            var name = tr.getElementsByTagName("td")[0].innerHTML;
+                            //弹出提示框
+                            var flag = confirm("确认删除" + name + "吗？");
+                            if (flag) {
+                                tr.parentNode.removeChild(tr);
+                            }
+
+
+                        }
+                    }
+
+                }
+
+                var nameText = document.createTextNode(name);
+                var emailText = document.createTextNode(email);
+                var salaryText = document.createTextNode(salary);
+                var deleteText = document.createTextNode("Delete");
+
+                nameTd.appendChild(nameText);
+                salaryTd.appendChild(salaryText);
+                emailTd.appendChild(emailText);
+                a.appendChild(deleteText);
+                aTd.appendChild(a);
+
+                tr.appendChild(nameTd);
+                tr.appendChild(salaryTd);
+                tr.appendChild(emailTd);
+                tr.appendChild(aTd);
+
+                var employeeTable = document.getElementById("employeeTable");
+                var tbody = employeeTable.getElementsByTagName("tbody")[0];
+               /* tr.innerHTML="<td>"+name+"</td>"+
+                             "<td>"+email+"</td>"+
+                             "<td>"+salary+"</td>"+
+                             " <td><a href='javascript:;'>Delete</a></td>";*/
+
+
+
+
+
+            }
+
+
+        }
+            //添加员工的信息
+
+    </script>
+</head>
+
+<body>
+    <table id="employeeTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&NonBreakingSpace;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>Tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="javascript:;">Delete</a></td>
+
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>Jerry@sohu.com</td>
+            <td>8000</td>
+            <td> <a href="javascript:;"> Delete</a></td>
+
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>Bob@sohu.com</td>
+            <td>10000</td>
+            <td><a href="javascript:;">Delete</a></td>
+
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td class="word">Name: </td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName" />
+            </td>
+        </tr>
+        <tr>
+            <td class="word">Email: </td>
+            <td class="inp">
+                <input type="text" name="email" id="email" />
+            </td>
+        </tr>
+        <tr>
+            <td class="word">Salary: </td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" text-align="center">
+                <button id="add" value="abc">Submit</button>
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+</html> 
