@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移上去显示图片或者二维码</title>
+</head>
+<body>
+<div>
+    <svg width="500" height="100">
+        <rect id="rect1" x="10" y="10" width="50" height="80"
+              style="stroke:#000000; fill:none;"></rect>
+    </svg>
+    <input id="button1" type="button" value="Change Dimensions"
+           onclick="changeDimensions()"/>
+</div>
+
+<script>
+    var svgElement = document.querySelector("rect");
+    svgElement.addEventListener("mouseover", mouseOver);
+
+    function mouseOver() {
+        alert("event fired!");
+    }
+</script>
+</body>
+</html>
