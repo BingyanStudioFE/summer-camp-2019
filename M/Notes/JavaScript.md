@@ -1217,8 +1217,103 @@ Math.max/min/pow...
 
 把基本数据类型转化为对象
 
-string()
+- 事件
 
+  用户与浏览器之间的交互行为
+
+  ```
+  <button id="btn" onclick="alert('hello');">
+  <button id="btn" ondblclick="alert('hello');">
+  <button id="btn" onmousemove="alert('hello')";>
+  //这种写法结构与行为耦合
+  
+  ```
+
+  
+
+  ```
+  <button id="btn"></button>//定义一个按钮
+  var btn = document.getElementById("btn");//获取按钮对象
+  btn.onclick = function()
+  {
+  alert("hello");
+  }
+  ```
+
+- 文档的加载
+
+  自上而下执行代码。
+
+  将js代码编写到页面的下部就是为了可以在页面加载完毕后再执行js代码。
+
+  **onload函数**
+
+   可以在head里写script，onload事件在window里绑定一个onload事件，事件对应的响应函数会在加载完成之后执行。这样可以确保我们的代码在所有的DOM对象已经加载完毕了。
+
+```
+  window.onload = function(){
+  var btn = document.getElmentById("btn");
+  btn.onclick = function(){
+  alert("hello");
+     };
+  };
+  ```
+
+  最优的写下面：使页面加载速度变快。
+
+  
+
+  
+
+###  dom查询
+
+
+
+- 获取元素对象的方法
+
+  通过document对象调用
+
+  getElementById
+
+  通过id属性获取一个元素节点对象
+
+  getElementsByTagName()
+
+  通过标签名获取一组元素节点对象
+
+  getElementsByName()
+
+  通过name属性获取一组元素对象属性
+
+  ```
+  var btn01=document.getElementById("btn01")
+  btn01.onclick=function{
+  var bj=document.getElementById("bj");
+  alert(bj.innnerHTML);
+  }
+  
+  
+  var btn02 =document.getElementById("btn02");
+  btn02.onclick = function(){
+  var lis =document.getElementsByTagName("li");//返回一个类数组对象
+  }
+  for(var i=0;i<lis.length;i++){
+  alert(lis[i].innerHTML);
+  }
+  
+  var btn02=document.getElementById("btn03");
+  btn03.onclick=function{
+  var input=document.getElementsByName("gender");
+  alert("inputs[i].innerHTML")//报错，input是自闭合标签，没有innerHT。
+  }
+  alert(input[i].name);
+  alert(input[i].value);
+   /*若要读取元素的节点属性，直接使用元素.属性名，但是class是JS的保留字不能采用这种方式，读取class属性时需要使用元素.className*/
+   
+  ```
+
+  ## 图片切换练习string()
+```
 Number()
 
 boolean()
@@ -1229,50 +1324,483 @@ var s=123
 
 s=s.toString();
 
-## (八）DOM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    *{
+        margin:0;
+        padding:0;
+    }
+    #container{
+          width:100px;
+          margin:50px auto;
+          padding:10px;
+          background-color:blue;
+          text-align:center;
 
-DOCUMENT
+    }
 
-OBJECT
-
-MODULE
-
-![1562676768457](C:\Users\15905\AppData\Roaming\Typora\typora-user-images\1562676768457.png)
-
-DOM树
-
-**节点：Node——构成HTML文档的最基本的单元**
-
-常用节点：
-
-文档节点：整个HTML文件
-
-元素节点：HTML标签
-
-属性节点：元素的属性
-
-文本节点：HTML文本内容
-
-浏览器已经为我们提供了文档节点，对象是window属性；
-
-可以在页面中直接使用，文档节点代表整个网页。
+    </style>
+    <script>
+    window.onload=function(){
+        var index=0;
+        var prev=document.getElementById("prev");
+        var next=document.getElementById("next");
+        var img = document.getElementsByTagName("img")[0];
+        var imgArr=["美食.png","音乐.png","汽车.png","游戏.png","直播.png"];
+        prev.onclick=function()
+        {
+            index--;
+            if(index<0)
+            {
+                index=imgArr.length-1;
+            }
+            img.src=imgArr[index];
+        }
+        next.onclick=function()
+        {
+            index++;
+            if(index>imgArr.length-1)
+            {
+                index=0;
+            }
+            img.src=imgArr[index];
+        }
+    }
+    </script>
+<code></head>
+<body>
+    <div id="container">
+       <img src="美食.png"/>
+       <button id="prev">上一张</botton>
+       <button id="next">下一张</button>
+    </div>
+</body>
+</html></code>
 
 ```
-<button id="btn"></button>
-var btn=document.getElementById("btn")
-btn.innerHTML="i'm a button"
+### 获取父节点和兄弟节点
+
+parentNode 当前节点的父节点
+
+previousSibling
+
+nextSibling
 ```
+function myclick(idStr,fun)
+        {
+            //定义一个按钮专门用来绑定一个单机响应函数
+            var btn=document.getElementById("idStr");
+            btn.click=fun;
+        }
+  myclick("btn07",function(){
+            var bj= document,getElementById("bj");
+            var pn= bj.parentNode;
+            alert(pn.innerHTML);//带标签
+            alert(pn.innerText);//将html去除
+        })
+ ```
+ ```
+ <!DOCTYPE html>
+<html lang="en">
 
-- 事件
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全选练习</title>
+    <script type="text/javascript">
+    window.onload=function()
+    {
+         //全选
+         var checkedAllBtn = document.getElementById("checkedAllBtn");
+         var items = document.getElementsByName("items");
+        checkedAllBtn.onclick = function () {
+            
+            for (var i = 0; i < items.length; i++) {
 
-  用户与浏览器之间的交互行为
+                items[i].checked =true;
+            }
+        }
+        console.log(checkedAllBtn);
+        //全不选
 
-  ```
-  <button id="btn" onclick="alert("hello");">
-  
-  ```
+        var checkedNoBtn = document.getElementById("checkedNoBtn");
+         checkedNoBtn.onclick=function () {
+            for (var i = 0; i < items.length; i++) {
 
-  
+               items[i].checked = false;
+            }
 
-  
+            }
 
+           //反选
+      
+            var checkedRevBtn = document.getElementById("checkedRevBtn");
+            checkedRevBtn.onclick= function() {
+
+            for (var i = 0; i < items.length; i++) {
+               if(items[i].checked==true)
+               {
+                items[i].checked = false;
+
+               }else 
+
+               {
+                   items[i].checked=true;
+              
+               }
+
+            }
+        }
+
+
+//全选框
+var checkedAllBox=document.getElementById("checkedAllBox");
+     checkedAllBox.onclick=function()
+     {
+
+      for(var i=0;i<items.length;i++)
+      {
+          items[i].checked=checkedAllBox.checked;   
+      }
+
+     }
+   //反选
+      
+            var checkedRevBtn = document.getElementById("checkedRevBtn");
+            checkedRevBtn.onclick= function() {
+
+            for (var i = 0; i < items.length; i++) {
+               if(items[i].checked==true)
+               {
+                items[i].checked = false;
+
+               }else 
+
+               {
+                   items[i].checked=true;
+              
+               }
+
+            }
+        }
+
+
+//全选框
+var checkedAllBox=document.getElementById("checkedAllBox");
+     checkedAllBox.onclick=function()
+     {
+
+      for(var i=0;i<items.length;i++)
+      {
+          items[i].checked=checkedAllBox.checked;   
+      }
+
+     }
+        
+   
+//如果四个多选框都选中，checkedAllBox也选中
+    for(var i=0;i<items.length;i++)
+    {
+        items[i].onclick=function(){
+            checkedAllBox.checked=true; 
+            for(var j=0;j<items.length;j++)
+            {
+             
+              if(!items[j].checked)
+               {
+               checkedAllBox.checked=false;
+               }
+            }
+            
+        }
+    }
+    }
+
+       
+    </script>
+ 
+</head>
+
+<body>
+    <form methed="post" action="">
+        你爱好的运动是？<input type="checkbox" id="checkedAllBox" />全选/全不选
+        <br />
+        <input type="checkbox" name="items" value="足球" /> 足球
+        <input type="checkbox" name="items" value="篮球" /> 篮球
+        <input type="checkbox" name="items" value="羽毛球" /> 羽毛球
+        <input type="checkbox" name="items" value="乒乓球" /> 乒乓球
+        <br />
+        <input type="button" id="checkedAllBtn" value="全选" />
+        <input type="button" id="checkedNoBtn" value="全不选" />
+        <input type="button" id="checkedRevBtn" value="反选" />
+        <input type="button" id="sendBtn" value="提交" />
+    </form>
+</body>
+
+</html>
+```
+###dom剩余方法
+```
+var body= document.body//获取body对象
+
+var html=document.documentElement;//获取标签
+
+document.all;//获取页面中所有的元素
+
+var box1=document.getElementByClassName("box1");//获取页面中的一组对象，该方法不支持IE8以上的。
+
+var divs=document.getElementByTagName("div");//class为box1中所有的div
+
+document.querySelector();//需要一个选择器的字符串作为参数，可以根据css选择起来查询元素节点对象
+document.querySelector(".box1 div");
+document.querySelector(".box1");
+
+var box1=document.querySelectorAll(".box1");//IE8以上，不同是它会将所有的对象封装到一个数组里。
+```
+###DOM增删
+```
+//增加一个节点
+window.onload=function(){
+function myclick(idStr,fun)
+        {
+            //定义一个按钮专门用来绑定一个单机响应函数
+            var btn=document.getElementById("idStr");
+            btn.click=fun;
+        }
+myclick("btn01",function()
+{
+var li=document.createElement("li");//创造一个li节点
+var gzText=document.createTextNode("广州");//创造一个文本节点
+li.appendNode=gzText//将text节点作为li的子节点
+var city= document.getElementById("city");
+city.appendNode=li;//将li作为city的子节点
+//添加子节点许添加直至其父节点可以在页面中显示出来
+})
+}
+
+
+//在制定的子节点前插入新的节点
+window.onload=function(){
+function myclick(idstr,fun)
+{
+var btn=document.getElementById("idStr")
+btn.click=fun;
+}
+myclick("btn02",function())
+{
+var li=document.createElement("li");
+var gzText=document.createTextNode("广州")；
+li.appendNode=gzText
+city.insertBefore(li,bj);
+}
+
+}
+
+//替换兄弟节点
+window.onload=function(){
+function myclick(idstr,fun)
+{
+var btn=document.getElementById("idStr")
+btn.click=fun;
+}
+myclick("btn02",function())
+{
+var li=document.createElement("li");
+var gzText=document.createTextNode("广州")；
+li.appendNode=gzText;
+var city=document.getElementById("city");
+city.replaceChild(li,bj);//被替换的在后面
+}
+
+}
+
+//删除兄弟节点
+window.onload=function(){
+function myclick(idstr,fun)
+{
+var btn=document.getElementById("idStr")
+btn.click=fun;
+}
+myclick("btn02",function())
+{
+var city=document.getElementById("city");
+city.removeChild(li,bj);//被替换的在后面
+}
+
+}
+
+//如果不知道父节点想要删除某个子节点
+bj.parentNode.removerChild(bj);
+
+//添加一个节点的另外一个方法(不建议使用)
+city.innerHTML+="<li>广州</li>""
+
+//混合使用
+var li=document.getElementId("li");
+li.innerHTML="广州";
+var city=document.getElementId("city");
+city.appendNode=li;
+```
+###员工表练习
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var allA = document.getElementsByTagName("a");
+            //删除记录
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].onclick = function () {
+                    //点击超链接会跳转页面，这是超链接的默认行为,因此要return flase
+                    var tr = this.parentNode.parentNode;
+                    var name = tr.getElementsByTagName("td")[0].innerHTML;
+                    //弹出提示框
+                    var flag = confirm("确认删除" + name + "吗？");
+                    if (flag) {
+                        tr.parentNode.removeChild(tr);
+                    }
+
+
+                }
+            }
+            var add = document.getElementById("add");
+            add.onclick = function () {
+
+                var name = document.getElementById("empName").value;
+                var email = document.getElementById("email").value;
+                var salary = document.getElementById("salary").value;
+
+
+                var tr = document.createElement("tr");
+                var nameTd = document.createElement("td");
+                var emailTd = document.createElement("td");
+                var salaryTd = document.createElement("td");
+                var aTd = document.createElement("td");
+
+                var a = document.createElement("a");
+                a.href = "javascript:;"
+                a.onclick = function () {
+                    var allA = document.getElementsByTagName("a");
+                    //删除记录
+                    for (var i = 0; i < allA.length; i++) {
+                        allA[i].onclick = function () {
+                            //点击超链接会跳转页面，这是超链接的默认行为,因此要return flase
+                            var tr = this.parentNode.parentNode;
+                            var name = tr.getElementsByTagName("td")[0].innerHTML;
+                            //弹出提示框
+                            var flag = confirm("确认删除" + name + "吗？");
+                            if (flag) {
+                                tr.parentNode.removeChild(tr);
+                            }
+
+
+                        }
+                    }
+
+                }
+
+                var nameText = document.createTextNode(name);
+                var emailText = document.createTextNode(email);
+                var salaryText = document.createTextNode(salary);
+                var deleteText = document.createTextNode("Delete");
+
+                nameTd.appendChild(nameText);
+                salaryTd.appendChild(salaryText);
+                emailTd.appendChild(emailText);
+                a.appendChild(deleteText);
+                aTd.appendChild(a);
+
+                tr.appendChild(nameTd);
+                tr.appendChild(salaryTd);
+                tr.appendChild(emailTd);
+                tr.appendChild(aTd);
+
+                var employeeTable = document.getElementById("employeeTable");
+                var tbody = employeeTable.getElementsByTagName("tbody")[0];
+                tbody.appendChild(tr);
+
+
+
+
+            }
+
+
+        }
+            //添加员工的信息
+
+    </script>
+</head>
+
+<body>
+    <table id="employeeTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&NonBreakingSpace;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>Tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="javascript:;">Delete</a></td>
+
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>Jerry@sohu.com</td>
+            <td>8000</td>
+            <td> <a href="javascript:;"> Delete</a></td>
+
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>Bob@sohu.com</td>
+            <td>10000</td>
+            <td><a href="javascript:;">Delete</a></td>
+
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td class="word">Name: </td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName" />
+            </td>
+        </tr>
+        <tr>
+            <td class="word">Email: </td>
+            <td class="inp">
+                <input type="text" name="email" id="email" />
+            </td>
+        </tr>
+        <tr>
+            <td class="word">Salary: </td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" text-align="center">
+                <button id="add" value="abc">Submit</button>
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>
+```
