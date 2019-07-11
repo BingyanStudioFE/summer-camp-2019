@@ -1,0 +1,105 @@
+body {
+    background: #f7f7f7;
+}
+
+.container {
+    width: 1500px;
+    margin: 0 auto;
+}
+
+#button-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+#button-wrapper button {
+    font-size: 16px;
+    height: 40px;
+    width: 60px;
+    margin: 10px;
+    color: #fff;
+    border: none;
+    background-color: #0084ff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#button-wrapper button:hover {
+    background-color: #0084da;
+}
+
+
+.select-wrapper {
+    display: flex;
+}
+
+.chart-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+#checkbox-wrapper {
+    width: 300px;
+    margin-left: 25px;
+}
+
+.card {
+    margin: 10px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 10px grey;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+th {
+    background-color: #60acfc;
+    color: #ffffff;
+}
+
+td {
+    color: #1a1a1a;
+}
+
+tr:hover {
+    background-color: #60acd0;
+}
+
+td:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+tr td:first-child {
+    background-color: #f7f7f7;
+}
+
+#editable {
+    display: flex;
+    width: 200px;
+    padding: 0;
+}
+
+#editable button {
+    width: 50px;
+    margin: 1px;
+    border: none;
+    color: #fff;
+    background-color: #0084ff;
+    cursor: pointer;
+}
+
+#input {
+    width: 100px;
+    font-size: 16px;
+}

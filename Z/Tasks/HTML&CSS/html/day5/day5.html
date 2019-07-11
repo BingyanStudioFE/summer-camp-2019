@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>day4</title>
+    <title>day5</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <link rel="stylesheet" href="../css/day4.css">
+    <link rel="stylesheet" href="../../css/day5.css">
 </head>
 <body>
 <div class="container">
@@ -14,7 +14,7 @@
                 <input type="checkbox" name="all-region" value="全选" checkbox-type="all">
             </label>全选
             <label>
-                <input type="checkbox" name="area" value="华东" checkbox-type="single">
+                <input type="checkbox" name="area" value="华东" checkbox-type="single" checked="checked">
             </label>华东
             <label>
                 <input type="checkbox" name="area" value="华南" checkbox-type="single">
@@ -28,7 +28,7 @@
                 <input type="checkbox" name="all-product" value="全选" checkbox-type="all">
             </label>全选
             <label>
-                <input type="checkbox" name="goods" value="手机" checkbox-type="single">
+                <input type="checkbox" name="goods" value="手机" checkbox-type="single" checked="checked">
             </label>手机
             <label>
                 <input type="checkbox" name="goods" value="笔记本" checkbox-type="single">
@@ -40,15 +40,16 @@
     </form>
     <div class="chart-wrapper">
         <svg id="bar-graph"></svg>
-<!--        <canvas id="line-chart"></canvas>-->
+        <canvas id="line-chart"></canvas>
     </div>
-    <table id="table-wrapper"></table>
+    <div id="table-wrapper"></div>
 </div>
-<script src="../../js/day4/sourceData.js"></script>
-<script src="../../js/day4/checkbox.js"></script>
-<script src="../../js/day4/getData.js"></script>
-<script src="../../js/day4/table.js"></script>
-<script src="../../js/day4/bar.js"></script>
-<script src="../../js/day4/app.js"></script>
+<script src="../../../js/day5/sourceData.js"></script>
+<script src="../../../js/day5/getData.js"></script>
+<script src="../../../js/day5/checkbox.js"></script>
+<script src="../../../js/day5/table.js"></script>
+<script src="../../../js/day5/bar.js"></script>
+<script src="../../../js/day5/line.js"></script>
+<script src="../../../js/day5/app.js"></script>
 </body>
 </html>

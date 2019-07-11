@@ -51,6 +51,10 @@ function checkbox(bar, line) {
     };
 }
 
+function animate(bar, line) {
+
+}
+
 window.onload = function () {
     let line = Line.createLine();
     let bar = Bar.createBar();
