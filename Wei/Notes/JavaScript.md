@@ -246,3 +246,161 @@ function toArray(arrayLikeObject) {
 }
 ```
 
+### 异常处理
+
+```javascript
+function throwException() {
+    throw new ERROR('problem!');
+}
+try {
+    throwException();
+} catch (e) {
+    console.log(e);//错误：信息
+    console.log(e.stack);//非标准，但大部分浏览器支持
+}
+```
+
+try分支包裹易出错的代码，如果try分支内部抛出异常，catch分支将会执行。
+
+### 严格模式
+
+严格模式开启检测和一些其他措施，使JavaScript成为更简洁的语言。开启严格模式的方法是在js文件开头或者script标签首行添加
+
+> use 'strict';
+
+如果是在某个函数上选择性开启的话在函数体开头加上这条语句
+
+严格模式有三大好处：
+
+- 明确错误
+
+  在函数执行一些非法操作比如修改字符串的只读属性：'abc'.length=5;的时候是静默失败的，非法操作被简单忽略。如果是在严格模式下：
+
+  ```javascript
+  function f(){
+      'use strict';
+      'abc'.length=5;
+  }
+  ```
+
+  浏览器就会报错误：
+
+  ``` javascript
+  > f()
+  TypeError: Cannot assign to read only property 'length' of abc
+  ```
+
+- 不是方法中的函数中的this
+
+  在严格模式下，不作为方法的函数中的this值是undefined
+
+  ```javascript
+  function f_strict() {
+      'use strict';
+      return this;
+  }
+  console.log(f_strict() === undefined); //true
+  ```
+
+  在非严格模式下，this的值是被称作全局对象（在浏览器里是window) :
+
+  ```javascript
+  function f() {
+      return this;
+  }
+  console.log(f() === window); //true
+  ```
+
+- 不再自动创建全局变量
+
+  在非严格模式下，如果给不存在的变量赋值，JavaScript会自动创建一个全局变量：
+
+  ```javascript
+  > function f() { foo = 5 }
+  > f() //不会报错
+  > foo
+  5
+  ```
+
+  在严格模式下，这会产生一个错误：
+
+  ``` javascript
+  > function f_strict() { 'use strict';foo=4; }
+  > f_strict()
+  RefenrenceError: foo is not defined
+  ```
+
+### 变量作用域和闭包
+
+#### 一、变量作用域
+
+- 变量的作用域总是**整个函数**（没有块级作用域）
+
+- JavaScript在函数内部可以**直接读取**全局变量，在函数外部**无法读取**函数内的局部变量
+
+  > JavaScript语言特有的**“链式作用域”**结构（chain scope），子对象会一级一级地向上寻找所有父对象地变量，父对象的所有变量对子对象可见，反之不然。
+
+###### 变量提升
+
+变量的**声明**在函数执行时会被移到函数顶部，但**赋值**不会
+
+#### 二、如何从外部读取局部变量？
+
+正常情况下不行，所以要通过变通方法——在函数的内部再定义一个函数。
+
+```javascript
+　function f1(){
+
+　　　　var n=999;
+
+　　　　function f2(){
+　　　　　　alert(n); // 999
+　　　　}
+     	return f2;
+　　}
+```
+
+既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们就可以再f1外部读取它的内部变量了！
+
+#### 三、闭包的概念
+
+通俗理解，闭包就是定义在一个函数内部，能够读取这个函数内部变量的函数。
+
+在上面的代码中，f2定义在f1中，用来读取f1的内部变量并返回给函数外部，f2就是一个闭包。
+
+#### 四、闭包的用途
+
+最大的用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中。
+
+下面代码展示了闭包可以使变量值始终保持在内存中的作用：
+
+```javascript
+function f1() {
+    var n=999;
+    nAdd = function () {n+=1}
+    function f2() {
+        alert(n);
+    }
+    return f2;
+}
+var result = f1();
+result();//999
+nAdd();
+result(); //1000
+```
+
+在这段代码中，result实质上就是闭包f2函数。它运行了两次，值分别是999 和1000，这说明函数f1的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。
+
+为什么会这样呢？因为f1是f2的父函数
+
+
+
+
+
+
+
+
+
+参考资料：http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
+
+http://yanhaijing.com/basejs/#sect_objects

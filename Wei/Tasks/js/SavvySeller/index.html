@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script>
+			function selectRegion(select){
+				alert(select.value);
+			}
+		</script>
+	</head>
+	<body>
+		<select id="region-select" onchange="selectRegion(this)">
+			<option value="华北" onclick="">华北</option>
+			<option value="华南">华南</option>
+			<option value="华东">华东</option>
+		</select>
+	</body>
+</html>
