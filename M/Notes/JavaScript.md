@@ -1804,3 +1804,250 @@ city.appendNode=li;
 
 </html>
 ```
+### 用DOM操作样式
+
+语法：**元素.style.样式名=样式值；**
+
+如果CSS样式名有-，比如说background-color，在JS中不合法，这种情况需要将原名改为驼峰命名法，如 backgroundColor。
+而内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示。
+如果在样式中写了!important，改样式会有最高的优先级，即使通过JS也不能覆盖样式，会导致JS代码失效。
+
+通过style属性设置和读取的都是内联样式，不能读取样式表中的样式。
+
+### **读取元素的样式**
+
+语法：**元素.currentStyle.样式名**
+
+可以读取元素正在显示的样式。(只有iE支持）
+
+**getComputedStyle();（ie8+）**
+
+需要两个元素，第一个是需要获取样式的元素，第二个可以传一个伪元素，一般可以传一个null
+getcomputedStyle(box1,null);
+alert(getComputerdStyle(box1,null).width);
+
+比如：没有设置width，他不会获取到auto，而是一个长度。
+
+**这两种方法只能看不能动**
+
+```
+ function getStyle(obj,name){
+          if(window.getComputedStyle){
+              return getComputedStyle(obj,null)[name];
+          }
+          else{
+              return obj.currentStyle[name];
+          }
+      }
+```
+
+定义一个函数，如果是正常浏览器则用getComputedStyle（）方法，如果是IE8的方法，则用obj.currentStyle。
+判断条件用window.getComputedStyle。如果getComputedStyle变量没找到，会报错，如果作为window的属性没找到不会报错。
+
+```
+ function getStyle(obj,name){
+          return window.getComputedStyle?getComputedStyle[name]:obj.currentStyle[name];
+      }
+```
+
+### 其他关于样式的属性
+
+clientWidth 获取样式的可见高度和宽度，不带px可用于计算。
+
+​                      获取元素的宽度和高度，包括**内容区和内边距**
+
+​                       该属性只读
+
+offsetWidth **包括边框、内容区、内边距**
+
+offsetParent 获取当前元素的定位父元素；会**获取当前元素最近的开启了定位的祖先元素**。
+
+offsetLeft 当前元素对于其定位父元素的水平偏移量
+
+offsetTop 当前元素对与其定位父元素的垂直偏移量
+
+scrollHeight 滚动的高度
+
+ 子元素高度》父元素，不会显示出来
+
+ scrollLeft 水平滚动条的偏移距离
+
+scrollTop   垂直滚动条的偏移距离
+
+scrollHeight-scrollTop==clientHeight
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+#info{
+width: 400px;
+height:600px;
+background-color: aliceblue;
+overflow: auto;
+}
+</style>
+<script>
+    window.onload=function()
+    {
+        var info=document.getElementById("info");
+        var inputs=document.getElementsByTagName("input");
+        info.onscroll = function()
+        {
+        //检查滚动条是否到底
+        if(info.scrollHeight - info.scrollTop==info.clientHeight)
+        { 
+        alert("滚到底了");
+        
+        inputs[0].disabled=false;
+        inputs[1].disabled=false;
+        }
+        
+        }
+    }
+</script>
+</head>
+<body>
+
+            <h3>欢迎注册</h3>
+            <p id="info">
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                
+            </p>
+            <input type="checkbox" disabled="disabled"/>我已仔细阅读协议 
+            <input type="submit" value="注册" disabled="disabled"/>
+    
+</body>
+
+</html>
+```
+
+### 事件对象
+
+IE8+当事件的相应函数被触发时，浏览器都会将事件对象作为实参传递进入响应函数；
+事件中封装了当前事件的所有信息，比如鼠标的坐标，键盘的按键情况。
+clientX;clientY 鼠标的横纵坐标
+IE8 浏览器不会传递事件对象
+而是作为window对象的属性保存的
+
+```
+if(!event)
+event=window.event;
+event=event || window.event;
+```
+
+**事件的冒泡**
+
+当后代的事件被触发，它的祖先元素的相同事件被触发。
+
+**事件的委派**
+利用事件的冒泡，如果后代的元素的对象是我们期待的元素，即触发。
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    window.onload=function()
+    {
+        var ul=document.getElementById("ul");
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            ul.innerHTML+="<li>"+"<a href='javascript:;' class='link'> 超链接</a>"+"</li>";
+        ul.onclick=function(event)
+        {
+        event=event||window.event;
+        if(event.target.className=="link")
+        {
+            alert("hello!");
+        }
+        }
+
+
+        }
+      
+    }
+    </script>
+</head>
+<body>
+    <ul id="ul">
+        <button id="btn">添加超链接</button>
+            <li><a href="javascript:;" class="link">超链接</a>  </li>
+            <li><a href="javascript:;" class="link">超链接</a>  </li>
+            <li><a href="javascript:;" class="link">超链接</a>  </li>
+            <li><a href="javascript:;" class="link">超链接</a>  </li>
+    </ul>
+   
+</body>
+</html>
+```
+
+事件的绑定
+
+使用对象.事件只能绑定一个函数
+
+参数
+
+1.事件的字符串
+
+addEventListener( ）this是绑定事件的对象
+
+2.回调函数
+
+3.是否在捕获阶段出发时间，需要一个传递值一般是false。
+
+**btn01.addEventListener("click",function(){**
+
+**alert(1);**
+
+**}**
+
+IE8+
+
+attachEvent("onclick",function({});//倒着执行，this是window
+
+```
+ function bind(obj,eventStr,callback)
+       {
+           
+        return  obj.addEventListener?obj.addEventListener(everntStr,callback,false):obj.attachEvent("on"+eventStr,callback);
+
+
+       }
+```
+
