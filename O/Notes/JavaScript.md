@@ -346,6 +346,8 @@ function(arguments)
 
 映射：1对1
 
+遍历一遍，**必须有返回值**
+
 
 
 > reduce
@@ -369,6 +371,8 @@ arr.reduce(function(tmp, item, index)
 参数：item，index
 
 遍历，循环一遍，和for循环没区别
+
+做一件事，无返回值
 
 
 
