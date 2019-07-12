@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hash</title>
+</head>
+<body>
+<div id="button">
+    <button id="a">A</button>
+    <button id="b">B</button>
+    <button id="c">C</button>
+    <button id="d">D</button>
+    <button id="e">E</button>
+    <button id="f">F</button>
+</div>
+
+<div id="contABC"></div>
+<div id="contDEF"></div>
+<script>
+    const button = document.getElementById("button");
+    const content = document.getElementById("content");
+
+    function getHash() {
+        let hash = location.hash;
+        let res = {};
+        hash = hash.substring(1);
+        hash = hash.split("&");
+        for (i = 0; i < hash.length; i++) {
+            let p = hash[i].split("=");
+            if (p[1]) {
+                res[p[0]] = p[1];
+            }
+        }
+        return res;
+    }
+
+    function renderContent() {
+        const contABC = document.getElementById("contABC");
+        const contDEF = document.getElementById("contDEF");
+        hash = getHash();
+        if (hash.contABC) {
+            contABC.innerHTML = hash.contABC;
+        }
+        if (hash.contDEF) {
+            contDEF.innerHTML = hash.contDEF;
+        }
+    }
+
+    button.onclick = function (e) {
+        let hash = location.hash;
+        let str1, str2;
+        let target = e.target;
+        if (!hash) {
+            str1 = "";
+            str2 = "";
+        } else {
+            str1 = hash.split("&")[0].split("=")[1];
+            str2 = hash.split("&")[1].split("=")[1];
+        }
+        if (target.innerHTML >= 'A' && target.innerHTML <= 'C') {
+            str1 = target.innerHTML;
+        } else {
+            str2 = target.innerHTML;
+        }
+        history.pushState(null, "", "#contABC=" + str1 + "&contDEF=" + str2);
+        renderContent();
+    };
+    window.onload = function () {
+        renderContent();
+    }
+</script>
+</body>
+</html>
