@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1{
+
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+
+        }
+
+    </style>
+    <script type="text/javascript">
+
+           
+            window.onload=function()
+            {
+                document.onkeydown=function()
+            {
+                //event=event||window.event;
+                //var box1=document.getElementById("box1");
+                console.log(event.keyCode);
+                switch(event.keyCode)
+                {
+                case 39: {box1.style.left=box1.offsetLeft+50+"px";break;}
+                case 37: {box1.style.left=box1.offsetLeft-50+"px";break;}
+                case 40: {box1.style.top=box1.offsetTop+50+"px";break;}
+                case 38: {box1.style.top=box1.offsetTop-50+"px";break;}
+                }
+                
+               
+            }
+            }
+           
+        function addClass(obj,cn){
+            obj.classNmae+=" "+cn;
+            if(!hasClass(obj,cn)){
+                obj.ClassName+=" "+cn;
+            }
+        }
+        function hasClass(obj,cn){
+            //判断obj中是否有b2
+            var reg=new RegExp("\\b"+cn+"\\b");
+            return reg.test(obj.className);
+        }
+           
+        function removeClass(obj,cn){
+            var reg=new RegExp("\\b"+cn+"\\b");
+            obj.className=obj.className.replace(reg,"");
+        }
+        function toggleClass(obj,cn){
+            if(hasClass(obj.cn)){
+                removeClass();
+
+            }else{
+               addClass(obj,cn);
+            }
+        }
+         </script> 
+</head>
+<body>
+    <div id="box1"></div>
+</html>
