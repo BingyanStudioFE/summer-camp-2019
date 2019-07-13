@@ -2050,4 +2050,293 @@ attachEvent("onclick",function({});//倒着执行，this是window
 
        }
 ```
+## 拖拽
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1{
+
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+        }
+
+    </style>
+    <script>
+        //1.当鼠标按下开始(onmousedowm)
+        //2.当鼠标移动时被拖拽元素跟随移动(onmousemove)
+        //3.当鼠标松开被拖拽元素不动(onmousemove)
+        window.onload=function(event){
+            event=event||window.event;
+            var ol=event.clientX-box1.offsetLeft;
+            var ot =event.clientY-box1.offsetTop;
+
+            var box1=document.getElementById("box1");           
+            box1.onmousedown=function(){
+            box1.setPointerCapture();
+            ducument.onmousemove=function(event){
+            alert("hello");
+            event=event || window.event;
+            var left=event.clientX;
+            var top=event.clientY;
+            box1.style.left=left+"px"-ol;
+            box1.style.top=top+"px"-ot;
+
+            box1.onmouseup=function()
+            {
+            box1.releasePointerCapture();
+            document.onmousemove=null;
+            document.onmouseup=null;
+            }
+            return false;
+
+        }
+        }
+     }
+        
+        
+    </script>
+</head>
+<body>
+    <div id="box1">
+    </div>
+</body>
+</html>
+```
+
+## 滚轮
+
+```
+ window.onload=function(){
+
+      var box1=document.getElementById("box1");
+
+       //火狐不热onmousewheel，在火狐中需要使用DOMMouseScroll来绑定滚动事件
+
+        //注意该事件通过addEventListener
+
+        box1.onmousewheel=function(){
+
+        }
+```
+
+
+
+## 键盘
+
+onkeydown
+
+onkeyup
+
+onkeydown 如果一直按着案件会一直触发
+
+当onkeydown 连续触发时，第一次和第二次的间隔会稍微长一点，其他的会非常的快。（浏览器为了防止用户误操作）
+
+keycode获取案件的编码 通过它判断哪个按键被按下
+
+如果同时按下两个键有可能是ctrl alt shift ctrlKey altKey shiftKey
+
+可以给document绑定，也可以给input绑定
+
+**实现不能输入数字的功能（用keycode和onkeydown）**
+
+```
+var input=document.getElementsByTagName("input")[0];
+      event=event||window.event;
+      if(event.keycode>=48&&event.keycode<=57)
+      {
+          return false;
+      }  
+```
+
+**移动div**
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1{
+
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+
+        }
+
+    </style>
+    <script type="text/javascript">
+
+           
+            window.onload=function()
+            {
+                document.onkeydown=function()
+            {
+                //event=event||window.event;
+                //var box1=document.getElementById("box1");
+                console.log(event.keyCode);
+                switch(event.keyCode)
+                {
+                case 39: {box1.style.left=box1.offsetLeft+50+"px";break;}
+                case 37: {box1.style.left=box1.offsetLeft-50+"px";break;}
+                case 40: {box1.style.top=box1.offsetTop+50+"px";break;}
+                case 38: {box1.style.top=box1.offsetTop-50+"px";break;}
+                }
+                
+               
+            }
+```
+
+## (九）BOM
+
+-浏览器对象模型
+-BOM可以使我们通过JS来操作浏览器
+-在BOM中为我们提供了一组对象，用来完成对浏览器的操作
+-BOM对象：window navigator location history screen
+
+**Window**
+
+代表了整个浏览器的窗口，同时window也是网页中的全局对象。
+
+**定时调用**
+
+```
+setInterval(function(){
+count.innerHTML=num++;})//只执行一次，以毫秒为单位,返回的是执行的时间
+```
+**延时调用**
+
+```
+var timer =setTimeout(function(){
+count.innerHTML=num++;
+if(num==999) {clearInterval(timer);
+},1000);//以毫秒为单位,返回的是执行的时间
+```
+
+**Navigator**
+
+代表了当前浏览器的信息，通过该对象可以来识别不同的浏览器。
+一般只会使用userAgent 等价于浏览器（用户代理）
+userAgent是字符串
+
+```
+var ua=console.log(navigator.userAgent);
+console.log(a);
+if(/firefox/i.text(ua)){}
+else(/chrome/i.text(ua))
+else("msie/i.text(ua)")
+//IE以上去除IE标识，识别不出，可以用一些IE浏览器的特有属性，比如ActiveXObject
+if(window.ActibeXObject)//IE11不能识别
+if(ActiveXObject in window)
+```
+
+**Location**
+
+代表了浏览器的地址栏信息
+
+location="可直接跳转页面"
+assgin()方法 
+跳转到其他页面 
+location.assign("可跳转页面")
+reload()方法
+用于重新加载页面，类似于刷新，如果在方法中传递一个true则强制清空缓存
+replace()方法
+可以使用一个新的页面替换当前页面，调用完毕也会跳转页面，不会生成历史纪录。
+
+
+**History**
+
+代表浏览器的历史纪录，课题通过该对象来操作浏览器的历史纪录，由于隐私的原因，不能获取具体的历史信息，只能操作浏览器的向前or向后页面
+
+length 属性当前访问链接的数量 history.length
+
+back 方法 history.back();
+
+forward
+
+go  向前跳转n个页面 1/2/-1/-2
+
+**Screen**
+
+代表用户屏幕的信息，通过该对象可以获取到用户的显示器的相关信息。
+
+
+BOM对象都是作为window的属性保存的。
+
+## (十）类的操作
+
+可以通过修改元素的class属性来间接的修改样式。
+
+box.className+=" b2";
+
+```
+ function addClass(obj,cn){
+            obj.classNmae+=" "+cn;
+            if(!hasClass(obj,cn)){
+                obj.ClassName+=" "+cn;
+            }
+        }
+        function hasClass(obj,cn){
+            //判断obj中是否有b2
+            var reg=new RegExp("\\b"+cn+"\\b");
+            return reg.test(obj.className);
+        }
+           
+        function removeClass(obj,cn){
+            var reg=new RegExp("\\b"+cn+"\\b");
+            obj.className=obj.className.replace(reg,"");
+        }
+        function toggleClass(obj,cn){
+            if(hasClass(obj.cn)){
+                removeClass();
+
+            }else{
+               addClass(obj,cn);
+            }
+        }
+```
+
+## (十一）JSON
+
+JSON是一个特殊格式的字符串，可以被**任意语言**识别
+
+JSON和js的格式一样，不过是**属性名必须加引号**，
+
+分类：
+
+**数组[]**
+
+**对象{}**
+
+允许的值 字符串 数值 布尔值 null 对象 数组 **必须是普通对象，不能是函数**
+
+var obj='{}';
+
+**IE7以上**
+
+**JSON.parse JSON**转换成array和object
+
+**JSON.stringify**  object或者array变成JSON
+
+**IE7及以下**
+**eval();**
+ 可以直接执行字符串中的函数或者方法,尽量不要使用，具有安全隐患。
+ 如果使用eval()执行的字符串中有{}，会把它当作是代码块，如果不希望当成代码块，需要在字符串前后各加一个（）.
+ **eval("("+str+")")**
+
+ 兼容性
+ <script type="text/javascript" src="js/json2.js"></script>
 
