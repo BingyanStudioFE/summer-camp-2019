@@ -130,7 +130,7 @@ npx create-react-app my-app
 
 
 
-## 在项目中使用React
+## ~~在项目中使用React~~
 
 0. `nmp i react react-dom -S`
 
@@ -169,6 +169,7 @@ npx create-react-app my-app
    * **DOM元素**（当作容器）
 
 
+
 ## JSX语法
 
 **符合XML规范的JS**
@@ -185,7 +186,19 @@ JSX语法运行的本质是在运行时转化为`React.createElement`的形式�
 const mydiv  = <div id="mydiv" title="div">this is a div</div>
 ```
 
-### 安装babel
+### ~~安装babel~~
+
+**我是傻子，create-react-app建的项目根本不需要自己装Babel好吗**
+
+**如果用create-react-app创了项目又按照下面的来了一遍，会因为babel不兼容报错**
+
+**！！！！！！！！！！！！！这很重要**
+
+**（好像是babel-loader|babel的版本必须一致），写在这里如果以后要用webpack配置提醒一下**
+
+**请忽略以下内容**
+
+
 
 * **安装babel插件**
 
@@ -244,6 +257,434 @@ const mydiv  = <div id="mydiv" title="div">this is a div</div>
 ![1562761469190](E:\BingYan\summer-camp-2019\O\Notes\images\%5CUsers%5CLucyS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1562761469190.png)
 
 这时候我们需要把项目用git添加到本地仓库
+
+
+
+# 20190711 
+
+### JSX基本语法
+
+* JavaScript表达式
+
+  JavaScript表达式写在花括号中
+
+  即当我们需要在JSX控制的区域内写JS表达式，则需要写在花括号中
+
+  ```jsx
+  let a = 10;
+  let str = "Hello, World";
+  let boo = true;
+  
+  ReactDOM.render(<div>
+          { a + 2 } 									//渲染数字
+          <hr/>
+          { str }										//渲染字符串
+          <hr/>	
+      </div>, document.getElementById("app"));
+  ```
+
+* 数组
+
+  JSX中允许在模板中插入数组
+
+  数组会自动展开所有成员
+
+  <a href="../Tasks/react-todo-mvc/my-app/src/02_forEach和map在JSX中的用法.js">forEach和map在JSX中的用法</a>
+
+* JSX注释
+
+  ```jsx
+  {/* 这是单行注释 */}
+  {
+      //这是多行注释
+  }
+  ```
+
+* 在JSX中标签需要成对出现，如果是单标签**则必须自闭和**
+
+* JSX中不能使用`if` `else` 语句，但是可以使用三目运算符
+
+  ```jsx
+  ReactDOM.render(
+  <div>
+  	<h1>{ i == 1 ? "true" : "false!" }
+     	</h1>
+  </div>, document.getElementById("app"))
+  ```
+
+* 为JSX元素添加属性
+
+  * 如果添加类名需要用`className`代替`class`
+  * 如果添加label的`for`属性需要使用`htmlFor`代替
+
+  （因为class和for也属于JS的关键字，为了防止歧义需要这样做）
+
+* 样式
+
+  * React 推荐使用内联样式。
+  * 我们可以使用 **camelCase** 语法来设置内联样式
+  * React 会在指定元素数字后自动添加 **px** 
+
+  ```jsx
+  var myStyle = {
+      fontSize: 100,
+      color: '#FF0000'
+  };
+  ReactDOM.render(
+      <h1 style = {myStyle}>菜鸟教程</h1>,
+      document.getElementById('example')
+  );
+  ```
+
+
+## React组件
+
+### 1、使用函数定义一个组件：
+
+```jsx
+function Hello(props) {
+    return <h1>Hello World!</h1>;
+}
+ReactDOM.render(
+    <div>
+        <Hello></Hello>
+    </div>
+    , document.getElementById("app")
+)
+```
+
+* 在组件中**必须返回一个虚拟DOM元素**
+
+* 在使用时直接把组件名称**以标签的形式**放在页面上
+* 在构造函数中使用`props`形参接收外界传递进来的数据
+
+```JSX
+const user = {
+    name:       "Shaw",
+    age:        19,
+    sex:        "female"
+}
+
+ReactDOM.render(
+    <div>
+        <Hello name={user.name} age={user.age} sex={user.sex}></Hello>
+    </div>
+    , document.getElementById("app")
+)
+```
+
+### 2. 使用class关键字创建组件
+
+* es6中`class`关键字的用法
+
+  ```javascript
+  //创建一个动物类
+  class Animal{
+      //这是类中的构造器
+      //每一个类中都有一个构造器
+      //如果我们没有指定构造器，那么可以认为每个类内部有个隐形的空构造器
+      constructor(name, age){
+          this.name = name;
+          this.age = age;
+      }
+  }
+  ```
+
+* `class`中的静态属性与实例属性
+
+  * 静态属性指的是 Class 本身的属性，即`Class.propName`，挂载给构造函数
+
+  * 实例属性指的是定义在实例对象（`this`）上的属性，挂载给实例对象
+
+  * （不用`class`关键字）
+
+    ```javascript
+    //实例属性
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+    //静态属性
+    Person.number = "111111";
+    ```
+
+  * (使用`class`关键字)
+
+    ```javascript
+    class Animal{
+    	//实例属性
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        //静态属性
+        static info = "animal";
+    ```
+
+* `class`中的静态方法与实例方法
+
+  * （不用`class`关键字）
+
+    ```javascript
+    
+    ```
+
+  * （使用`class`关键字）
+
+    ```javascript
+    class Animal{
+        
+        howl() {
+            console.log("这是animal的实例方法");
+        }
+        static show() {
+            console.log("这是animal的静态方法")
+        }
+    }
+    ```
+
+* `class`中的继承
+
+  * 我们可以使用`extends`关键字实现子类继承父类
+
+  ```javascript
+  class Person {
+      constructor(name, age){
+          this.name = name;
+          this.age = age;
+      }
+      //公共实例方法
+      hello() {
+          console.log("Hi");
+      }
+  }
+  //在class中可以使用extends关键字实现子类继承父类
+  class American extends Person{ }
+  const a1 = new American("Jack", 20);
+  
+  class Chinese extends Person{ }
+  const c1 = new Chinese("Shaun", 18);
+  ```
+
+  * `super`函数
+
+    * 当子类通过`extends`关键字继承了父类，那么在子类的`constructor`构造函数中必须优先调用`super()`函数（规定），`super`即是父类中构造器的引用
+
+    * 注意！！！！！！！！！！！
+
+      当子类内部没有我们手写的构造器时，name、age参数将会自动被传给父类
+
+      但是如果我们自己定义了子类的`constructor`，那么首先我们必须使用`super`函数引用父类构造器；但这时由于我们自己写的`constructor`没有接收到参数，所以我们必须自己手动传
+
+      ```javascript
+      class American extends Person{ 
+          //手动传参数进constructor
+          constructor(name, age){
+              //手动传参数进父类构造器
+              super(name, age);
+          }
+      }
+      ```
+
+* 使用`class`关键字创建组件
+
+  * 如果我们要使用`class`创建组件，那么必须让自己的组件继承自`React.Component`
+  * 必须包含`render()`函数，渲染当前组件内部的虚拟DOM结构，必须有`return`返回值
+  * 在`class`关键字创建的组件中，如果想使用外界传递过来的`props`参数，无需接受，可直接通过`this.props.XXX`访问
+
+  ```JSX
+  class Movie extends React.Component {
+      render(){
+          return <div>
+              this is a component
+              --{this.props.name}
+              --{this.props.age}
+               </div>
+      }
+      constructor(){
+          super();
+      }
+  }
+  ```
+
+### 3. 两种方法创建组件的区别
+
+> 使用`class`关键字创建的组件，有自己的**私有数据（this.state）和生命周期函数**
+>
+> 使用`function`创建的组件，只有`props`，没有自己的私有数据和生命周期函数
+
+```JSX
+class Movie extends React.Component {
+    
+    constructor(){
+        super();
+        //私有数据
+        this.state = {
+            msg:            "大家好，我是class创建的Movie组件",
+        };
+    }
+
+    render(){
+        ...
+    }
+}
+```
+
+1. 用构造函数创造出来的组件叫做**无状态组件**（用的不多）
+
+2. 用`class`关键字创造出来的组件叫做**有状态组件**（state）
+
+3. 使用场景
+
+   * 如果一个组件需要有自己的私有数据，推荐使用`class`关键字创造
+   * React官方：无状态组件由于没有自己的私有数据和生命周期函数，运行效率会比有状态组件高
+   * 但其实我们一般用的都是有状态组件
+
+4. `props`与`state`的区别
+
+   * `props`中的数据时外界传递来的；`state`中的数据是组件私有的（通过AJAX获取的数据一般是私有的）
+   * `props`中的数据是只读的，`state`中的数据是可以修改的
+
+## 怎样美化？
+
+在JSX中，如果想写行内样式，不能为`style`设置字符串的值
+
+下列写法错误！！！！！！！！！！！！！！！！！！！！！！！！
+
+```JSX
+return <div>
+    <h1 style="color:red">This is a Comment List.</h1>
+</div>
+```
+
+**我们应该使用双花括号的写法**
+
+```JSX
+return <div>
+    <h1 style={{color:"red"}}>This is a Comment List.</h1>
+</div>
+```
+
+> 注意不要使用连字符写法，而是应该写成小驼峰的形式
+>
+> `fontSize` `textAlign` `fontWeight`
+>
+> 等等
+
+# 20190712
+
+### CSS样式表模块化
+
+css没有作用域的概念
+
+css样式表导入后是全局生效的，会有冲突问题
+
+我们需要**为css样式表启用模块化**
+
+> 在create-react-app 2.0以前，它本身是不带css-modules的
+>
+> 我是用的create-react-app 3.0.1
+>
+> 这样直接将`[name].css`改为`[name].module.css`就可以达到css样式表模块化的效果
+
+* 导入样式表
+
+  ```jsx
+  import css from "../css/commentitem.module.css";
+  ```
+
+* 使用样式表
+
+  ```jsx
+  
+  ```
+
+注意：css模块化只针对**类选择器**和**id选择器**生效
+
+​	    css模块化**不会将标签选择器模块化**
+
+
+
+### 取消CSS样式表模块化
+
+```css
+:gobal(.test){
+    font-style	:italic;
+}
+```
+
+使用`global`参数可以将被模块化的选择器变为对全局生效
+
+（使用`local`参数可以将未被模块化的选择器模块化，一般不用）
+
+
+
+## 在React中实现事件绑定
+
+* 在react中有一套自己的事件绑定机制
+
+* 事件名要用**小驼峰**命名
+
+* 语法：`onClick = { function }`
+
+* ```JSX
+  <button onClick = { () => this.myClickHandler() }>按钮</button>
+  ```
+
+* <a href="../Tasks/React-todo-mvc/my-app/src/components/BindEvent.jsx">这是一个绑定事件函数的组件</a>
+
+
+
+## `this.setState`
+
+在React中如果想要修改state中的数据，推荐使用`this.setState({})`
+
+注意：该方法是**异步**的！
+
+如果使用`setState`方法修改了`this.state`中的数据，我们如果要访问更新后的数据，则必须使用回调函数，否则访问到的则是修改前的数据
+
+## 绑定UI页面的内容与this.state
+
+* 默认情况下，在React中如果页面上的表单元素绑定了state上的状态值，那么每当state上状态值变化，必然会自动把最新的状态值同步到页面上
+
+* 反过来，在UI页面上的表单元素值如果变化了，想要把最新的值同步到state中，此时React是没有这种自动的同步机制的，我们必须：
+
+  * 在React中**手动监听表单元素的onChange事件**
+
+  * 在onChange事件中，手动获取文本框的值
+
+    * 通过事件参数`e`获取
+
+    * 通过`this.refs`获取
+
+    * ```javascript
+      console.log(e.target.value);
+      console.log(this.refs.txt.value);
+      ```
+
+  * 程序员调用`this.setState({ })`手动把最新的值同步到state中
+
+  <a href="../Tasks/React-todo-mvc/my-app/src/components/BindInputValue.jsx">这是一个将页面值绑定到state的实例</a>
+
+
+
+## 组件的生命周期
+
+* 生命周期与生命周期函数
+  * 每个组件的实例从**创建、运行到销毁** ，在这个过程中，会发生一些事件，这些事件就叫做**组件的生命周期函数**
+* React组件的生命周期
+  * **组件创建阶段**：一辈子只执行一次
+    * componentWillMount
+    * render
+    * componentDidMount
+  * **组件运行阶段**：按需执行，根据`props`属性或`state`的状态，有选择的执行0次~多次
+    * componentWillReceiveProps
+    * shouldComponentUpdate
+    * componentWillUpdate
+    * render
+    * componentDidUpdate
+  * **组件销毁阶段**：一辈子执行一次
+    * componentWillUnmount
 
 
 
