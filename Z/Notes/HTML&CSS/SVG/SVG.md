@@ -201,7 +201,7 @@ SVG 的 CSS 属性与网页元素有所不同。
 
 `<text>`标签用于绘制文本。
 
-> ```markup
+> ```html
 > <svg width="300" height="180">
 > <text x="50" y="25">Hello World</text>
 > </svg>
@@ -213,7 +213,7 @@ SVG 的 CSS 属性与网页元素有所不同。
 
 `<use>`标签用于复制一个形状。
 
-> ```markup
+> ```html
 > <svg viewBox="0 0 30 10" xmlns="http://www.w3.org/2000/svg">
 > <circle id="myCircle" cx="5" cy="5" r="4"/>
 > 
