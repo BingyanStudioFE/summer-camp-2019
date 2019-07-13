@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>知乎</title>
-    
+    <link rel="stylesheet" href="1.png" />
     <style>
-    .divtou{}
+    
     body{
 overflow-x:hidden;
 overflow-y:auto;
+font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
 }
 .content1{
 overflow: hidden;
@@ -30,50 +31,528 @@ width:748px;
 .box{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: lift;
     flex-wrap: nowrap;
-    align-content: 
+    align-items: center;
+    align-content: center; 
+    flex-basis:auto;
+    margin-top:5px;
+    padding-top:15px;
+   
+}
+.box1{
+    display: flex;
+    flex-direction: row;
+    justify-content: lift;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center; 
+    flex-basis:auto;
+    margin-top:15px;
+    color: #8590a6;
+    font-size: 15px;
+   margin-left: 40px;
+}
+.box2{
+    display: flex;
+    flex-direction: row;
+    justify-content: lift;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center; 
+   background-color:#F6F6F6;
+    flex-basis:auto;
+    margin-top:0px;
+   margin-left: 10px;
+    padding: 4px,10px,4px,16px;
+    width: 326px;
+    padding-left: 16px;
+    position: relative;
+    height: 34px;
+    font-size: 14px;
+    border: 1px solid #ebebeb;
+    border-top-color: rgb(235, 235, 235);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(235, 235, 235);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(235, 235, 235);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(235, 235, 235);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    margin-left: 30px;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: lift;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center; 
+    flex-basis:auto;
+    margin-top:0px;
+    color: #1a1a1a;
+    height: 24px;
+    line-height: 24px;
+   
+}
+.button{
+    color: #fff;
+    background-color: #0084ff;
+    z-index: 103;
+    padding: 0 14px;
+    margin-left: 16px;
+    line-height: 30px;
+    border-top-color: rgb(0, 132, 255);
+    border-right-color: rgb(0, 132, 255);
+    border-bottom-color: rgb(0, 132, 255);
+    border-left-color: rgb(0, 132, 255);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: 1px solid;
+    border-radius: 3px;    align-items: flex-start;
+    box-sizing: border-box;
+    background-color:rgb(0, 132, 255);
+    text-rendering: auto;
+
+}
+.button1{
+    fill: currentcolor;
+    
+    width: 18;
+    height: 18;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 32px;
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(26,26,26,0);
+    margin-left: 120px;
+    padding: 0px,12px;
+    background-color: rgb(235, 235, 235);
+    border:rgb(235, 235, 235);
 }
 .message{
     display: flex;
     flex-direction: row;
     justify-content:stretch;
     flex-wrap: wrap;
-    align-content: stretch
+    align-content: stretch;
 }
-gun1 { overflow-y:scroll; height:300px;} 
+
 #ztkj{
     width:80%;
-    bord:1px solid  #000000;
+    border : 1px solid  #000000;
     background-color:azure;
     height:800px;
 }
 #dht{
-    padding: 10px;
-    border: 1px solid red;
-    background-color: aliceblue;
+    position: fixed;
+    background-color:#FFFFFF;
+    top:0px;
+    width:100%;
+    height:8%;
+    z-index: 2;
+
+}
+#dht1{
+    position: fixed;
+    background-color:#FFFFFF;
+    top:0px;
+    width:100%;
+    height:8%;
+margin-left: 14%;
+margin-right:14%;
 }
 #ztnr{
     float: left;
-    width:60%;
+    width:693px;
     height: 600px;
     border:1px solid blue ;
     text-align: center;
     margin-right:10px;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-left: 14%;
+    margin-top: 2.3%;
+    background-color:#FFFFFF;
+}
+.article_navigation{
+    border-bottom: 1px solid #f0f2f7;
+    display: flex;
+    height: 58px;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+    font-size: 15px;
+    color: #1a1a1a;
+    -webkit-tap-highlight-color: rgba(26,26,26,0);
+} 
+.article_navigation_text{
+    color: #0084ff;
+    font-weight: 500;
+    -webkit-box-align: center;
+    display: flex;
+    font-size: 16px;
+    margin: 0 22px;
+    align-items: center;
+
+}
+.article{
+    margin-bottom: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #f0f2f7;
+    padding: 20px;
+    border-radius: 0;
+    overflow: initial;
+    /* position: relative; */
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #1a1a1a;
+
+    
+    
+}
+.article_text{  
+    display: block;
+    cursor: pointer;
+    transition: color .14s ease-out;
+    line-height: 1.67;
+
+  
+}
+.article_name{
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #1a1a1a;
+    font: inherit;
+    text-decoration: none;
+    margin-top:-10px;
+}
+.article_picture{
+    display: block;
+    top: 50%;
+    left: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transform: translateY(-50%);
+    overflow: hidden;
+    
+    /* cursor: pointer;     */
+    line-height: 1.67;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+    font-size: 15px;
+    color: #1a1a1a;
+    position: relative;
+    width: 190px;
+    height: 105px;
+    margin-top: 35px;
+    margin-right: 18px;
+    margin-bottom: 4px;
+    float: left;
+  
+    background-position: 50%;
+    /* background-size: cover; */
+    border-radius: 4px;
+   margin-top:50px;
+    z-index: 1;
+    
+    background: rgba(26,26,26,.02);
+    /* content: ""; */
+
+}
+.Button2{
+    padding: 0;
+    margin-left: 4px;
+    color: #175199;
+    outline: none;
+    
+    border-color: transparent;  
+    box-shadow:none;
+    background-color:#FFFFFF;        
+                       
+}
+button :focus{outline:0;}
+.article_sum{
+    display: block;
+    max-height: 100px;
+    margin-top: 16px;
+    margin-bottom: -4px;
+    overflow: hidden;
+    line-height: 1.67;
+    word-break: break-word;
+    line-height: 1.6;
+    cursor: pointer;
+    margin-left: 200px;
+}
+.article_bottom{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 10px 10px;
+    
+    color: #646464;
+    background: #fff;
+    clear: both;
+    line-height: 1.67;
+    
+}
+.bottom_zan{
+    line-height: 30px;
+    padding: 0 12px;
+    background-color: rgba(0,132,255,.15);
+    color: #0084ff;
+    background: rgba(0,132,255,.1);
+    border-color: transparent;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0;
+   
+    border-radius: 3px;
+    font: inherit;  
+    outline: none;
+}
+.bottom_meum{
+    padding: 0;
+    height: auto;
+    margin-left: 24px;
+    font-size: 14px;
+    flex-shrink: 0;
+    line-height: inherit;
+    background-color: transparent;
+    border: none;
+    border-radius: 0; 
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    display: inline-block;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 24px;
+    font: inherit;
+    outline: none;
+    -webkit-appearance: none;
+    align-items: flex-start;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+}
+.dot{
+    fill: currentcolor;
+    width: 1.2em;
+    height: 1.2em;
+    overflow: hidden;line-height: inherit;
+
+    font-size: 14px;
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    font: inherit;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
 }
 .cddh{
+    display: block;
+    font-size: 14px;
     float: right;
-    margin-right: 10px;
-    width:35%;
+    margin-right: 208px;
+    width:278px;
     border:1px solid burlywood;
-    height:150px;
-    margin-top: 10px;
+    height:143px;
+    margin-top: 2.3%;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+    color: #1a1a1a;
+    -webkit-tap-highlight-color: rgba(26,26,26,0);
+    background-color:#FFFFFF;
+
+    
+}
+.zhihulogo{
+    fill: #0084ff;
+}
+.c1{
+    font-size: 14px;    color: #1a1a1a;
+widows: 20%;
+height: 143px;
+    -webkit-tap-highlight-color: rgba(26,26,26,0);
+   
+    display: flex;
+    -webkit-box-pack: center;
+
+    justify-content: center;
+}
+.c2{
+    display: flex;
+    justify-content: center;
+    -webkit-box-pack: center;
+    font-size: 14px;
+    align-items: center;
+    cursor: pointer;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    margin: 23px;
+    position: relative;
+}
+.c3{
+    color: #444;
+    font-size: 16px;
+    display: block;
+
+    cursor: pointer;
+
+}
+.c11{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    widows: 20%;
+height: 143px;
+flex-basis: 0.2;
+}
+
+.write{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-size: 14px;
+    width:278px;
+    
+}
+.write_answer{
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    margin: 23px;
+    position: relative;
+    display: flex;
+    text-decoration: none;
+    color:#444444;
+   
+}
+.moment{
+   
+    margin: 0 -20px;
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    text-decoration: none;
+    align-items: center;
+    padding: 0 20px;
+   
+    height: 40px;
+    /* overflow: hidden; */
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    flex-wrap: nowrap;
+  
+
+}
+.moment_picture{
+    margin-top:10px;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 10px;
+    color:rgb(133,144,166);
+}
+.moment_text{
+    margin-left: 8px;
+    -webkit-box-flex: 1;
+    color: inherit;
+    flex: 1 1;
+    margin: 0 10px;
+    text-align: left;
+    cursor: pointer;
+    color:rgb(133,144,166);
+}
+.create{
+    display: flex;
+    height: 52px;
+    width: 100%;
+    padding: 0;
+    margin: 0 16px;
+    -webkit-box-align: center;
+    box-sizing: border-box;
+    align-items: center;
+    -webkit-box-direction: normal;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-tap-highlight-color: rgba(26,26,26,0);
+    fill:rgb(133,144,166);
+    color:rgb(133,144,166);
+}
+.num{
+    padding: 17px 0;
+    display: flex;
+    border-top: 1px solid #f6f6f6;
+    width: 100%;
+    -webkit-box-direction: normal;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+}
+.readnum{
+    -webkit-box-align: center;
+    align-items: center;
+    border-right: 1px solid #ebebeb;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    flex-direction: column;
+}
+.readtext{
+    color: #8590a6;
+    font-size: 12px;
+    line-height: 22px;
+    -webkit-box-direction: normal;
+    display: flex;
+    cursor: pointer;
+    margin-top: 0px;
+    margin-left:30px;
+   
 }
     </style>
 </head>
-<body>
+<body bgcolor="#F6F6F6">
     <!--最上面的页面-->
 
 
@@ -84,21 +563,205 @@ gun1 { overflow-y:scroll; height:300px;}
     </div>
     <div id="nr">
         <div id="dht"> 
+            <div id="dht1">
               <div class="box">
-        <p class="box">知乎</p>     
-        <p class="box">首页</p>
-        <p class="box">发现</p>
-        <p class="box">等你来答</p>
-        <p class="box"><textarea></textarea></p>
-        <p class="box">闹铃</p>
-        <p class="box">消息</p>
-        <p class="box">头像</p>
+                    <svg viewBox="0 0 200 91" class="zhihulogo" width="64" height="30" aria-hidden="true" style="height: 30px; width: 64px;"><title></title><g><path d="M53.29 80.035l7.32.002 2.41 8.24 13.128-8.24h15.477v-67.98H53.29v67.978zm7.79-60.598h22.756v53.22h-8.73l-8.718 5.473-1.587-5.46-3.72-.012v-53.22zM46.818 43.162h-16.35c.545-8.467.687-16.12.687-22.955h15.987s.615-7.05-2.68-6.97H16.807c1.09-4.1 2.46-8.332 4.1-12.708 0 0-7.523 0-10.085 6.74-1.06 2.78-4.128 13.48-9.592 24.41 1.84-.2 7.927-.37 11.512-6.94.66-1.84.785-2.08 1.605-4.54h9.02c0 3.28-.374 20.9-.526 22.95H6.51c-3.67 0-4.863 7.38-4.863 7.38H22.14C20.765 66.11 13.385 79.24 0 89.62c6.403 1.828 12.784-.29 15.937-3.094 0 0 7.182-6.53 11.12-21.64L43.92 85.18s2.473-8.402-.388-12.496c-2.37-2.788-8.768-10.33-11.496-13.064l-4.57 3.627c1.363-4.368 2.183-8.61 2.46-12.71H49.19s-.027-7.38-2.372-7.38zm128.752-.502c6.51-8.013 14.054-18.302 14.054-18.302s-5.827-4.625-8.556-1.27c-1.874 2.548-11.51 15.063-11.51 15.063l6.012 4.51zm-46.903-18.462c-2.814-2.577-8.096.667-8.096.667s12.35 17.2 12.85 17.953l6.08-4.29s-8.02-11.752-10.83-14.33zM199.99 46.5c-6.18 0-40.908.292-40.953.292v-31.56c1.503 0 3.882-.124 7.14-.376 12.773-.753 21.914-1.25 27.427-1.504 0 0 3.817-8.496-.185-10.45-.96-.37-7.24 1.43-7.24 1.43s-51.63 5.153-72.61 5.64c.5 2.756 2.38 5.336 4.93 6.11 4.16 1.087 7.09.53 15.36.277 7.76-.5 13.65-.76 17.66-.76v31.19h-41.71s.88 6.97 7.97 7.14h33.73v22.16c0 4.364-3.498 6.87-7.65 6.6-4.4.034-8.15-.36-13.027-.566.623 1.24 1.977 4.496 6.035 6.824 3.087 1.502 5.054 2.053 8.13 2.053 9.237 0 14.27-5.4 14.027-14.16V53.93h38.235c3.026 0 2.72-7.432 2.72-7.432z" fill-rule="evenodd"></path></g></svg>
+           
+        <p class="box1">首页</p>
+        <p class="box1">发现</p>
+        <p class="box1">等你来答</p>
+        <div class="box2">
+        <p class="box3"><input type="text" maxlength="100" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete8--1" id="Popover7-toggle" aria-haspopup="true" aria-owns="Popover7-content" class="Input" placeholder="华为鸿蒙上市时间成谜" value="">
+          
+            <button class="button1" aria-label="搜索" type="button" class="Button SearchBar-searchIcon Button--primary"><span style="display: inline-flex; align-items: center;">​<svg class="box3" fill="currentColor" viewBox="0 0 24 24" width="18" height="18"><path d="M17.068 15.58a8.377 8.377 0 0 0 1.774-5.159 8.421 8.421 0 1 0-8.42 8.421 8.38 8.38 0 0 0 5.158-1.774l3.879 3.88c.957.573 2.131-.464 1.488-1.49l-3.879-3.878zm-6.647 1.157a6.323 6.323 0 0 1-6.316-6.316 6.323 6.323 0 0 1 6.316-6.316 6.323 6.323 0 0 1 6.316 6.316 6.323 6.323 0 0 1-6.316 6.316z" fill-rule="evenodd"></path></svg></span></button>
+       </p></div>
+       <button type="button" class="button">提问</button>
+        
+        <p class="box1"><svg class="Zi Zi--Bell" fill="currentColor" viewBox="0 0 24 24" width="22" height="22"><path d="M4.523 15.076l.804-6.757a6.753 6.753 0 0 1 4.945-5.7 1.823 1.823 0 0 1 3.623 0 6.753 6.753 0 0 1 4.945 5.7l.804 6.757a2.293 2.293 0 0 0 1.712 2.108 1.093 1.093 0 0 1-.297 2.15H3.108a1.093 1.093 0 0 1-.297-2.15 2.293 2.293 0 0 0 1.712-2.108zM12.083 23a2.758 2.758 0 0 1-2.753-2.509.229.229 0 0 1 .232-.24h5.043a.229.229 0 0 1 .232.24 2.759 2.759 0 0 1-2.753 2.51z"></path></svg></p>
+        <p class="box1"><svg class="Zi Zi--Comments" fill="currentColor" viewBox="0 0 24 24" width="22" height="22"><path d="M11 2c5.571 0 9 4.335 9 8 0 6-6.475 9.764-11.481 8.022-.315-.07-.379-.124-.78.078-1.455.54-2.413.921-3.525 1.122-.483.087-.916-.25-.588-.581 0 0 .677-.417.842-1.904.064-.351-.14-.879-.454-1.171A8.833 8.833 0 0 1 2 10c0-3.87 3.394-8 9-8zm10.14 9.628c.758.988.86 2.009.86 3.15 0 1.195-.619 3.11-1.368 3.938-.209.23-.354.467-.308.722.12 1.073.614 1.501.614 1.501.237.239-.188.562-.537.5-.803-.146-1.495-.42-2.546-.811-.29-.146-.336-.106-.563-.057-2.043.711-4.398.475-6.083-.927 5.965-.524 8.727-3.03 9.93-8.016z" fill-rule="evenodd"></path></svg></p>
+        <p class="box1"><img src="download.jpg" ></p>
     </div>
+        </div></div>
+    <div id="ztnr">
+       <!-- <img src="artist.png" width="690px">-->
+        <div class="article_navigation">  
+            <div class="article_navigation_text"> 推荐</div>
+            
+            <div class="article_navigation_text"> 关注 </div>
+                  
+            <div class="article_navigation_text"> 热榜 </div>
+                   
         </div>
-    <div id="ztnr"></div>
-    <div class="cddh" ></div>
-    <div class="cddh"></div>
-    <div class="cddh"></div>
+    
+        <div class="article"> 
+            <div class="article_name" style="text-align:left;"><strong>雅思建议自学吗            <br></strong></div>
+       
+       
+            <div class="article_text">
+                <div class="article_picture" style="text-align:left;"> <img src="1.png" style="width: 190px; height:105px"> </div>
+                <div class="article_sum"> 看山不是山： 作为一只入行多年的PPT设计师，分享七大PPT的“
+                        <b>隐藏功能</b>
+                        “，并且大多数普通人也能迅速掌握！ 
+                        <b>前方万字干货~ 本回答将长期免费更新~推荐先马后看</b>
+                        <a href="https://zhuanlan.zhihu.com/p/37960718" class="  " data-za-detail-view-id="1043">一.3D模型的使用-实战掌握</a>
+                       自从Office36…
+                        
+                        <button type="button" class="Button2">阅读全文<span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--ArrowDown ContentItem-arrowIcon" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z" fill-rule="evenodd"></path></svg></span></button>
+                           
+                        
+                
+                    </div>
+                  <div class="article_bottom">
+                    <span><button aria-label="赞同 129" type="button" class="bottom_zan"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--TriangleUp VoteButton-TriangleUp" fill="currentColor" viewBox="0 0 24 24" width="10" height="10"><path d="M2 18.242c0-.326.088-.532.237-.896l7.98-13.203C10.572 3.57 11.086 3 12 3c.915 0 1.429.571 1.784 1.143l7.98 13.203c.15.364.236.57.236.896 0 1.386-.875 1.9-1.955 1.9H3.955c-1.08 0-1.955-.517-1.955-1.9z" fill-rule="evenodd"></path></svg></span>赞同 129</button>
+                    <button aria-label="反对" type="button" class="bottom_zan"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--TriangleDown" fill="currentColor" viewBox="0 0 24 24" width="10" height="10"><path d="M20.044 3H3.956C2.876 3 2 3.517 2 4.9c0 .326.087.533.236.896L10.216 19c.355.571.87 1.143 1.784 1.143s1.429-.572 1.784-1.143l7.98-13.204c.149-.363.236-.57.236-.896 0-1.386-.876-1.9-1.956-1.9z" fill-rule="evenodd"></path></svg></span></button>
+                
+                
+                </span>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Comment Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M10.241 19.313a.97.97 0 0 0-.77.2 7.908 7.908 0 0 1-3.772 1.482.409.409 0 0 1-.38-.637 5.825 5.825 0 0 0 1.11-2.237.605.605 0 0 0-.227-.59A7.935 7.935 0 0 1 3 11.25C3 6.7 7.03 3 12 3s9 3.7 9 8.25-4.373 9.108-10.759 8.063z" fill-rule="evenodd"></path></svg></span>8 条评论</button>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Share Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M2.931 7.89c-1.067.24-1.275 1.669-.318 2.207l5.277 2.908 8.168-4.776c.25-.127.477.198.273.39L9.05 14.66l.927 5.953c.18 1.084 1.593 1.376 2.182.456l9.644-15.242c.584-.892-.212-2.029-1.234-1.796L2.93 7.89z" fill-rule="evenodd"></path></svg></span>分享</button>     
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Star Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M5.515 19.64l.918-5.355-3.89-3.792c-.926-.902-.639-1.784.64-1.97L8.56 7.74l2.404-4.871c.572-1.16 1.5-1.16 2.072 0L15.44 7.74l5.377.782c1.28.186 1.566 1.068.64 1.97l-3.89 3.793.918 5.354c.219 1.274-.532 1.82-1.676 1.218L12 18.33l-4.808 2.528c-1.145.602-1.896.056-1.677-1.218z" fill-rule="evenodd"></path></svg></span>收藏</button>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Heart Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M2 8.437C2 5.505 4.294 3.094 7.207 3 9.243 3 11.092 4.19 12 6c.823-1.758 2.649-3 4.651-3C19.545 3 22 5.507 22 8.432 22 16.24 13.842 21 12 21 10.158 21 2 16.24 2 8.437z" fill-rule="evenodd"></path></svg></span>感谢</button>
+                <svg class=" dot" style="margin-left: 24px;" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill-rule="evenodd"></path></svg>
+            </div>
+            </div> 
+        
+          </div>
+
+          <div class="article"> 
+            <div class="article_name" style="text-align:left;"><strong>雅思建议自学吗            <br></strong></div>
+       
+       
+            <div class="article_text">
+                <div class="article_picture" style="text-align:left;"> <img src="1.png" style="width: 190px; height:105px"> </div>
+                <div class="article_sum"> 看山不是山： 作为一只入行多年的PPT设计师，分享七大PPT的“
+                        <b>隐藏功能</b>
+                        “，并且大多数普通人也能迅速掌握！ 
+                        <b>前方万字干货~本回答将长期免费更新~推荐先马后看</b>
+                        <a href="https://zhuanlan.zhihu.com/p/37960718" class="internal" data-za-detail-view-id="1043">一.3D模型的使用-实战掌握</a>
+                        自从Office36…
+                        
+                        <button type="button" class="Button2">阅读全文<span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--ArrowDown ContentItem-arrowIcon" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z" fill-rule="evenodd"></path></svg></span></button>
+                           
+                        
+                
+                    </div>
+                  <div class="article_bottom">
+                    <span><button aria-label="赞同 129" type="button" class="bottom_zan"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--TriangleUp VoteButton-TriangleUp" fill="currentColor" viewBox="0 0 24 24" width="10" height="10"><path d="M2 18.242c0-.326.088-.532.237-.896l7.98-13.203C10.572 3.57 11.086 3 12 3c.915 0 1.429.571 1.784 1.143l7.98 13.203c.15.364.236.57.236.896 0 1.386-.875 1.9-1.955 1.9H3.955c-1.08 0-1.955-.517-1.955-1.9z" fill-rule="evenodd"></path></svg></span>赞同 129</button>
+                    <button aria-label="反对" type="button" class="bottom_zan"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--TriangleDown" fill="currentColor" viewBox="0 0 24 24" width="10" height="10"><path d="M20.044 3H3.956C2.876 3 2 3.517 2 4.9c0 .326.087.533.236.896L10.216 19c.355.571.87 1.143 1.784 1.143s1.429-.572 1.784-1.143l7.98-13.204c.149-.363.236-.57.236-.896 0-1.386-.876-1.9-1.956-1.9z" fill-rule="evenodd"></path></svg></span></button>
+                
+                
+                </span>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Comment Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M10.241 19.313a.97.97 0 0 0-.77.2 7.908 7.908 0 0 1-3.772 1.482.409.409 0 0 1-.38-.637 5.825 5.825 0 0 0 1.11-2.237.605.605 0 0 0-.227-.59A7.935 7.935 0 0 1 3 11.25C3 6.7 7.03 3 12 3s9 3.7 9 8.25-4.373 9.108-10.759 8.063z" fill-rule="evenodd"></path></svg></span>8 条评论</button>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Share Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M2.931 7.89c-1.067.24-1.275 1.669-.318 2.207l5.277 2.908 8.168-4.776c.25-.127.477.198.273.39L9.05 14.66l.927 5.953c.18 1.084 1.593 1.376 2.182.456l9.644-15.242c.584-.892-.212-2.029-1.234-1.796L2.93 7.89z" fill-rule="evenodd"></path></svg></span>分享</button>     
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Star Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M5.515 19.64l.918-5.355-3.89-3.792c-.926-.902-.639-1.784.64-1.97L8.56 7.74l2.404-4.871c.572-1.16 1.5-1.16 2.072 0L15.44 7.74l5.377.782c1.28.186 1.566 1.068.64 1.97l-3.89 3.793.918 5.354c.219 1.274-.532 1.82-1.676 1.218L12 18.33l-4.808 2.528c-1.145.602-1.896.056-1.677-1.218z" fill-rule="evenodd"></path></svg></span>收藏</button>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Heart Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M2 8.437C2 5.505 4.294 3.094 7.207 3 9.243 3 11.092 4.19 12 6c.823-1.758 2.649-3 4.651-3C19.545 3 22 5.507 22 8.432 22 16.24 13.842 21 12 21 10.158 21 2 16.24 2 8.437z" fill-rule="evenodd"></path></svg></span>感谢</button>
+                <svg class=" dot" style="margin-left: 24px;" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill-rule="evenodd"></path></svg>
+            </div>
+            </div> 
+        
+          </div>
+
+          <div class="article"> 
+            <div class="article_name" style="text-align:left;"><strong>雅思建议自学吗            <br></strong></div>
+       
+       
+            <div class="article_text">
+                <div class="article_picture" style="text-align:left;"> <img src="1.png" style="width: 190px; height:105px"> </div>
+                <div class="article_sum">  看山不是山： 作为一只入行多年的PPT设计师，分享七大PPT的“
+                        <b>隐藏功能</b>
+                        “，并且大多数普通人也能迅速掌握！ 
+                       
+                        <b>前方万字干货~本回答将长期免费更新~推荐先马后看</b>
+                        <a href="https://zhuanlan.zhihu.com/p/37960718" class="internal" data-za-detail-view-id="1043">一.3D模型的使用-实战掌握</a>
+                        自从Office36…
+                        
+                        <button type="button" class="Button2">阅读全文<span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--ArrowDown ContentItem-arrowIcon" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z" fill-rule="evenodd"></path></svg></span></button>
+                           
+                        
+                
+                    </div>
+                  <div class="article_bottom">
+                    <span><button aria-label="赞同 129" type="button" class="bottom_zan"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--TriangleUp VoteButton-TriangleUp" fill="currentColor" viewBox="0 0 24 24" width="10" height="10"><path d="M2 18.242c0-.326.088-.532.237-.896l7.98-13.203C10.572 3.57 11.086 3 12 3c.915 0 1.429.571 1.784 1.143l7.98 13.203c.15.364.236.57.236.896 0 1.386-.875 1.9-1.955 1.9H3.955c-1.08 0-1.955-.517-1.955-1.9z" fill-rule="evenodd"></path></svg></span>赞同 129</button>
+                    <button aria-label="反对" type="button" class="bottom_zan"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--TriangleDown" fill="currentColor" viewBox="0 0 24 24" width="10" height="10"><path d="M20.044 3H3.956C2.876 3 2 3.517 2 4.9c0 .326.087.533.236.896L10.216 19c.355.571.87 1.143 1.784 1.143s1.429-.572 1.784-1.143l7.98-13.204c.149-.363.236-.57.236-.896 0-1.386-.876-1.9-1.956-1.9z" fill-rule="evenodd"></path></svg></span></button>
+                
+                
+                </span>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Comment Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M10.241 19.313a.97.97 0 0 0-.77.2 7.908 7.908 0 0 1-3.772 1.482.409.409 0 0 1-.38-.637 5.825 5.825 0 0 0 1.11-2.237.605.605 0 0 0-.227-.59A7.935 7.935 0 0 1 3 11.25C3 6.7 7.03 3 12 3s9 3.7 9 8.25-4.373 9.108-10.759 8.063z" fill-rule="evenodd"></path></svg></span>8 条评论</button>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Share Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M2.931 7.89c-1.067.24-1.275 1.669-.318 2.207l5.277 2.908 8.168-4.776c.25-.127.477.198.273.39L9.05 14.66l.927 5.953c.18 1.084 1.593 1.376 2.182.456l9.644-15.242c.584-.892-.212-2.029-1.234-1.796L2.93 7.89z" fill-rule="evenodd"></path></svg></span>分享</button>     
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Star Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M5.515 19.64l.918-5.355-3.89-3.792c-.926-.902-.639-1.784.64-1.97L8.56 7.74l2.404-4.871c.572-1.16 1.5-1.16 2.072 0L15.44 7.74l5.377.782c1.28.186 1.566 1.068.64 1.97l-3.89 3.793.918 5.354c.219 1.274-.532 1.82-1.676 1.218L12 18.33l-4.808 2.528c-1.145.602-1.896.056-1.677-1.218z" fill-rule="evenodd"></path></svg></span>收藏</button>
+                <button type="button" class="bottom_meum"><span style="display: inline-flex; align-items: center;">​<svg class="Zi Zi--Heart Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M2 8.437C2 5.505 4.294 3.094 7.207 3 9.243 3 11.092 4.19 12 6c.823-1.758 2.649-3 4.651-3C19.545 3 22 5.507 22 8.432 22 16.24 13.842 21 12 21 10.158 21 2 16.24 2 8.437z" fill-rule="evenodd"></path></svg></span>感谢</button>
+                <svg class=" dot" style="margin-left: 24px;" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M5 14a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill-rule="evenodd"></path></svg>
+            </div>
+            </div> 
+        
+          </div>  
+
+   </div>
+
+
+    <div class="cddh" >
+        <div class="write">
+           
+                <a class="write_answer" href="/creator/tools/question" target="_blank" rel="noopener noreferrer" title="回答"><svg class="Zi Zi--Paper GlobalWrite-navIcon" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M9.273 6.13c-1.103 0-1.439.064-1.782.243a1.348 1.348 0 0 0-.576.564c-.183.336-.248.664-.248 1.743v6.64c0 1.079.065 1.407.248 1.743.135.247.323.431.576.564.343.18.68.243 1.782.243h5.454c1.103 0 1.439-.064 1.782-.243.253-.133.44-.317.576-.564.183-.336.248-.664.248-1.743V8.68c0-1.079-.065-1.407-.248-1.743a1.348 1.348 0 0 0-.576-.564c-.343-.18-.68-.243-1.782-.243H9.273zm0-1.63h5.454c1.486 0 2.025.151 2.568.436.543.284.97.7 1.26 1.232.29.532.445 1.059.445 2.512v6.64c0 1.453-.155 1.98-.445 2.512-.29.531-.717.948-1.26 1.232-.543.285-1.082.436-2.568.436H9.273c-1.486 0-2.025-.151-2.568-.436a2.997 2.997 0 0 1-1.26-1.232C5.155 17.3 5 16.773 5 15.32V8.68c0-1.453.155-1.98.445-2.512.29-.531.717-.948 1.26-1.232.543-.285 1.082-.436 2.568-.436zM8.5 8.576v1.467h7V8.576h-7zm0 2.609v1.467h7v-1.467h-7zm0 2.608v1.468h4.667v-1.468H8.5z"></path></svg><div class="GlobalWrite-navTitle">写回答</div></a>
+                <a class="write_answer" href="//zhuanlan.zhihu.com/write" target="_blank" rel="noopener noreferrer" title="写文章"><svg class="Zi Zi--WriteArticle GlobalWrite-navIcon" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M15.764 6.779l-3.76 3.765c-.428.43-.555.567-.667.713a1.666 1.666 0 0 0-.208.348c-.076.167-.137.344-.314.926l-.073.243.242-.074c.58-.177.757-.238.925-.314.13-.06.232-.12.347-.209.146-.112.282-.239.712-.668l3.759-3.766-.963-.964zm.963-.965l.963.965.685-.686c.167-.168.227-.263.253-.349a.187.187 0 0 0 0-.12c-.026-.086-.086-.18-.253-.348l-.148-.148c-.167-.167-.262-.228-.348-.254a.187.187 0 0 0-.12 0c-.085.026-.18.087-.347.254l-.685.686zm.87 5.471l1.702-1.705v5.549c0 1.52-.158 2.07-.455 2.626a3.096 3.096 0 0 1-1.287 1.29c-.555.297-1.105.455-2.623.455h-5.57c-1.517 0-2.068-.158-2.622-.455a3.096 3.096 0 0 1-1.287-1.29C5.158 17.2 5 16.65 5 15.13v-5.58c0-1.52.158-2.071.455-2.627a3.096 3.096 0 0 1 1.287-1.289c.554-.297 1.105-.455 2.622-.455h3.497l-1.702 1.705H9.364c-1.126 0-1.47.066-1.82.254-.258.138-.45.33-.588.59-.188.35-.254.694-.254 1.822v5.58c0 1.128.066 1.472.254 1.822.138.259.33.452.588.59.35.188.694.254 1.82.254h5.57c1.127 0 1.47-.066 1.82-.254.258-.138.45-.331.589-.59.187-.35.253-.694.253-1.822v-3.844zm1.593-7.121l.148.147c.33.33.502.616.594.918.09.301.09.61 0 .911-.092.302-.265.587-.594.917l-5.408 5.416c-.486.487-.648.635-.845.786a3.02 3.02 0 0 1-.614.37c-.226.102-.433.176-1.091.376l-.852.26a1.021 1.021 0 0 1-1.275-1.277l.26-.854c.2-.659.273-.866.375-1.092.103-.227.218-.418.369-.616.15-.197.299-.36.785-.846l5.407-5.416c.33-.33.614-.504.915-.595.301-.092.61-.092.91 0 .301.09.586.264.916.595z"></path></svg><div class="GlobalWrite-navTitle">写文章</div></a>
+                <a class="write_answer" href="//zhuanlan.zhihu.com/write" target="_blank" rel="noopener noreferrer" title="写想法"><svg class="Zi Zi--WritePin GlobalWrite-navIcon" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M17.13 5.52V3.5h1.35v2.02h2.02v1.35h-2.02V8.9h-1.35V6.86H15.1V5.52h2.03zm-.17 4.9h1.7v4.76c0 1.5-.17 2.05-.46 2.6-.3.55-.73.98-1.28 1.27-.54.3-1.1.45-2.6.45h-5.5c-1.5 0-2.05-.16-2.6-.45-.55-.3-.98-.72-1.27-1.27-.3-.55-.45-1.1-.45-2.6v-5.5c0-1.5.16-2.06.45-2.6.3-.55.72-.98 1.27-1.28.55-.3 1.1-.45 2.6-.45h4.78v1.7H8.8c-1.12 0-1.46.05-1.8.24-.26.1-.45.3-.58.55-.2.35-.26.7-.26 1.8v5.5c0 1.13.07 1.47.26 1.8.13.27.32.46.58.6.34.18.68.25 1.8.25h5.5c1.12 0 1.46-.06 1.8-.25.27-.13.46-.32.6-.58.18-.34.24-.68.24-1.8V10.4l.02.02zm-3.86-.22c.7-.16 1.45.06 1.98.6.83.83.83 2.2 0 3.04l-.03.03c-.84.85-2.2.85-3.04 0l-1.92-2a.628.628 0 0 0-.88 0l-.04.04c-.25.28-.25.7 0 .95.15.16.37.22.57.17.4-.1.82.18.9.58.1.4-.16.82-.57.9-.7.17-1.46-.04-1.98-.58-.83-.85-.83-2.2 0-3.06l.03-.02c.86-.85 2.2-.85 3.05 0l1.93 1.95c.24.25.63.25.87 0l.03-.02a.67.67 0 0 0 0-.93.687.687 0 0 0-.58-.17c-.4.1-.8-.16-.9-.57-.1-.4.16-.8.57-.9l.01-.01z"></path></svg><div class="GlobalWrite-navTitle">写想法</div></a>
+         </div>
+   
+       
+            <div class="moment">
+                    <div class="momment" style="transform: scale(1);"><svg class="moment_picture" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M5.591 10.714C6.373 7.434 9.257 5 12.696 5c4.04 0 7.314 3.358 7.314 7.5 0 4.142-3.274 7.5-7.314 7.5-2.483 0-4.755-1.28-6.1-3.363a.816.816 0 0 1 .22-1.114.772.772 0 0 1 1.086.227c1.058 1.638 2.842 2.643 4.794 2.643 3.174 0 5.747-2.638 5.747-5.893s-2.573-5.893-5.747-5.893c-2.713 0-4.988 1.93-5.59 4.523l1.145.315a.418.418 0 0 1 .102.762l-2.36 1.397a.418.418 0 0 1-.577-.154l-1.362-2.42a.418.418 0 0 1 .475-.608l1.062.292zm7.987 1.376l2.794 1.654a.784.784 0 0 1 .283 1.059l-.015.027a.781.781 0 0 1-1.08.29l-3.112-1.844a.784.784 0 0 1-.145-.092.784.784 0 0 1-.292-.757V8.784a.784.784 0 1 1 1.567 0v3.306z"></path></svg>
+                        
+                        
+                        
+                    </div><div class="moment_picture">    我的稍后答</div>
+                    </div>
+            </div>
+        
+   
+
+    </div>
+
+   
+    <div class="cddh" style="height: 180px;">
+            <div class="create"><svg class="Zi Zi--Creator CreatorEntrance-creator" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M15.075 15.388l-3.024 3.024a4.041 4.041 0 0 0-1.014 1.697l-.26.868C7.844 20.986 4.91 21 2 21c.026-3.325 0-3.304.59-3.956 1.237-1.368 6.251-.68 6.44-2.976.043-.518-.36-1.06-.725-1.69C6.285 8.87 5.512 2 11.5 2c5.988 0 5.15 7.072 3.246 10.378-.357.62-.795 1.217-.724 1.77.073.571.477.958 1.053 1.24zm5.402 1.672c.523.55.523.646.523 3.94a535.11 535.11 0 0 0-4.434-.028l3.911-3.912zm-7.88 2.699c.111-.37.312-.705.584-.978l4.76-4.76a.291.291 0 0 1 .412 0l1.626 1.626a.291.291 0 0 1 0 .411l-4.76 4.76c-.272.273-.608.474-.978.585l-1.96.588a.219.219 0 0 1-.272-.272l.589-1.96zm9.157-6.742a.839.839 0 0 1 0 1.187l-.94.94a.28.28 0 0 1-.395 0l-1.563-1.563a.28.28 0 0 1 0-.395l.94-.94a.839.839 0 0 1 1.187 0l.771.771z" fill-rule="evenodd"></path></svg><div class="CreatorEntrance-text"><div class="CreatorEntrance-indexPageTitle">创作者中心</div></div><svg  class="Zi Zi--ArrowRight CreatorEntrance-arrow CreatorEntrance-arrow--smallIcon" style="margin-left:140px;" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M9.218 16.78a.737.737 0 0 0 1.052 0l4.512-4.249a.758.758 0 0 0 0-1.063L10.27 7.22a.737.737 0 0 0-1.052 0 .759.759 0 0 0-.001 1.063L13 12l-3.782 3.716a.758.758 0 0 0 0 1.063z" fill-rule="evenodd"></path></svg></div>
+        
+        <div class="num">
+            <div class="readnum">
+                
+                        <div class="readtext">昨日回答阅读数</div>
+                
+                <div class="readtext" style="color: #444;
+                font-size: 18px;
+                line-height: 28px;
+                font-weight: 600;">2</div>
+                
+                <div class="readtext"">较前日 <strong>--</strong></div>
+                
+                
+            </div>
+            <div class="readnum">
+                    <div class="readtext">昨日回答赞同数</div>
+                
+                    <div class="readtext" style="color: #444;
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 600;">0</div>
+                    
+                    <div class="readtext">较前日 <strong>--</strong></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="cddh">
+        
+
+
+
+        
+    </div>
     <div class="cddh"></div>
     
   
