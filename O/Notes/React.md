@@ -130,7 +130,7 @@ npx create-react-app my-app
 
 
 
-## 在项目中使用React
+## ~~在项目中使用React~~
 
 0. `nmp i react react-dom -S`
 
@@ -560,7 +560,9 @@ return <div>
 **我们应该使用双花括号的写法**
 
 ```JSX
-
+return <div>
+    <h1 style={{color:"red"}}>This is a Comment List.</h1>
+</div>
 ```
 
 > 注意不要使用连字符写法，而是应该写成小驼峰的形式
@@ -569,7 +571,9 @@ return <div>
 >
 > 等等
 
-### 导入CSS样式表
+# 20190712
+
+### CSS样式表模块化
 
 css没有作用域的概念
 
@@ -577,6 +581,110 @@ css样式表导入后是全局生效的，会有冲突问题
 
 我们需要**为css样式表启用模块化**
 
+> 在create-react-app 2.0以前，它本身是不带css-modules的
+>
+> 我是用的create-react-app 3.0.1
+>
+> 这样直接将`[name].css`改为`[name].module.css`就可以达到css样式表模块化的效果
+
+* 导入样式表
+
+  ```jsx
+  import css from "../css/commentitem.module.css";
+  ```
+
+* 使用样式表
+
+  ```jsx
+  
+  ```
+
+注意：css模块化只针对**类选择器**和**id选择器**生效
+
+​	    css模块化**不会将标签选择器模块化**
+
+
+
+### 取消CSS样式表模块化
+
+```css
+:gobal(.test){
+    font-style	:italic;
+}
+```
+
+使用`global`参数可以将被模块化的选择器变为对全局生效
+
+（使用`local`参数可以将未被模块化的选择器模块化，一般不用）
+
+
+
+## 在React中实现事件绑定
+
+* 在react中有一套自己的事件绑定机制
+
+* 事件名要用**小驼峰**命名
+
+* 语法：`onClick = { function }`
+
+* ```JSX
+  <button onClick = { () => this.myClickHandler() }>按钮</button>
+  ```
+
+* <a href="../Tasks/React-todo-mvc/my-app/src/components/BindEvent.jsx">这是一个绑定事件函数的组件</a>
+
+
+
+## `this.setState`
+
+在React中如果想要修改state中的数据，推荐使用`this.setState({})`
+
+注意：该方法是**异步**的！
+
+如果使用`setState`方法修改了`this.state`中的数据，我们如果要访问更新后的数据，则必须使用回调函数，否则访问到的则是修改前的数据
+
+## 绑定UI页面的内容与this.state
+
+* 默认情况下，在React中如果页面上的表单元素绑定了state上的状态值，那么每当state上状态值变化，必然会自动把最新的状态值同步到页面上
+
+* 反过来，在UI页面上的表单元素值如果变化了，想要把最新的值同步到state中，此时React是没有这种自动的同步机制的，我们必须：
+
+  * 在React中**手动监听表单元素的onChange事件**
+
+  * 在onChange事件中，手动获取文本框的值
+
+    * 通过事件参数`e`获取
+
+    * 通过`this.refs`获取
+
+    * ```javascript
+      console.log(e.target.value);
+      console.log(this.refs.txt.value);
+      ```
+
+  * 程序员调用`this.setState({ })`手动把最新的值同步到state中
+
+  <a href="../Tasks/React-todo-mvc/my-app/src/components/BindInputValue.jsx">这是一个将页面值绑定到state的实例</a>
+
+
+
+## 组件的生命周期
+
+* 生命周期与生命周期函数
+  * 每个组件的实例从**创建、运行到销毁** ，在这个过程中，会发生一些事件，这些事件就叫做**组件的生命周期函数**
+* React组件的生命周期
+  * **组件创建阶段**：一辈子只执行一次
+    * componentWillMount
+    * render
+    * componentDidMount
+  * **组件运行阶段**：按需执行，根据`props`属性或`state`的状态，有选择的执行0次~多次
+    * componentWillReceiveProps
+    * shouldComponentUpdate
+    * componentWillUpdate
+    * render
+    * componentDidUpdate
+  * **组件销毁阶段**：一辈子执行一次
+    * componentWillUnmount
 
 
 
