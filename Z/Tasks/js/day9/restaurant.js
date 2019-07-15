@@ -62,7 +62,6 @@ class Queue {
     empty() {
         return this.data.length === 0;
     }
-
 }
 
 class Restaurant {
@@ -101,7 +100,7 @@ class Waiter extends Staff {
     }
 
     submitMeal(customer, chef) {
-        let meal = customer.order(mealList);
+        let meal = Waiter.order(mealList);
         for (let i = 0; i < meal.length; i++) {
             console.log("Waiter " + this.name + " submit " + meal[i].name + " to " + "Chef " + chef.name);
             chef.cook(this, meal[i], customer);

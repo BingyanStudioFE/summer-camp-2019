@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale = 1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>day11</title>
+    <link rel="stylesheet" href="../../css/day11/day11.css">
+</head>
+<body>
+<div id="app" class="card">
+    <h1>Restaurant</h1>
+    <div id="cash-wrapper">
+        <p>现金数量:<span id="cash"></span></p>
+        <button type="button" id="add-customer">添加客人</button>
+    </div>
+    <div id="restaurant-wrapper">
+        <div id="cook-wrapper">
+            <div id="cook-list-wrapper">
+                <p>待做列表:</p>
+                <ul id="cook-list">
+                </ul>
+            </div>
+            <div id="cook-status-wrapper">
+                <p>厨师状态:</p>
+                <p id="cook-status">无</p>
+                <img src="image/chef.png" height="100px" alt="chef">
+            </div>
+        </div>
+        <div id="waiter-wrapper">
+            <p>服务员状态:</p>
+            <p id="waiter-status">无</p>
+            <img src="image/waiter.png" alt="waiter" height="100px">
+        </div>
+        <div id="customer-wrapper">
+            <div id="customer-status-wrapper">
+                <p>顾客状态:</p>
+                <p id="customer-status">无</p>
+                <img src="image/customer.png" alt="customer" height="100px">
+            </div>
+            <div id="customer-list-wrapper">
+                <p>菜品列表:</p>
+                <ul id="customer-dish-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="customer-list">
+    </div>
+</div>
+<script src="../../../js/day11/restaurant.js"></script>
+<script src="../../../js/day11/staff.js"></script>
+<script src="../../../js/day11/waiter.js"></script>
+<script src="../../../js/day11/chef.js"></script>
+<script src="../../../js/day11/dish.js"></script>
+<script src="../../../js/day11/customer.js"></script>
+<script src="../../../js/day11/menu.js"></script>
+<script src="../../../js/day11/app.js"></script>
+</body>
+</html>
