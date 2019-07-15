@@ -1,0 +1,18 @@
+body{
+	background: black;
+}
+.center{
+	left: 195px;
+	top: 195px;
+	height: 10px;
+	width: 10px;
+	color: darkgoldenrod;
+}
+@keyframes rotate{
+	100%{
+		transform: rotate(360deg);
+	}
+}
+.hour{
+	
+}
