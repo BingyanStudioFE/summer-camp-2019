@@ -1,13 +1,35 @@
-function showCash(restaurant) {
+function randomNum(minNum, maxNum) {
+    switch (arguments.length) {
+        case 1:
+            return parseInt(Math.random() * minNum + 1, 10);
+        case 2:
+            return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+        default:
+            return 0;
+    }
+}
+
+function showCash() {
     let cash = document.getElementById("cash");
     cash.innerText = restaurant.cash;
 }
 
+function updateCash(customer) {
+    let cash = document.getElementById("cash");
+    let money = Number(cash.innerText);
+    for (let i = 0; i < customer.eatList.length; i++) {
+        money += Number(customer.eatList[i].price - customer.eatList[i].cost);
+    }
+    cash.innerText = money;
+    restaurant.cash = money;
+}
+
 function addMenu(menu) {
-    menu.add("meat", 20, 40, 3);
     menu.add("rice", 2, 5, 1);
-    menu.add("soup", 5, 10, 2);
+    menu.add("soup", 5, 10, 4);
     menu.add("noodles", 5, 10, 2);
+    menu.add("meat", 20, 40, 3);
+    menu.updateMenu();
 }
 
 function addStaff(restaurant) {
@@ -60,61 +82,64 @@ function startRestaurant() {
     let customer = customerQueue.shift();
     updateCustomerQueue(customerQueue.length);
 
-    let main = new Promise(function (resovle, reject) {
+    let main = new Promise(function (resolve) {
         Customer.sit();
+        resolve();
     });
-    main.then(Waiter.order())
-        .then(customer.order(3))
-        .then(setTimeout(function () {
+    main.then(function () {
+        Waiter.order();
+    }).then(function () {
+        customer.order(3);
+    }).then(function () {
+        setTimeout(() => {
             customer.eatList = Customer.orderDish();
             updateCustomerList(customer.eatList);
             Customer.finish();
-            chef.dishList = customer.eatList;
-            Waiter.submit();
             waiter.customer = customer;
-        }, 3 * basicTime))
-        .then(setTimeout(function () {
+            Waiter.submit();
+            chef.dishList = customer.eatList;
+        }, 3 * basicTime);
+    }).then(function () {
+        setTimeout(() => {
             chef.updateCookList();
             chef.startCook();
-        }, 3.5 * basicTime));
+        }, 3.5 * basicTime);
+    });
+    setInterval((customer) => {
+        nextCustomer(customer)
+    }, 100, customer);
 }
 
+function nextCustomer(customer) {
+    let eatList = document.querySelectorAll("#app #customer-dish-list li");
+    let status = document.getElementById("customer-status");
+    if (status.innerText === "就餐完毕") {
+        return;
+    }
+    if (eatList.length === 0) {
+        return;
+    }
+    for (let i = 0; i < eatList.length; i++) {
+        if (eatList[i].innerText.indexOf("已吃完") === -1) {
+            return;
+        }
+    }
+    updateCash(customer);
+    status.innerText = "就餐完毕";
+    setTimeout(() => {
+        status.innerText = "无";
+        eatList[0].parentNode.innerHTML = "";
+    }, 1000)
+}
 
-// function nextCustomer(customer) {
-//     let eatList = document.querySelectorAll('#app #customer-dash-list li');
-//     let cash = document.querySelector('#app #cash');
-//     let customer_status = document.querySelector('#customer-status');
-//     if (customer_status.innerText === '就餐完毕') {
-//         return;
-//     }
-//     if (eatList.length === 0) {
-//         return;
-//     }
-//     for (let i = 0; i < eatList.length; i++) {
-//         if (eatList[i].innerText.indexOf('已吃完') === -1) {
-//             return;
-//         }
-//     }
-//     let money = Number(cash.innerText);
-//     for (let i = 0; i < customer.eatList.length; i++) {
-//         money += Number(customer.eatList[i].price - customer.eatList[i].cost);
-//     }
-//     cash.innerText = money;
-//     restaurant.cash = money;
-//
-//     customer_status.innerText = '就餐完毕';
-//     setTimeout(function () {
-//         customer_status.innerText = '无';
-//         eatList[0].parentNode.innerHTML = '';
-//     }, 1000)
-// }
 let basicTime = 1000;
 let customerQueue = [];
 let chef = Chef.getInstance("Tony", 5000);
 let waiter = Waiter.getInstance("Jack", 5000);
-let restaurant = Restaurant.getInstance(10000, 1, []);
+let restaurant = Restaurant.getInstance(0, 1, []);
+let menu = Menu.getInstance();
+
 window.onload = function () {
-    let menu = Menu.getInstance();
     init(restaurant, menu);
     buttonListen();
     setInterval(startRestaurant, 100);

@@ -7,17 +7,12 @@ class Chef extends Staff {
     updateCookList(order) {
         let dishList = order || this.dishList;
         let list = document.getElementById("cook-list");
-        // list.innerHTML = "";
-        // for (let i = 0; i < dishList.length; i++) {
-        //     let dish = document.createElement("li");
-        //     dish.innerHTML = dishList[i].name;
-        //     list.appendChild(dish);
-        // }
-        let result = '';
+        list.innerHTML = "";
         for (let i = 0; i < dishList.length; i++) {
-            result += '<li>' + dishList[i].name + '</li>';
+            let dish = document.createElement("li");
+            dish.innerHTML = dishList[i].name;
+            list.appendChild(dish);
         }
-        list.innerHTML = result;
     }
 
     startCook() {
@@ -25,31 +20,29 @@ class Chef extends Staff {
         let i = 0;
         while (this.dishList.length > 0) {
             let dish = this.dishList[0];
-            let arr = [];
+
+            let temp = [];
             for (let k = 1; k < this.dishList.length; k++) {
-                arr.push(this.dishList[k]);
+                temp.push(this.dishList[k]);
             }
-            this.dishList = arr;
+            this.dishList = temp;
+
             for (let j = 0; j < dish.time; j++) {
-                setTimeout(function (dish) {
+                setTimeout((dish) => {
                     status.innerText = "烹饪" + dish.name + "还需" + (dish.time - j) + "秒"
                 }, (i * basicTime + j * basicTime), dish);
             }
             i += dish.time;
-            setTimeout(function (temp, it, dish) {
-                waiter.serve(dish);
-                it.updateCookList(temp)
-            }, i * 1000, this.dishList, this, dish);
+            setTimeout((dishList, dish) => {
+                waiter.serve(dish, dishList.length);
+                this.updateCookList(dishList)
+            }, i * 1000, this.dishList, dish);
         }
-        setTimeout(function () {
-            status.innerText = "空闲"
-        }, i * 1000);
+        setTimeout(() => Chef.finishCook(), i * 1000);
     }
 
-    static getInstance(name, salary) {
-        if (!this.instance) {
-            this.instance = new Chef(name, salary);
-        }
-        return this.instance;
+    static finishCook() {
+        let status = document.getElementById("cook-status");
+        status.innerText = "空闲"
     }
 }

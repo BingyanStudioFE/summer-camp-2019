@@ -33,7 +33,7 @@ class Restaurant {
 
     static getInstance(cash, seat, staff) {
         if (!this.instance) {
-            this.instance = new Restaurant(cash, seat, staff);
+            this.instance = new this(cash, seat, staff);
         }
         return this.instance;
     }

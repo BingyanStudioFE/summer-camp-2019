@@ -2,6 +2,25 @@
     box-sizing: border-box;
 }
 
+button {
+    height: 40px;
+    width: 80px;
+    color: #fff;
+    border: none;
+    background-color: #0084ff;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+p {
+    font-weight: 900;
+}
+
+button:hover {
+    background-color: #0084da;
+}
+
 .card {
     border-radius: 5px;
     box-shadow: 0 0 5px grey;
@@ -26,7 +45,8 @@
 }
 
 #cook-wrapper,
-#customer-wrapper {
+#customer-wrapper,
+#menu-wrapper {
     width: 300px;
     height: 200px;
     border: 1px solid #DDD;
@@ -34,9 +54,28 @@
     display: flex;
 }
 
+#menu-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#menu-wrapper div {
+    margin: 5px 20px;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+#menu-wrapper div:first-child {
+    margin: 5px auto;
+}
+
 #customer-wrapper {
     position: absolute;
-    top: 225px;
+    bottom: 10px;
     right: 10px;
 }
 
@@ -51,7 +90,7 @@
 }
 
 #customer-list-wrapper {
-    width: 100px;
+    width: 200px;
     border-left: 1px solid #DDD;
     overflow: auto;
 }
@@ -61,8 +100,8 @@
     border: 1px solid #DDD;
     border-radius: 5px;
     position: absolute;
-    top: 10px;
-    left: 320px;
+    top: 240px;
+    left: 575px;
     height: 200px;
     transition: 0.5s all ease;
 }

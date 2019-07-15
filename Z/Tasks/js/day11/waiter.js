@@ -4,45 +4,47 @@ class Waiter extends Staff {
         this.customer = {};
     }
 
-    static order() {
-        let pos = document.getElementById("waiter-wrapper");
+    serve(dish, num) {
         let status = document.getElementById("waiter-status");
-        status.innerText = "点单";
-        pos.style.top = "225px";
-        pos.style.left = "550px";
+        status.innerText = "上菜";
+        Waiter.go();
+        setTimeout(() => this.customer.eat(dish), 500);
+        if (num) {
+            setTimeout(() => {
+                Waiter.back();
+                status.innerText = "取菜";
+            }, 500);
+        }
+        setTimeout(() => Waiter.finishWork(), 1000);
+    }
+
+    static order() {
+        let status = document.getElementById("waiter-status");
+        status.innerText = "点菜";
     }
 
     static submit() {
-        let pos = document.getElementById("waiter-wrapper");
         let status = document.getElementById("waiter-status");
         status.innerText = "下单";
-        pos.style.top = "10px";
-        pos.style.left = "320px";
-        setTimeout(function (status) {
-            status.innerText = "空闲";
-        }, 500, status);
+        Waiter.back();
+        setTimeout(() => Waiter.finishWork(), 500);
     }
 
-    serve(dish) {
+    static go() {
         let pos = document.getElementById("waiter-wrapper");
-        let status = document.getElementById("waiter-status");
-        status.innerText = "上菜";
-        pos.style.top = "225px";
-        pos.style.left = "550px";
-        setTimeout(function (pos) {
-            pos.style.top = "10px";
-            pos.style.left = "320px";
-        }, 500, pos);
-        setTimeout(function (status) {
-            status.innerText = "空闲";
-        }, 1000, status);
-        this.customer.eat(dish);
+        pos.style.top = "240px";
+        pos.style.left = "575px";
     }
 
-    static getInstance(name, salary) {
-        if (!this.instance) {
-            this.instance = new Waiter(name, salary);
-        }
-        return this.instance;
+    static back() {
+        let pos = document.getElementById("waiter-wrapper");
+        pos.style.top = "10px";
+        pos.style.left = "320px"
     }
+
+    static finishWork() {
+        let status = document.getElementById("waiter-status");
+        status.innerText = "空闲";
+    }
+
 }

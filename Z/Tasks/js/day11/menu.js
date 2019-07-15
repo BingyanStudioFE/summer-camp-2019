@@ -1,14 +1,3 @@
-function randomNum(minNum, maxNum) {
-    switch (arguments.length) {
-        case 1:
-            return parseInt(Math.random() * minNum + 1, 10);
-        case 2:
-            return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
-        default:
-            return 0;
-    }
-}
-
 class Menu {
     constructor() {
         this.list = [];
@@ -16,6 +5,17 @@ class Menu {
 
     add(name, cost, price, time) {
         this.list.push(new Dish(name, cost, price, time));
+    }
+
+    updateMenu() {
+        let menuList = document.getElementById("menu-wrapper");
+        menuList.innerHTML = "";
+        menuList.innerHTML += "<div>MENU</div>";
+        for (let i = 0; i < this.list.length; i++) {
+            let item = document.createElement("div");
+            item.innerHTML = this.list[i].name + ": " + this.list[i].price + "$";
+            menuList.appendChild(item);
+        }
     }
 
     getRandom() {
@@ -30,7 +30,7 @@ class Menu {
 
     static getInstance() {
         if (!this.instance) {
-            this.instance = new Menu();
+            this.instance = new this();
         }
         return this.instance;
     }
