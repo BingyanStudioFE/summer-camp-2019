@@ -255,7 +255,7 @@
 3. 笔记记入`你的文件夹/Notes/Node.md`
 4. 在 `你的文件夹/Tasks/node` 目录下下创建`task1`文件夹
 5. 在 `task1` 文件夹里使用 npm 命令，初始化 `package.json` 并安装 `colors` 包
-6. 新建 `index.js` 文件，使用 nodejs 运行，并尝试用代码在其中输出彩虹色的 `Geek is the new sexy!`
+6. 新建 `guide.js` 文件，使用 nodejs 运行，并尝试用代码在其中输出彩虹色的 `Geek is the new sexy!`
 
 #### 任务位置
 
