@@ -1,15 +1,9 @@
 //ES5
-function object(o) {
-    function F() {
-    };
-    F.prototype = o;
-    return new F();
-}
-
-function inheritPrototype(subType, superType) {
-    let prototype = object(superType.prototype);
-    prototype.constructor = subType;
-    subType.prototype = prototype;
+function extend(Child, Parent) {
+    let F = function () {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
 }
 
 function Restaurant(cash, seat, staff) {
@@ -40,7 +34,7 @@ function Waiter(name, salary) {
     Staff.call(this, name, salary);
 }
 
-inheritPrototype(Waiter, Staff);
+extend(Waiter, Staff);
 
 // Waiter.prototype.submit = function (seat, mealList) {
 //
@@ -53,7 +47,7 @@ function Cook(name, salary) {
     Staff.call(this, name, salary);
 }
 
-inheritPrototype(Cook, Staff);
+extend(Cook, Staff);
 
 // Cook.prototype.cook = function (meal) {
 //
@@ -76,5 +70,3 @@ function Meal(name, cost, price) {
     this.cost = cost;
     this.price = price;
 }
-
-//ES6

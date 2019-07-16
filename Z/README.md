@@ -46,3 +46,18 @@
 2. 学习js面向对象编程，初步掌握封装继承与多态
 3. 完成canvas动画demo，使用requestAnimationFrame
 4. 完成HTML history模块demo，使用pushState
+
+## Day9
+
+1. 学习JS设计模式：单例模式，命令模式，工厂模式
+2. 学习ES6面向对象编程
+3. 完成JS单线程餐厅demo
+
+## Day10
+
+1. 休息
+
+## Day11
+
+1. 完成Promise异步操作
+2. 完成餐厅demo可视化
