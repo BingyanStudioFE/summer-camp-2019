@@ -16,7 +16,7 @@
 }
 .AppBody{
 	width: 66%;
-	height: 1000px;
+	margin-bottom: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -127,4 +127,22 @@ p{
        vertical-align: -0.15em;
        fill: currentColor;
        overflow: hidden
+}
+#xingxing:hover{
+	animation: rotate 1s;
+}
+@keyframes rotate{
+	100%{
+		transform: rotate(288deg);
+	}
+}
+@-webkit-keyframes glow{
+	from{height: 30px; width: 64px;}
+	50%{height: 35px;width: 70px;color: royalblue}
+	100%{height: 30px; width: 64px;}
+}
+.ZhihuLogo{
+	animation-name: glow;
+	animation-iteration-count: infinite;
+	animation-duration: 2s;
 }
