@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale = 1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>day12</title>
+    <link href="../../css/day12/day12.css" rel="stylesheet">
+</head>
+<body>
+<div id="app" class="card">
+    <div id="header">
+        <div id="title">
+            <h1>Restaurant</h1>
+            <div>
+                <p>现金数量:<span id="cash"></span></p>
+                <button id="open">开始营业</button>
+            </div>
+        </div>
+        <div id="setting">
+            <div>
+                <label>单位时间(秒):
+                    <span id="show-basicTime"></span>
+                    <input id="input-basicTime">
+                    <button id="button-basicTime">确认</button>
+                </label>
+            </div>
+            <div>
+                <button id="add-cook">雇佣新厨师</button>
+                <button id="add-waiter">雇佣新侍者</button>
+            </div>
+        </div>
+    </div>
+    <div id="out-wrapper">
+        <div id="cook-wrapper">
+            <div id="many-cook">
+            </div>
+            <div id="cook-list-wrapper">
+                <p>待做列表:</p>
+                <ul id="cook-list">
+                </ul>
+            </div>
+        </div>
+        <div id="hall-wrapper">
+            <div id="inner-wrapper">
+                <div id="waiter-wrapper">
+                </div>
+                <div id="seat-wrapper">
+                </div>
+            </div>
+            <div id="queue-wrapper">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../js/day12/restaurant.js"></script>
+<script src="../../../js/day12/staff.js"></script>
+<script src="../../../js/day12/data.js"></script>
+<script src="../../../js/day12/waiter.js"></script>
+<script src="../../../js/day12/cook.js"></script>
+<script src="../../../js/day12/factory.js"></script>
+<script src="../../../js/day12/dish.js"></script>
+<script src="../../../js/day12/customer.js"></script>
+<script src="../../../js/day12/menu.js"></script>
+<script src="../../../js/day12/global.js"></script>
+<script src="../../../js/day12/app.js"></script>
+</body>
+</html>

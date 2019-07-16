@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+    color: #fff;
+    border: none;
+    background-color: #0084ff;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    background-color: #0084da;
+}
+
+.card {
+    border-radius: 5px;
+    box-shadow: 0 0 5px grey;
+}
+
+#app {
+    width: 1400px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+#header {
+    border: 1px solid #AAA;
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#header #title {
+    flex: 1;
+}
+
+#header #setting {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#header #setting div {
+    flex: 1;
+}
+
+#out-wrapper {
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#cook-wrapper {
+    display: flex;
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+    height: 200px;
+}
+
+#cook-wrapper #many-cook {
+    flex: 5;
+    display: flex;
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#many-cook .one-cook-wrapper {
+    width: 180px;
+}
+
+
+#cook-wrapper #cook-list-wrapper {
+    flex: 1;
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+#hall-wrapper {
+    display: flex;
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+    height: 600px;
+}
+
+#inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#queue-wrapper {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    overflow: auto;
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#inner-wrapper #waiter-wrapper {
+    flex: 1;
+    display: flex;
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#waiter-wrapper .one-waiter-wrapper {
+    width: 180px;
+    text-align: center;
+}
+
+#waiter-wrapper .one-waiter-wrapper img {
+    display: block;
+}
+
+#inner-wrapper #seat-wrapper {
+    flex: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: 1px solid #AAA;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+#seat-wrapper .customer-in-seat {
+    border: 1px solid #AAA;
+    height: 200px;
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 220px;
+    display: flex;
+}
+
+#seat-wrapper .customer-in-seat > div {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#app .customer {
+    width: 80px;
+    height: 100px;
+    margin: 10px;
+    background: center url(image/customer.png) no-repeat;
+    background-size: 100%;
+}
+
+.image-Waiter {
+    background: center url(image/waiter.png) no-repeat;
+    height: 60px;
+    background-size: 30%;
+}
+
+.image-Cook {
+    background: center url(image/cook.png) no-repeat;
+    height: 100px;
+    background-size: 40%;
+}
+
+.image-Customer {
+    background: center url(image/customer.png) no-repeat;
+    height: 100px;
+    width: 130px;
+    background-size: 60%;
+}

@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+}
+
+#container {
+    background-color: #f7f7f7;
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
