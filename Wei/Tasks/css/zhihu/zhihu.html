@@ -7,6 +7,43 @@
 		<style>
 
 		</style>
+		<script>
+			var posts=document.getElementsByClassName('PostPanel');
+			var index=1;
+			function getTop(e) {
+				var T=e.offsetTop;
+				while(e = e.offsetParent){
+					T += e.offsetTop;
+				}
+				return T;
+			}
+			function lazyLoad(posts){
+				var H = document.documentElement.clientHeight;
+				var S = document.documentElement.scrollTop || document.body.scrollTop;
+				if(index<19) {
+					var postList=document.getElementsByClassName("PostPanel");
+					var lastPost=postList[postList.length-1];
+					if (H + S > getTop(lastPost)) {
+						var from = document.getElementById("post1");
+						var clone = from.cloneNode(true);
+						index+=1;
+						clone.id = "post"+index.toString();
+						var str="img/帖子"+index.toString()+".png";
+						//clone.childNodes[1].getElementsByClassName("img")[0].src=str;
+						clone.childNodes[1].childNodes[1].src=str;
+						document.body.getElementsByClassName("body")[0].getElementsByClassName("AppBody")[0].getElementsByClassName("MainPanel")[0].appendChild(clone);
+					}
+				}
+			}
+			window.onload = function () { //onscroll()在滚动条滚动的时候触发
+				lazyLoad(posts);
+				console.log('load');
+			}
+			window.onscroll=function(){
+				lazyLoad(posts);
+				console.log('scroll');
+			}
+		</script>
 		<link rel="stylesheet" href="css/Header.css" type="text/css">
 		<link rel="stylesheet" href="css/Body.css" type="text/css">
 	</head>
@@ -81,7 +118,7 @@
 							<a class="TopBara">热榜</a>
 						</nav>
 					</div>
-					<div class="PostPanel">
+					<div class="PostPanel" id="post1">
 						<div class="PostContent">
 							<img src="img/帖子1.png" style="width: 100%;" />
 							<div class="PostBar">
@@ -128,9 +165,151 @@
 							</div>
 						</div>
 					</div>
+					<div class="PostPanel" id="post1">
+						<div class="PostContent">
+							<img src="img/帖子1.png" style="width: 100%;" />
+							<div class="PostBar">
+								<div class="ApproveButton" style="width: 100px;
+																background: url(img/上三角.PNG) #E1F5FE;
+																background-repeat: no-repeat;
+																background-position: left;
+																">
+									<p style="line-height: 2;
+											font-size: 15px;
+											margin-left: 26px;
+											margin-bottom: 0px;
+											margin-top: 0px;
+											">赞同5.8K</p>
+								</div>
+								<div class="ApproveButton" style="width: 36px;
+																margin-left: 15px;">
+									<img src="img/下三角.png">
+								</div>
+								<div style="margin-left: 24px ;display: flex;align-items: center;">
+									<img src="img/bubble.PNG">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">评论</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/share.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">分享</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/collect.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">收藏</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/flag.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">举报</p>
+								</div>
+								<div style="margin-left: 24px;">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="PostPanel" id="post1">
+						<div class="PostContent">
+							<img src="img/帖子1.png" style="width: 100%;" />
+							<div class="PostBar">
+								<div class="ApproveButton" style="width: 100px;
+																background: url(img/上三角.PNG) #E1F5FE;
+																background-repeat: no-repeat;
+																background-position: left;
+																">
+									<p style="line-height: 2;
+											font-size: 15px;
+											margin-left: 26px;
+											margin-bottom: 0px;
+											margin-top: 0px;
+											">赞同5.8K</p>
+								</div>
+								<div class="ApproveButton" style="width: 36px;
+																margin-left: 15px;">
+									<img src="img/下三角.png">
+								</div>
+								<div style="margin-left: 24px ;display: flex;align-items: center;">
+									<img src="img/bubble.PNG">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">评论</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/share.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">分享</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/collect.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">收藏</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/flag.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">举报</p>
+								</div>
+								<div style="margin-left: 24px;">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="PostPanel" id="post1">
+						<div class="PostContent">
+							<img id="img1" src="img/帖子1.png" style="width: 100%;" />
+							<div class="PostBar">
+								<div class="ApproveButton" style="width: 100px;
+																background: url(img/上三角.PNG) #E1F5FE;
+																background-repeat: no-repeat;
+																background-position: left;
+																">
+									<p style="line-height: 2;
+											font-size: 15px;
+											margin-left: 26px;
+											margin-bottom: 0px;
+											margin-top: 0px;
+											">赞同5.8K</p>
+								</div>
+								<div class="ApproveButton" style="width: 36px;
+																margin-left: 15px;">
+									<img src="img/下三角.png">
+								</div>
+								<div style="margin-left: 24px ;display: flex;align-items: center;">
+									<img src="img/bubble.PNG">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">评论</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/share.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">分享</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/collect.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">收藏</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/flag.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">举报</p>
+								</div>
+								<div style="margin-left: 24px;">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 
 					<div class="PostPanel">
 						<div class="PostContent">
-							<img src="img/帖子2.png" style="width: 100%;" />
+							<img data-src="img/帖子2.png" style="width: 100%;" />
 							<div class="PostBar">
 								<div class="ApproveButton" style="width: 100px;
 																background: url(img/上三角.PNG) #E1F5FE;
@@ -177,7 +356,7 @@
 					</div>
 					<div class="PostPanel">
 						<div class="PostContent">
-							<img src="img/帖子3.png" style="width: 100%;" />
+							<img data-src="img/帖子3.png" style="width: 100%;" />
 							<div class="PostBar">
 								<div class="ApproveButton" style="width: 100px;
 																background: url(img/上三角.PNG) #E1F5FE;
@@ -224,7 +403,7 @@
 					</div>
 					<div class="PostPanel">
 						<div class="PostContent">
-							<img src="img/帖子4.png" style="width: 100%;" />
+							<img data-src="img/帖子4.png" style="width: 100%;" />
 							<div class="PostBar">
 								<div class="ApproveButton" style="width: 100px;
 																background: url(img/上三角.PNG) #E1F5FE;
@@ -269,6 +448,195 @@
 							</div>
 						</div>
 					</div>
+					<div class="PostPanel">
+						<div class="PostContent">
+							<img data-src="img/帖子5.png" style="width: 100%;" />
+							<div class="PostBar">
+								<div class="ApproveButton" style="width: 100px;
+																background: url(img/上三角.PNG) #E1F5FE;
+																background-repeat: no-repeat;
+																background-position: left;
+																">
+									<p style="line-height: 2;
+											font-size: 15px;
+											margin-left: 26px;
+											margin-bottom: 0px;
+											margin-top: 0px;
+											">赞同5.8K</p>
+								</div>
+								<div class="ApproveButton" style="width: 36px;
+																margin-left: 15px;">
+									<img src="img/下三角.png">
+								</div>
+								<div style="margin-left: 24px ;display: flex;align-items: center;">
+									<img src="img/bubble.PNG">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">评论</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/share.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">分享</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/collect.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">收藏</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/flag.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">举报</p>
+								</div>
+								<div style="margin-left: 24px;">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="PostPanel">
+						<div class="PostContent">
+							<img data-src="img/帖子6.png" style="width: 100%;" />
+							<div class="PostBar">
+								<div class="ApproveButton" style="width: 100px;
+																background: url(img/上三角.PNG) #E1F5FE;
+																background-repeat: no-repeat;
+																background-position: left;
+																">
+									<p style="line-height: 2;
+											font-size: 15px;
+											margin-left: 26px;
+											margin-bottom: 0px;
+											margin-top: 0px;
+											">赞同5.8K</p>
+								</div>
+								<div class="ApproveButton" style="width: 36px;
+																margin-left: 15px;">
+									<img src="img/下三角.png">
+								</div>
+								<div style="margin-left: 24px ;display: flex;align-items: center;">
+									<img src="img/bubble.PNG">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">评论</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/share.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">分享</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/collect.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">收藏</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/flag.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">举报</p>
+								</div>
+								<div style="margin-left: 24px;">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="PostPanel">
+						<div class="PostContent">
+							<img data-src="img/帖子7.png" style="width: 100%;" />
+							<div class="PostBar">
+								<div class="ApproveButton" style="width: 100px;
+																background: url(img/上三角.PNG) #E1F5FE;
+																background-repeat: no-repeat;
+																background-position: left;
+																">
+									<p style="line-height: 2;
+											font-size: 15px;
+											margin-left: 26px;
+											margin-bottom: 0px;
+											margin-top: 0px;
+											">赞同5.8K</p>
+								</div>
+								<div class="ApproveButton" style="width: 36px;
+																margin-left: 15px;">
+									<img src="img/下三角.png">
+								</div>
+								<div style="margin-left: 24px ;display: flex;align-items: center;">
+									<img src="img/bubble.PNG">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">评论</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/share.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">分享</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/collect.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">收藏</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/flag.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">举报</p>
+								</div>
+								<div style="margin-left: 24px;">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="PostPanel">
+						<div class="PostContent">
+							<img data-src="img/帖子8.png" style="width: 100%;" />
+							<div class="PostBar">
+								<div class="ApproveButton" style="width: 100px;
+																background: url(img/上三角.PNG) #E1F5FE;
+																background-repeat: no-repeat;
+																background-position: left;
+																">
+									<p style="line-height: 2;
+											font-size: 15px;
+											margin-left: 26px;
+											margin-bottom: 0px;
+											margin-top: 0px;
+											">赞同5.8K</p>
+								</div>
+								<div class="ApproveButton" style="width: 36px;
+																margin-left: 15px;">
+									<img src="img/下三角.png">
+								</div>
+								<div style="margin-left: 24px ;display: flex;align-items: center;">
+									<img src="img/bubble.PNG">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">评论</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/share.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">分享</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/collect.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">收藏</p>
+								</div>
+								<div style="margin-left: 24px;display: flex;align-items: center;">
+									<img src="img/flag.png">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">举报</p>
+								</div>
+								<div style="margin-left: 24px;">
+									<p style="font-size: 15px;
+											color: #B3B6B7;">...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					-->
 				</div>
 				<div class="RightPanel">
 					<div class="WritePanel">
@@ -294,7 +662,7 @@
 					</div>
 					<div class="PersonalMessage">
 						<div class="PersonalMessageItem">
-							<svg class="icon" aria-hidden="true">
+							<svg class="icon" aria-hidden="true" id="xingxing">
 								<use xlink:href="#icon-xingxing"></use>
 							</svg>
 						</div>

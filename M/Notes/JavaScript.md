@@ -1804,3 +1804,539 @@ city.appendNode=li;
 
 </html>
 ```
+### 用DOM操作样式
+
+语法：**元素.style.样式名=样式值；**
+
+如果CSS样式名有-，比如说background-color，在JS中不合法，这种情况需要将原名改为驼峰命名法，如 backgroundColor。
+而内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示。
+如果在样式中写了!important，改样式会有最高的优先级，即使通过JS也不能覆盖样式，会导致JS代码失效。
+
+通过style属性设置和读取的都是内联样式，不能读取样式表中的样式。
+
+### **读取元素的样式**
+
+语法：**元素.currentStyle.样式名**
+
+可以读取元素正在显示的样式。(只有iE支持）
+
+**getComputedStyle();（ie8+）**
+
+需要两个元素，第一个是需要获取样式的元素，第二个可以传一个伪元素，一般可以传一个null
+getcomputedStyle(box1,null);
+alert(getComputerdStyle(box1,null).width);
+
+比如：没有设置width，他不会获取到auto，而是一个长度。
+
+**这两种方法只能看不能动**
+
+```
+ function getStyle(obj,name){
+          if(window.getComputedStyle){
+              return getComputedStyle(obj,null)[name];
+          }
+          else{
+              return obj.currentStyle[name];
+          }
+      }
+```
+
+定义一个函数，如果是正常浏览器则用getComputedStyle（）方法，如果是IE8的方法，则用obj.currentStyle。
+判断条件用window.getComputedStyle。如果getComputedStyle变量没找到，会报错，如果作为window的属性没找到不会报错。
+
+```
+ function getStyle(obj,name){
+          return window.getComputedStyle?getComputedStyle[name]:obj.currentStyle[name];
+      }
+```
+
+### 其他关于样式的属性
+
+clientWidth 获取样式的可见高度和宽度，不带px可用于计算。
+
+​                      获取元素的宽度和高度，包括**内容区和内边距**
+
+​                       该属性只读
+
+offsetWidth **包括边框、内容区、内边距**
+
+offsetParent 获取当前元素的定位父元素；会**获取当前元素最近的开启了定位的祖先元素**。
+
+offsetLeft 当前元素对于其定位父元素的水平偏移量
+
+offsetTop 当前元素对与其定位父元素的垂直偏移量
+
+scrollHeight 滚动的高度
+
+ 子元素高度》父元素，不会显示出来
+
+ scrollLeft 水平滚动条的偏移距离
+
+scrollTop   垂直滚动条的偏移距离
+
+scrollHeight-scrollTop==clientHeight
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+#info{
+width: 400px;
+height:600px;
+background-color: aliceblue;
+overflow: auto;
+}
+</style>
+<script>
+    window.onload=function()
+    {
+        var info=document.getElementById("info");
+        var inputs=document.getElementsByTagName("input");
+        info.onscroll = function()
+        {
+        //检查滚动条是否到底
+        if(info.scrollHeight - info.scrollTop==info.clientHeight)
+        { 
+        alert("滚到底了");
+        
+        inputs[0].disabled=false;
+        inputs[1].disabled=false;
+        }
+        
+        }
+    }
+</script>
+</head>
+<body>
+
+            <h3>欢迎注册</h3>
+            <p id="info">
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                用户协议如下：欢迎您与各我方平台经营者（详见定义条款）共同签署本《用户服务协议》（下称“本协议”）并使用我方平台服务！ 
+                
+            </p>
+            <input type="checkbox" disabled="disabled"/>我已仔细阅读协议 
+            <input type="submit" value="注册" disabled="disabled"/>
+    
+</body>
+
+</html>
+```
+
+### 事件对象
+
+IE8+当事件的相应函数被触发时，浏览器都会将事件对象作为实参传递进入响应函数；
+事件中封装了当前事件的所有信息，比如鼠标的坐标，键盘的按键情况。
+clientX;clientY 鼠标的横纵坐标
+IE8 浏览器不会传递事件对象
+而是作为window对象的属性保存的
+
+```
+if(!event)
+event=window.event;
+event=event || window.event;
+```
+
+**事件的冒泡**
+
+当后代的事件被触发，它的祖先元素的相同事件被触发。
+
+**事件的委派**
+利用事件的冒泡，如果后代的元素的对象是我们期待的元素，即触发。
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    window.onload=function()
+    {
+        var ul=document.getElementById("ul");
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            ul.innerHTML+="<li>"+"<a href='javascript:;' class='link'> 超链接</a>"+"</li>";
+        ul.onclick=function(event)
+        {
+        event=event||window.event;
+        if(event.target.className=="link")
+        {
+            alert("hello!");
+        }
+        }
+
+
+        }
+      
+    }
+    </script>
+</head>
+<body>
+    <ul id="ul">
+        <button id="btn">添加超链接</button>
+            <li><a href="javascript:;" class="link">超链接</a>  </li>
+            <li><a href="javascript:;" class="link">超链接</a>  </li>
+            <li><a href="javascript:;" class="link">超链接</a>  </li>
+            <li><a href="javascript:;" class="link">超链接</a>  </li>
+    </ul>
+   
+</body>
+</html>
+```
+
+事件的绑定
+
+使用对象.事件只能绑定一个函数
+
+参数
+
+1.事件的字符串
+
+addEventListener( ）this是绑定事件的对象
+
+2.回调函数
+
+3.是否在捕获阶段出发时间，需要一个传递值一般是false。
+
+**btn01.addEventListener("click",function(){**
+
+**alert(1);**
+
+**}**
+
+IE8+
+
+attachEvent("onclick",function({});//倒着执行，this是window
+
+```
+ function bind(obj,eventStr,callback)
+       {
+           
+        return  obj.addEventListener?obj.addEventListener(everntStr,callback,false):obj.attachEvent("on"+eventStr,callback);
+
+
+       }
+```
+## 拖拽
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1{
+
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+        }
+
+    </style>
+    <script>
+        //1.当鼠标按下开始(onmousedowm)
+        //2.当鼠标移动时被拖拽元素跟随移动(onmousemove)
+        //3.当鼠标松开被拖拽元素不动(onmousemove)
+        window.onload=function(event){
+            event=event||window.event;
+            var ol=event.clientX-box1.offsetLeft;
+            var ot =event.clientY-box1.offsetTop;
+
+            var box1=document.getElementById("box1");           
+            box1.onmousedown=function(){
+            box1.setPointerCapture();
+            ducument.onmousemove=function(event){
+            alert("hello");
+            event=event || window.event;
+            var left=event.clientX;
+            var top=event.clientY;
+            box1.style.left=left+"px"-ol;
+            box1.style.top=top+"px"-ot;
+
+            box1.onmouseup=function()
+            {
+            box1.releasePointerCapture();
+            document.onmousemove=null;
+            document.onmouseup=null;
+            }
+            return false;
+
+        }
+        }
+     }
+        
+        
+    </script>
+</head>
+<body>
+    <div id="box1">
+    </div>
+</body>
+</html>
+```
+
+## 滚轮
+
+```
+ window.onload=function(){
+
+      var box1=document.getElementById("box1");
+
+       //火狐不热onmousewheel，在火狐中需要使用DOMMouseScroll来绑定滚动事件
+
+        //注意该事件通过addEventListener
+
+        box1.onmousewheel=function(){
+
+        }
+```
+
+
+
+## 键盘
+
+onkeydown
+
+onkeyup
+
+onkeydown 如果一直按着案件会一直触发
+
+当onkeydown 连续触发时，第一次和第二次的间隔会稍微长一点，其他的会非常的快。（浏览器为了防止用户误操作）
+
+keycode获取案件的编码 通过它判断哪个按键被按下
+
+如果同时按下两个键有可能是ctrl alt shift ctrlKey altKey shiftKey
+
+可以给document绑定，也可以给input绑定
+
+**实现不能输入数字的功能（用keycode和onkeydown）**
+
+```
+var input=document.getElementsByTagName("input")[0];
+      event=event||window.event;
+      if(event.keycode>=48&&event.keycode<=57)
+      {
+          return false;
+      }  
+```
+
+**移动div**
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1{
+
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:absolute;
+
+        }
+
+    </style>
+    <script type="text/javascript">
+
+           
+            window.onload=function()
+            {
+                document.onkeydown=function()
+            {
+                //event=event||window.event;
+                //var box1=document.getElementById("box1");
+                console.log(event.keyCode);
+                switch(event.keyCode)
+                {
+                case 39: {box1.style.left=box1.offsetLeft+50+"px";break;}
+                case 37: {box1.style.left=box1.offsetLeft-50+"px";break;}
+                case 40: {box1.style.top=box1.offsetTop+50+"px";break;}
+                case 38: {box1.style.top=box1.offsetTop-50+"px";break;}
+                }
+                
+               
+            }
+```
+
+## (九）BOM
+
+-浏览器对象模型
+-BOM可以使我们通过JS来操作浏览器
+-在BOM中为我们提供了一组对象，用来完成对浏览器的操作
+-BOM对象：window navigator location history screen
+
+**Window**
+
+代表了整个浏览器的窗口，同时window也是网页中的全局对象。
+
+**定时调用**
+
+```
+setInterval(function(){
+count.innerHTML=num++;})//只执行一次，以毫秒为单位,返回的是执行的时间
+```
+**延时调用**
+
+```
+var timer =setTimeout(function(){
+count.innerHTML=num++;
+if(num==999) {clearInterval(timer);
+},1000);//以毫秒为单位,返回的是执行的时间
+```
+
+**Navigator**
+
+代表了当前浏览器的信息，通过该对象可以来识别不同的浏览器。
+一般只会使用userAgent 等价于浏览器（用户代理）
+userAgent是字符串
+
+```
+var ua=console.log(navigator.userAgent);
+console.log(a);
+if(/firefox/i.text(ua)){}
+else(/chrome/i.text(ua))
+else("msie/i.text(ua)")
+//IE以上去除IE标识，识别不出，可以用一些IE浏览器的特有属性，比如ActiveXObject
+if(window.ActibeXObject)//IE11不能识别
+if(ActiveXObject in window)
+```
+
+**Location**
+
+代表了浏览器的地址栏信息
+
+location="可直接跳转页面"
+assgin()方法 
+跳转到其他页面 
+location.assign("可跳转页面")
+reload()方法
+用于重新加载页面，类似于刷新，如果在方法中传递一个true则强制清空缓存
+replace()方法
+可以使用一个新的页面替换当前页面，调用完毕也会跳转页面，不会生成历史纪录。
+
+
+**History**
+
+代表浏览器的历史纪录，课题通过该对象来操作浏览器的历史纪录，由于隐私的原因，不能获取具体的历史信息，只能操作浏览器的向前or向后页面
+
+length 属性当前访问链接的数量 history.length
+
+back 方法 history.back();
+
+forward
+
+go  向前跳转n个页面 1/2/-1/-2
+
+**Screen**
+
+代表用户屏幕的信息，通过该对象可以获取到用户的显示器的相关信息。
+
+
+BOM对象都是作为window的属性保存的。
+
+## (十）类的操作
+
+可以通过修改元素的class属性来间接的修改样式。
+
+box.className+=" b2";
+
+```
+ function addClass(obj,cn){
+            obj.classNmae+=" "+cn;
+            if(!hasClass(obj,cn)){
+                obj.ClassName+=" "+cn;
+            }
+        }
+        function hasClass(obj,cn){
+            //判断obj中是否有b2
+            var reg=new RegExp("\\b"+cn+"\\b");
+            return reg.test(obj.className);
+        }
+           
+        function removeClass(obj,cn){
+            var reg=new RegExp("\\b"+cn+"\\b");
+            obj.className=obj.className.replace(reg,"");
+        }
+        function toggleClass(obj,cn){
+            if(hasClass(obj.cn)){
+                removeClass();
+
+            }else{
+               addClass(obj,cn);
+            }
+        }
+```
+
+## (十一）JSON
+
+JSON是一个特殊格式的字符串，可以被**任意语言**识别
+
+JSON和js的格式一样，不过是**属性名必须加引号**，
+
+分类：
+
+**数组[]**
+
+**对象{}**
+
+允许的值 字符串 数值 布尔值 null 对象 数组 **必须是普通对象，不能是函数**
+
+var obj='{}';
+
+**IE7以上**
+
+**JSON.parse JSON**转换成array和object
+
+**JSON.stringify**  object或者array变成JSON
+
+**IE7及以下**
+**eval();**
+ 可以直接执行字符串中的函数或者方法,尽量不要使用，具有安全隐患。
+ 如果使用eval()执行的字符串中有{}，会把它当作是代码块，如果不希望当成代码块，需要在字符串前后各加一个（）.
+ **eval("("+str+")")**
+
+ 兼容性
+ <script type="text/javascript" src="js/json2.js"></script>
+

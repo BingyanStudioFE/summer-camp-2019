@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>day7</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="../../css/day7/day7.css">
+</head>
+<body>
+<div class="container">
+    <div class="chart-wrapper">
+        <svg id="bar-graph" class="card"></svg>
+        <canvas id="line-chart" class="card"></canvas>
+    </div>
+    <div class="select-wrapper">
+        <form id="checkbox-wrapper" class="card">
+            <div id="region-radio-wrapper">
+                <label>
+                    <input type="checkbox" name="all-region" value="全选" checkbox-type="all">
+                </label>全选
+                <label>
+                    <input type="checkbox" name="area" value="华东" checkbox-type="single" checked="checked">
+                </label>华东
+                <label>
+                    <input type="checkbox" name="area" value="华南" checkbox-type="single">
+                </label>华南
+                <label>
+                    <input type="checkbox" name="area" value="华北" checkbox-type="single">
+                </label>华北
+            </div>
+            <div id="product-radio-wrapper">
+                <label>
+                    <input type="checkbox" name="all-product" value="全选" checkbox-type="all">
+                </label>全选
+                <label>
+                    <input type="checkbox" name="goods" value="手机" checkbox-type="single" checked="checked">
+                </label>手机
+                <label>
+                    <input type="checkbox" name="goods" value="笔记本" checkbox-type="single">
+                </label>笔记本
+                <label>
+                    <input type="checkbox" name="goods" value="智能音箱" checkbox-type="single">
+                </label>智能音箱
+            </div>
+        </form>
+        <div id="button-wrapper">
+            <button id="init">初始化</button>
+            <button id="edit">编辑</button>
+        </div>
+    </div>
+    <div id="table-wrapper"></div>
+</div>
+<script src="../../../js/day7/sourceData.js"></script>
+<script src="../../../js/day7/storage.js"></script>
+<script src="../../../js/day7/getData.js"></script>
+<script src="../../../js/day7/checkbox.js"></script>
+<script src="../../../js/day7/table.js"></script>
+<script src="../../../js/day7/input.js"></script>
+<script src="../../../js/day7/bar.js"></script>
+<script src="../../../js/day7/line.js"></script>
+<script src="../../../js/day7/render.js"></script>
+<script src="../../../js/day7/app.js"></script>
+</body>
+</html>
