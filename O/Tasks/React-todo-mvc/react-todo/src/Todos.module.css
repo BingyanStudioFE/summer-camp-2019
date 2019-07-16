@@ -1,0 +1,96 @@
+:global(.listundone) label + button{
+    visibility:             hidden;
+}
+/* :global(.listundone):hover label + button {
+    visibility:             visible;
+} */
+
+:global(.listundone) {
+    display:                inline;
+    font-size:              25px;
+    font-family:            'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight:            lighter;
+}
+:global(.listdone) {
+    display:                inline;
+    text-decoration:        line-through;
+    color:                  grey;
+    font-family:            'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight:            lighter;
+    font-size:              25px;
+}
+:global(.listdone) label + button {
+    visibility:             hidden;
+}
+:global(.listdone):hover label + button {
+    visibility:             visible;
+}
+
+body {
+    background-color:       rgb(99, 118, 216);
+    color:                  white;
+
+}
+.inputBox:checked {
+    background:             #1673ff;
+}
+.inputBox {
+    width:                  25px;
+	height:                 25px;
+	background-color:       #ffffff;
+	-webkit-border-radius:  50%;
+	border-radius:          50%;
+	margin:                 5px;
+	position:               relative;
+	vertical-align:         top;
+	-webkit-appearance:     none;
+}
+.inputBox:checked::after {
+    content:'';
+	top:5px;
+	left:5px;
+	position:absolute;
+	background:transparent;
+	border:#fff solid 2px;
+	border-top:none;
+	border-right:none;
+	height:6px;
+	width:10px;
+	-moz-transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg);
+	-webkit-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+}
+
+
+.items {
+    outline:                none;
+    width:                  400px;
+    height:                 40px;
+    border-radius:          8px;
+    background-color:       rgb(167, 179, 243);
+    margin:                 3px;
+    display:                flex;
+    align-items:            center;
+    position:               relative;
+}
+.items:hover input + li label + button{
+    visibility:             visible;
+	border-width:           0px;
+    background-color:       rgb(167, 179, 243);
+	cursor:                 pointer; 
+	outline:                none; 
+	font-family:            Microsoft YaHei; 
+	color:                  white; 
+    font-size:              20px;
+}
+.items:hover {
+    text-shadow:            .5px .5px 1px;
+}
+.todolist {
+    padding:                0px;
+}
+.buttons {
+    position:               absolute;
+    right:                  3px;
+}

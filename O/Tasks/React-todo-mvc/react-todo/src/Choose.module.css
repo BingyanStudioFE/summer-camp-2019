@@ -1,0 +1,14 @@
+.choose span {
+    margin:                 5px;
+    padding:                3px 10px 3px 10px;
+    border:                 1px white solid;
+    color:                  rgb(99, 118, 216);
+    background-color:       white;
+    border-radius:          20px;
+    cursor:                 pointer;
+}
+.choose {
+    display:                flex;
+    flex-direction:         row;
+    justify-content:        space-around;
+}

@@ -1,0 +1,11 @@
+.whattodo {
+    height:                     30px;
+    width:                      300px;
+    border:                     white solid;
+    border-radius:              20px;
+ 
+}
+.whattodo::placeholder {
+    color:                      rgb(160, 158, 158);
+    font-style:                 italic;
+}
