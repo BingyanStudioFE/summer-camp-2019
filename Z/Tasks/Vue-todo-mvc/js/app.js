@@ -1,5 +1,4 @@
-// localStorage
-const STORAGE_KEY = 'todos';
+const STORAGE_KEY = 'todo';
 let todoStorage = {
     fetch: function () {
         let todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
@@ -14,7 +13,6 @@ let todoStorage = {
     }
 };
 
-// filters
 let filters = {
     all: function (todos) {
         return todos
@@ -31,7 +29,6 @@ let filters = {
     }
 };
 
-// app
 let app = new Vue({
     data: {
         todos: todoStorage.fetch(),
@@ -140,4 +137,5 @@ function onHashChange() {
 window.addEventListener('hashchange', onHashChange);
 onHashChange();
 
-app.$mount('.todoapp');
+// mount
+app.$mount('.todoApp');

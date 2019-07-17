@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <title>Vue-todo</title>
     <link rel="stylesheet" href="../css/todo.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-<section class="todoapp">
+<section class="todoApp">
     <header class="header">
-        <h1>todos</h1>
-        <label>
-            <input class="new-todo"
-                   autofocus autocomplete="off"
-                   placeholder="What needs to be done?"
-                   v-model="newTodo"
-                   @keyup.enter="addTodo">
-        </label>
+        <h1>Todo MVC</h1>
+        <input class="new-todo"
+               placeholder="What needs to be done?"
+               v-model="newTodo"
+               @keyup.enter="addTodo">
     </header>
     <section class="main" v-show="todos.length" v-cloak>
         <input id="toggle-all" class="toggle-all" type="checkbox" v-model="allDone">
@@ -26,20 +24,16 @@
                 :key="todo.id"
                 :class="{ completed: todo.completed, editing: todo == editedTodo }">
                 <div class="view">
-                    <label>
-                        <input class="toggle" type="checkbox" v-model="todo.completed">
-                    </label>
+                    <input class="toggle" type="checkbox" v-model="todo.completed">
                     <label @dblclick="editTodo(todo)">{{ todo.title }}</label>
                     <button class="destroy" @click="removeTodo(todo)"></button>
                 </div>
-                <label>
-                    <input class="edit" type="text"
-                           v-model="todo.title"
-                           v-todo-focus="todo == editedTodo"
-                           @blur="doneEdit(todo)"
-                           @keyup.enter="doneEdit(todo)"
-                           @keyup.esc="cancelEdit(todo)">
-                </label>
+                <input class="edit" type="text"
+                       v-model="todo.title"
+                       v-todo-focus="todo == editedTodo"
+                       @blur="doneEdit(todo)"
+                       @keyup.enter="doneEdit(todo)"
+                       @keyup.esc="cancelEdit(todo)">
             </li>
         </ul>
     </section>
@@ -59,10 +53,9 @@
 </section>
 <footer class="info">
     <p>Double-click to edit a todo</p>
-    <p>Written by <a href="http://evanyou.me">Evan You</a></p>
+    <p>Written by <a href="https://hustzgh.top/">HUSTZGH</a></p>
     <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="../js/todo.js"></script>
+<script src="../js/app.js"></script>
 </body>
 </html>
