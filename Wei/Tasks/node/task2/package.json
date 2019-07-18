@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
+    "fs": "0.0.1-security",
     "koa": "^2.0.0",
     "koa-router": "7.0.0",
     "readline-sync": "^1.4.9"

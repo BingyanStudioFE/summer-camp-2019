@@ -13,7 +13,15 @@ app.use(async (ctx, next) => {
 });
 
 router.get('/',async(ctx,next) => {
-    ctx.response = index.html;
+    var fs = require('fs');
+    ctx.response.body=fs.readFileSync('./index.html').toString();
+})
+
+router.get('/memberData',async(ctx,next) => {
+    var fs = require('fs');
+    var data = fs.readFileSync('./memberData.json').toString();
+    ctx.response.type='xml';
+    ctx.response.body = data;
 })
 
 router.get('/hello/:name',async(ctx,next) => {
