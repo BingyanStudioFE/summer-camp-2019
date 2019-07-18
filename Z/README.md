@@ -67,3 +67,9 @@
 1. 完成百度前端学院任务
 2. 阅读Vue文档
 3. 开始写Vue-todo-mvc
+
+## Day13
+
+1. 完成Vue-todo-mvc
+2. 阅读koa，mongoose文档
+3. 完成koa小demo
