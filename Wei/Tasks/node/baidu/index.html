@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script>
+        'use strict';
+        function baidu() {
+            console.log('ajax success');
+            alert('ajax success');
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() {
+                if(request.readyState === 4){
+                    if(request.status === 200) {
+                        console.log('request success');
+                        document.getElementById('p1').innerHTML=request.responseXML.documentElement;
+                    } else {
+                        console.log('baiduyixia failed');
+                    }
+                }
+            }
+            request.open('GET','https://pics4.baidu.com/feed/1f178a82b9014a90c8604f16ccd01c17b21bee6f.jpeg?token=80c44b5c8aa588855f5c744111f31f08&s=ED138F1AEEB07D801E7CC4CE0100B0B3');
+            request.send();
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="百度一下" onclick="baidu()">
+    <div id="result"></div>
+</body>
+</html>
