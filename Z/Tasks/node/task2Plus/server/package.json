@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node bin/www",
-    "dev": "./node_modules/.bin/nodemon bin/www",
-    "prd": "pm2 start bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
@@ -20,6 +17,7 @@
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
     "mongoose": "^5.6.5",
+    "mongoose-keywords": "^0.4.0",
     "mongoose-type-url": "^1.0.6",
     "mongoose-unique-validator": "^2.0.3",
     "uuid": "^3.3.2"

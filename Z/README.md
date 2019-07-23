@@ -73,3 +73,9 @@
 1. 完成Vue-todo-mvc
 2. 阅读koa，mongoose文档
 3. 完成koa小demo
+
+## Day13-20
+
+1. 完成基于koa与MongoDB的服务端程序
+2. 完成基于Vue.js的客户端程序
+3. 整理这20天的收获与笔记

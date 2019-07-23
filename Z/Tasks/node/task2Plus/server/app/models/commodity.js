@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
-require('mongoose-type-url');
 const Schema = mongoose.Schema;
 const CommoditySchema = new Schema({
     id: {
@@ -31,7 +30,6 @@ const CommoditySchema = new Schema({
     },
     pub_user: {
         type: String,
-        unique: true,
         require: true
     },
     view_count: {
