@@ -12,8 +12,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
-
   export default {
     name: "MyPublish",
     data() {
@@ -26,30 +24,30 @@
     },
     methods: {
       getData() {
-        axios.get('me/commodities').then((response) => {
+        this.axios.get('/api/me/commodities').then((response) => {
           if (response.data.success) {
             this.tableData = [];
             for (let i = 0; i < response.data.data.length; i++) {
               let obj = {};
               obj.index = i + 1;
-              obj.id = response.data.data[i].id;
-              obj.title = response.data.data[i].title;
+              obj.id = response.data.data[i].Id;
+              obj.title = response.data.data[i].Title;
               this.tableData.push(obj);
             }
           } else {
-            this.$message.error("读取失败");
+            this.$message.error(response.data.error);
           }
         }).catch(function (error) {
           console.log(error);
         });
       },
       handleDelete(row) {
-        axios.delete('commodity/' + row.id).then((response) => {
+        this.axios.delete('/api/commodity/' + row.id).then((response) => {
           if (response.data.success) {
             this.$message.success("删除成功");
             this.getData();
           } else {
-            this.$message.error("删除失败");
+            this.$message.error(response.data.error);
           }
         }).catch(function (error) {
           console.log(error);

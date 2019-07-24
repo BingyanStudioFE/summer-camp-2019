@@ -11,17 +11,15 @@
                   type="password" show-password></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitLogin">登 录</el-button>
-        <el-button type="danger" @click="resetForm">重 置</el-button>
-        <el-button type="success" @click="register">注 册</el-button>
+        <el-button type="primary" @click="submitLogin">登录</el-button>
+        <el-button type="danger" @click="resetForm">重置</el-button>
+        <el-button type="success" @click="register">注册</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
-
   export default {
     name: "Login",
     data: () => {
@@ -44,17 +42,16 @@
       submitLogin() {
         this.$refs.loginForm.validate((valid) => {
           if (valid) {
-            axios.post('user/login', {
+            this.axios.post('/api/user/login', {
               username: this.loginForm.username,
               password: this.loginForm.password
             }).then((response) => {
               if (response.data.success) {
                 this.$store.commit('SET_TOKEN', response.data.data);
-                this.$store.commit('SET_USER', response.data.username);
                 this.$message.success('登录成功');
                 this.$router.push({name: '/'})
               } else {
-                this.$message.error("用户名或密码错误");
+                this.$message.error(response.data.error);
               }
             })
           }

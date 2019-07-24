@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '../store'
+import store from '../store/index'
 import Login from '../components/Login'
 import Index from '../components/Index'
 import Register from '../components/Register'
@@ -13,61 +13,60 @@ import MyCollect from "../components/MyCollect"
 Vue.use(Router);
 
 const router = new Router({
-      mode: 'history',
-      routes: [
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: '/',
+      component: Index,
+      meta: {
+        requireAuth: true
+      },
+      children: [
         {
-          path: '/',
-          name: '/',
-          component: Index,
+          path: 'commodity',
+          component: Commodity,
           meta: {
             requireAuth: true
-          },
-          children: [
-            {
-              path: 'commodity',
-              component: Commodity,
-              meta: {
-                requireAuth: true
-              }
-            }, {
-              path: 'publish',
-              component: Publish,
-              meta: {
-                requireAuth: true
-              }
-            }, {
-              path: 'userinfo',
-              component: UserInfo,
-              meta: {
-                requireAuth: true
-              }
-            }, {
-              path: 'mypublish',
-              component: MyPublish,
-              meta: {
-                requireAuth: true
-              }
-            }, {
-              path: 'mycollect',
-              component: MyCollect,
-              meta: {
-                requireAuth: true
-              }
-            }]
-        },
-        {
-          path: '/login',
-          name: 'login',
-          component: Login
-        },
-        {
-          path: '/register',
-          name: 'register',
-          component: Register,
-        }
-      ]
-    })
-;
+          }
+        }, {
+          path: 'publish',
+          component: Publish,
+          meta: {
+            requireAuth: true
+          }
+        }, {
+          path: 'userinfo',
+          component: UserInfo,
+          meta: {
+            requireAuth: true
+          }
+        }, {
+          path: 'mypublish',
+          component: MyPublish,
+          meta: {
+            requireAuth: true
+          }
+        }, {
+          path: 'mycollect',
+          component: MyCollect,
+          meta: {
+            requireAuth: true
+          }
+        }]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
+    }
+  ]
+});
 router.beforeEach((to, from, next) => {
   const token = store.state.token;
   if (to.meta.requireAuth) {

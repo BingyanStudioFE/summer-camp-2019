@@ -3,7 +3,7 @@
     <el-row class="tac">
       <el-col :span="24">
         <el-menu router>
-          <el-submenu index="1">
+          <el-submenu index="com">
             <template slot="title">
               <i class="el-icon-s-goods"></i>
               <span>商品</span>
@@ -11,7 +11,7 @@
             <el-menu-item index="commodity">商品列表</el-menu-item>
             <el-menu-item index="publish">发布商品</el-menu-item>
           </el-submenu>
-          <el-submenu index="2">
+          <el-submenu index="my">
             <template slot="title">
               <i class="el-icon-user-solid"></i>
               <span>我的</span>
@@ -29,7 +29,6 @@
 <script>
   export default {
     name: "Aside",
-    methods: {}
   }
 </script>
 

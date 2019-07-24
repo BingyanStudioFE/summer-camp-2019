@@ -15,8 +15,18 @@
       <el-form-item label="价格" prop="price">
         <el-input v-model.number="publishForm.price" placeholder="请输入价格" autocomplete="off" type="text"></el-input>
       </el-form-item>
-      <el-form-item label="图片URL" prop="picture">
-        <el-input v-model="publishForm.picture" placeholder="请输入图片URL" autocomplete="off" type="text"></el-input>
+      <el-form-item label="图片">
+        <el-upload action="http://47.103.112.154:9090/pics" list-type="picture-card" :headers="header"
+                   :limit="1"
+                   :on-exceed="handleExceed"
+                   :on-preview="handlePreview"
+                   :on-success="handleSuccess"
+                   :on-error="handleError">
+          <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+          <img width="100%" :src="dialogImageUrl" alt="图片未加载">
+        </el-dialog>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="publish">发布</el-button>
@@ -27,8 +37,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
-
   export default {
     name: "Publish",
     data: () => {
@@ -40,6 +48,9 @@
         }
       };
       return {
+        dialogImageUrl: '',
+        dialogVisible: false,
+        header: {Authorization: 'Bearer ' + window.localStorage.getItem('token')},
         publishForm: {
           title: '',
           desc: '',
@@ -79,10 +90,16 @@
           title: [
             {required: true, message: "标题不能为空", trigger: 'blur'}
           ],
+          desc: [
+            {required: true, message: "简介不能为空", trigger: 'blur'}
+          ],
           price: [
             {required: true, message: '价格不能为空', trigger: 'blur'},
             {type: 'number', message: '价格必须为数字值', trigger: 'blur'},
             {validator: checkPrice, trigger: 'blur'}
+          ],
+          picture: [
+            {required: true, message: "图片不能为空", trigger: 'blur'}
           ],
         }
       };
@@ -91,7 +108,7 @@
       publish() {
         this.$refs.publishForm.validate((valid) => {
           if (valid) {
-            axios.post('commodities', {
+            this.axios.post('/api/commodities', {
               title: this.publishForm.title,
               desc: this.publishForm.desc,
               category: this.publishForm.category,
@@ -101,7 +118,7 @@
               if (response.data.success) {
                 this.$message.success('发布成功');
               } else {
-                this.$message.error("未知错误");
+                this.$message.error(response.data.error);
               }
             })
           }
@@ -109,8 +126,20 @@
       },
       resetForm() {
         this.$refs.loginForm.resetFields();
+      },
+      handleError(err) {
+        this.$message.error(err);
+      },
+      handleSuccess(response) {
+        this.publishForm.picture = response.url;
+      },
+      handlePreview(file) {
+        this.dialogImageUrl = file.response.url;
+        this.dialogVisible = true;
+      },
+      handleExceed() {
+        this.$message.error("图片上传数量限制")
       }
-      ,
     }
   }
 </script>

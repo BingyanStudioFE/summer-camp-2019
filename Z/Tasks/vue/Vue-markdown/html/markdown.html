@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://unpkg.com/marked@0.3.6"></script>
+  <script src="https://unpkg.com/lodash@4.16.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="editor">
+  <label>
+    <textarea :value="input" @input="update"></textarea>
+  </label>
+  <div v-html="compiledMarkdown"></div>
+</div>
+<script src="../js/index.js"></script>
+</body>
+</html>

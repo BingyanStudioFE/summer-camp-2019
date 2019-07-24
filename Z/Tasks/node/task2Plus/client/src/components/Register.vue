@@ -32,8 +32,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
-
   export default {
     name: "Register",
     data: () => {
@@ -53,10 +51,15 @@
             {required: true, message: '密码不能为空', trigger: 'blur'},
             {min: 6, max: 20, message: '长度为 6 到 20 个字符', trigger: 'blur'}
           ],
+          nickname: [
+            {required: true, message: '昵称不能为空', trigger: 'blur'},
+          ],
           mobile: [
+            {required: true, message: '手机号不能为空', trigger: 'blur'},
             {min: 11, max: 11, message: '手机号不合法', trigger: "blur"}
           ],
           email: [
+            {required: true, message: '邮箱不能为空', trigger: 'blur'},
             {pattern: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/, message: '邮箱不合法', trigger: 'blur'}
           ],
         }
@@ -66,19 +69,18 @@
       submitRegister() {
         this.$refs.registerForm.validate((valid) => {
           if (valid) {
-            axios.post('user/register', {
+            this.axios.post('/api/user', {
               username: this.registerForm.username,
               password: this.registerForm.password,
-              nickname: this.registerForm.nickname || null,
-              mobile: this.registerForm.mobile || null,
-              email: this.registerForm.email || null
+              nickname: this.registerForm.nickname,
+              mobile: this.registerForm.mobile,
+              email: this.registerForm.email
             }).then((response) => {
               if (response.data.success) {
                 this.$message.success('注册成功');
                 this.$router.push({name: 'login'})
               } else {
-                console.log(response.data);
-                this.$message.error("用户名已被占用");
+                this.$message.error(response.data.error);
               }
             })
           }
