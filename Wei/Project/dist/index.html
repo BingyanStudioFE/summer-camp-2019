@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css.967bad95.css" type="text/css">
+  <script type="text/javascript" src="http://at.alicdn.com/t/font_1307327_6xfqzebte4d.js"> </script>
+
+
+<script src="/css.967bad95.js"></script></head>
+
+<body>
+  <div id="app">
+    <div class="main">
+      <div class="header">
+        <div class="head-bar">
+          <div class="head-inner">
+            <div id="logo">
+              <svg class="icon" id="mall-logo" aria-hidden="true">
+                <use xlink:href="#icon-logo"></use>
+              </svg>
+            </div>
+            <div class="right-bar">
+              <div class="search-bar">
+                <input type="text" id="search-input" placeholder="请输入商品信息">
+                <a class="search-button" id="button1">
+                  <svg class="icon" id="search-icon" aria-hidden="true">
+                    <use xlink:href="#icon-sousuo"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="personal-bar">
+                <div id="personal-message">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yonghu"></use>
+                  </svg>
+                </div>
+                <div id="personal-collection">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shoucang1"></use>
+                  </svg>
+                </div>
+                <div id="personal-upload">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yifabu"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="header-nav">
+          <div class="nav-inner">
+            <div class="goods-menu">
+              <div id="menu-button">
+                  <svg class="icon" aria-hidden="true">
+                      <use xlink:href="#icon-menu-two"></use>
+                    </svg>
+                    <a id="category">商品分类</a>
+              </div>
+              
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="main-page">
+
+      </div>
+    </div>
+  </div>
+  <div id="gotoTop" onclick="window.scrollTo(0,0)" title="回到顶部">
+      <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-huidaodingbu"></use>
+      </svg>
+  </div>
+</body>
+<script type="text/javascript" src="/mobility.933cecde.js"></script>
+<script type="text/javascript" src="/eventListener.c45432f1.js"></script>
+<script type="text/javascript" src="/eventListener.c45432f1.js"></script>
+<script>var obj = document.getElementsByClassName('header-nav');
+/*     function menuFixed(obj) {
+    var e = obj;
+    var objHeight = obj.offsetTop;
+    while (e = e.offsetParent) {
+      objHeight += e.offsetTop;
+    }
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop <= objHeight) {
+      obj.style.position = "relative";
+      obj.style.top = undefined;
+    } else {
+      obj.style.position = "fixed";
+      obj.style.top = "0px";
+    }
+  } */
+
+window.onload = function () {
+  window.onscroll = function () {
+    loadMainPage();
+    menuFixed(obj[0]);
+  };
+};</script>
+</html>
