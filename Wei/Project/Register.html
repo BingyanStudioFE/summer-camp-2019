@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>冰岩商城-注册新用户</title>
+  <link rel="import" href="/LogIn.html">
+  <script>
+    function registerSuccess() {
+      var successPanel = document.createElement('p');
+      successPanel.innerHTML = '账号注册成功！';
+      var content = document.getElementsByClassName('register-form-wrapper')[0];
+      content.removeChild(content.firstChild);
+      content.appendChild(successPanel);
+
+      var loginButton = document.createElement('input');
+      loginButton.type = 'button';
+      loginButton.value = '去登录';
+      loginButton.onclick = goLogIn();
+      content.appendChild(loginButton);
+    }
+    function goLogIn() {
+      var link = document.querySelector('link[rel="import"]');
+      var content = link.import;
+      document.appendChild(content.cloneNode(true));
+    }
+    function registerFailed(error) {
+      var failPanel = document.createElement('p');
+      failPanel.innerHTML = '错误:' + error;
+      var content = document.getElementsByClassName('register-form-wrapper')[0];
+      content.removeChild(content.firstChild);
+      content.appendChild(failPanel);
+    }
+    function register() {
+      var form = document.getElementsByClassName('register-input')[0];
+      var useranme = form.elements[0].value;
+      var password = form.elements[1].value;
+      var nickname = form.elements[2].value;
+      var mobile = form.elements[3].value;
+      var email = form.elements[4].value;
+      var postData = 'username=' + useranme + '&password=' + password + '&nickname=' + nickname + '&mobile=' + mobile + '&email=' + email;
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {//成功，通过responseText拿回响应的文本；
+            var success = JSON.parse(xhr.responseText).success;
+            if (success === true) {
+              registerSuccess();
+            } else if (success === false) {
+              var error = xhr.responseText.error;
+              registerFailed(error);
+            }
+          }
+        }
+      }
+      xhr.open('POST', '/user');
+      xhr.send(postData);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="header"></div>
+  <div class="body"></div>
+  <div class="register">
+    <div class="register-form-wrapper">
+      <form class="register-input" action="/register" method="POST">
+        <div id="username">
+          <input type="text" name="username" placeholder="请输入用户名">
+          <input type="text" name="password" placeholder="请输入密码">
+          <input type="text" name="nickname" placeholder="请输入昵称">
+          <input type="text" name="mobile" placeholder="请输入手机号">
+          <input type="text" name="e-mail" placeholder="请输入邮箱">
+          <input type="button" value="立即注册" style="background: palevioletred" onclick="register()">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

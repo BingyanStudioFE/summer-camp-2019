@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/index.css" type="text/css">
+  <script type="text/javascript" src="http://at.alicdn.com/t/font_1307327_6xfqzebte4d.js"> </script>
+
+
+</head>
+
+<body>
+  <div id="app">
+    <div class="main">
+      <div class="header">
+        <div class="head-bar">
+          <div class="head-inner">
+            <div id="logo">
+              <svg class="icon" id="mall-logo" aria-hidden="true">
+                <use xlink:href="#icon-logo"></use>
+              </svg>
+            </div>
+            <div class="right-bar">
+              <div class="search-bar">
+                <input type="text" id="search-input" placeholder="请输入商品信息">
+                <a class="search-button" id="button1">
+                  <svg class="icon" id="search-icon" aria-hidden="true">
+                    <use xlink:href="#icon-sousuo"></use>
+                  </svg>
+                </a>
+              </div>
+              <div class="personal-bar">
+                <div id="personal-message">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yonghu"></use>
+                  </svg>
+                </div>
+                <div id="personal-collection">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shoucang1"></use>
+                  </svg>
+                </div>
+                <div id="personal-upload">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yifabu"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="header-nav">
+          <div class="nav-inner">
+            <div class="goods-menu">
+              <div id="menu-button">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-menu-two"></use>
+                </svg>
+                <a id="category">商品分类</a>
+              </div>
+              <ul class="drop-list">
+                <div class="drop-list-item" id="category1">电子设备</div>
+                <div class="drop-list-item" id="category2">书籍资料</div>
+                <div class="drop-list-item" id="category3">宿舍百货</div>
+                <div class="drop-list-item" id="category4">美妆护肤</div>
+                <div class="drop-list-item" id="category5">女装</div>
+                <div class="drop-list-item" id="category6">男装</div>
+                <div class="drop-list-item" id="category7">鞋帽配饰</div>
+                <div class="drop-list-item" id="category8">门票卡券</div>
+                <div class="drop-list-item" id="category9">其他</div>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="main-page">
+
+      </div>
+    </div>
+  </div>
+  <div id="gotoTop" onclick="window.scrollTo(0,0)" title="回到顶部">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-huidaodingbu"></use>
+    </svg>
+  </div>
+  <link rel="stylesheet" href="./css/register.css" type="text/css">
+  <div class="register-page"><!-- 这是注册界面 -->
+    <div class="register">
+      <div class="register-form-wrapper">
+        <form id="register-input">
+            <input type="text" name="username" placeholder="请输入用户名">
+            <input type="text" name="password" placeholder="请输入密码">
+            <input type="text" name="nickname" placeholder="请输入昵称">
+            <input type="text" name="mobile" placeholder="请输入手机号">
+            <input type="text" name="e-mail" placeholder="请输入邮箱">
+            <input type="button" value="立即注册" style="background: palevioletred" onclick="register()">
+        </form>
+        <input type="button" value="去登录" style="background: palevioletred" onclick="gotoLogin()">
+      </div>
+    </div>
+  </div>
+  <div class="login-page"><!-- 这是登录界面 -->
+    <div class="login">
+      <div class="login-form-wrapper">
+        <form id="login-input">
+            <input type="text" name="username" placeholder="请输入用户名">
+            <input type="text" name="password" placeholder="请输入密码">
+            <input type="button" value="登录" style="background: palevioletred" onclick="login()">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="./js/mobility.js"></script>
+<script type="text/javascript" src="./js/eventListener.js"></script>
+<script type="text/javascript" src="./js/userOperation.js"></script>
+<script>
+  var obj = document.getElementsByClassName('header-nav');
+  /*     function menuFixed(obj) {
+      var e = obj;
+      var objHeight = obj.offsetTop;
+      while (e = e.offsetParent) {
+        objHeight += e.offsetTop;
+      }
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop <= objHeight) {
+        obj.style.position = "relative";
+        obj.style.top = undefined;
+      } else {
+        obj.style.position = "fixed";
+        obj.style.top = "0px";
+      }
+    } */
+  window.onload = function () {
+    window.onscroll = function () {
+      menuFixed(obj[0]);
+    }
+    loadMainPage();
+  }
+  var token;
+  var goodsList=[];
+</script>
+<link rel="import" src="./Register.html">
+<script type="text/javascript" src="./js/userOperation.js"></script>
+
+</html>

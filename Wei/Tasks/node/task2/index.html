@@ -10,22 +10,25 @@
             request.onreadystatechange = function() {
                 if(request.readyState === 4){
                     if(request.status === 200){
-                        var table = document.createElement('table');
-                        var item = document.createElement('tr');
-                        var member = document.createElement('td');
-                        var id = document.createElement('td');
+                        var table,member,id,item;
+                        table = document.createElement('table');
+                        table.border=1;
                         console.log(request.responseText);
                         var data = request.responseText;
                         data = JSON.parse(data);
                         document.body.appendChild(table);
                         //var data = request.responseXML.documentElement.getElementsByTagName('members');
                         for(var i=0;i<data.members.length;i+=1) {
+                            member = document.createElement('td');
+                            id = document.createElement('td');
                             member.innerHTML = data.members[i].name;
                             id.innerHTML = data.members[i].id;
-                            item.innerHTML='';
+                            item = document.createElement('tr');
+                            item.innerHTML=('');
                             item.appendChild(member);
                             item.appendChild(id);
-                            document.getElementsByTagName('table')[0].appendChild(item);
+                            table.appendChild(item);
+                            //document.getElementsByTagName('table')[0].appendChild(item);
                         }
                         document.body.appendChild(table);
                     } else {
